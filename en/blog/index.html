@@ -1,23 +1,23 @@
 ---
 layout: default
-lang: fa
-dir: rtl
-title: بلاگ
+lang: en
+dir: ltr
+title: Blog
 ---
 
 <section class="blog-header hero">
-  <h1>بلاگ موتی‌گروپ</h1>
-  <p>آخرین آموزش‌ها، نکات و اخبار پروژه‌های ما.</p>
+  <h1>MovtiGroup Blog</h1>
+  <p>Latest tutorials, tips and news about our projects.</p>
 </section>
 
 <div class="card-grid">
   {% for post in site.posts %}
-    {% if post.lang == "fa" or post.lang == nil %}
+    {% if post.lang == "en" %}
       <article class="card">
         <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
         <p style="color: var(--muted); font-size: 0.9rem;">{{ post.excerpt | strip_html | truncate: 120 }}</p>
         <div style="margin-top: 1rem;">
-          <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">ادامه مطلب</a>
+          <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Read More</a>
         </div>
       </article>
     {% endif %}

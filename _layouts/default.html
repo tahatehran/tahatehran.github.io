@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+{% assign lang = page.lang | default: "fa" %}
+{% assign dir = page.dir | default: "rtl" %}
+<html lang="{{ lang }}" dir="{{ dir }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+  {% seo %}
+</head>
+<body class="{{ lang }}">
+  <div class="bg-overlay"></div>
+
+  <header class="site-header">
+    <div class="container">
+      <div class="brand">
+        {% if lang == "en" %}
+          <a href="{{ '/en/' | relative_url }}">
+        {% else %}
+          <a href="{{ '/' | relative_url }}">
+        {% endif %}
+          <span class="logo-text">Movti<span class="highlight">Group</span></span>
+        </a>
+        <span class="tagline">{{ site.data.translations[lang].tagline }}</span>
+      </div>
+
+      <nav class="main-nav">
+        <ul>
+          {% for link in site.data.navigation[lang] %}
+            <li><a href="{{ link.url | relative_url }}"><i class="{{ link.icon }}"></i> {{ link.title }}</a></li>
+          {% endfor %}
+          <li>
+            <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch">
+              <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="content container">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-info">
+          <h3>MovtiGroup</h3>
+          <p>{{ site.data.translations[lang].tagline }}</p>
+        </div>
+        <div class="footer-social">
+          <a href="https://github.com/movtigroup" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+          <a href="mailto:info@movtigroup.me" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; {{ "now" | date: "%Y" }} {{ site.data.translations[lang].copyright }}</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+</body>
+</html>
