@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "آموزش شروع کار با پروژه Mirror"
-date: 2024-05-20 10:00:00 +0330
+date: 2026-05-20 10:00:00 +0330
 lang: fa
 dir: rtl
 author: MovtiGroup
-description: "راهنمای سریع برای استفاده از اسکریپت‌ها و اجرای محلی پروژه Mirror."
+permalink: /blog/mirror-tutorial/
+description: "راهنمای سریع برای استفاده از اسکریپت‌ها و اجرای محلی پروژه Mirror. آموزش Mirror را در موتی‌گروپ بخوانید."
 ---
 
 این آموزش براساس اطلاعات مخزن [movtigroup/Mirror](https://github.com/movtigroup/Mirror) آماده شده است.

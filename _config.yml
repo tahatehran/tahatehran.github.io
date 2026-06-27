@@ -7,6 +7,9 @@ url: "https://movtigroup.me"
 twitter_username: movtigroup
 github_username:  movtigroup
 
+# Permalinks configuration
+permalink: /blog/:title/
+
 # Build settings
 # theme: jekyll-theme-cayman
 plugins:

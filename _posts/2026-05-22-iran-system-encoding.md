@@ -1,11 +1,12 @@
 ---
 layout: post
 title: "معرفی پروژه Iran System Encoding"
-date: 2024-05-22 15:00:00 +0330
+date: 2026-05-22 15:00:00 +0330
 lang: fa
 dir: rtl
 author: MovtiGroup
-description: "کتابخانه پایتون حرفه‌ای و با کارایی بالا برای کدگذاری قدیمی ایران سیستم."
+permalink: /blog/iran-system-encoding/
+description: "کتابخانه پایتون حرفه‌ای و با کارایی بالا برای کدگذاری قدیمی ایران سیستم. Iran System Encoding Library."
 ---
 
 پروژه **Iran System Encoding** یک کتابخانه قدرتمند پایتون برای کار با کدگذاری متنی قدیمی ایران سیستم است. این پکیج امکان تبدیل دوطرفه، تشخیص خودکار زبان و مدیریت هوشمند اعداد را فراهم می‌کند.
