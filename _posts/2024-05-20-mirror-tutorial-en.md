@@ -16,11 +16,17 @@ Mirror is a collection of software mirror documentation and tools used for faste
 
 ## 2) One-click Commands
 - Linux (Ubuntu/Debian):
-  `bash <(curl -sSL https://Linux.ththt.ir)`
+```bash
+bash <(curl -sSL https://Linux.ththt.ir)
+```
 - Install Docker and Mirror:
-  `bash <(curl -sSL https://install.ththt.ir/docker.sh)`
+```bash
+bash <(curl -sSL https://install.ththt.ir/docker.sh)
+```
 - Configure Docker Mirror Only:
-  `bash <(curl -sSL https://install.ththt.ir/mirror.sh)`
+```bash
+bash <(curl -sSL https://install.ththt.ir/mirror.sh)
+```
 
 ## 3) Local Execution
 To run the project locally:
