@@ -12,6 +12,9 @@ Landing page رسمی **MovtiGroup** روی GitHub Pages.
 - `/index.html` صفحه اصلی با محتوای معرفی، خدمات، Blog و تماس
 - `/styles.css` استایل‌های سایت
 - `/script.js` اسکریپت سبک برای تم و سال فوتر
+- `/blog/index.html` صفحه اصلی بلاگ
+- `/blog/mirror-tutorial.html` آموزش پروژه Mirror
+- `/blog/quick-tips.html` نکته‌های کاربردی کوتاه
 - `/robots.txt` قوانین خزنده‌ها
 - `/sitemap.xml` نقشه سایت برای موتورهای جستجو
 
