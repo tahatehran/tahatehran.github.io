@@ -1,0 +1,39 @@
+---
+layout: default
+lang: en
+dir: ltr
+title: Contact Us
+---
+
+<section class="contact-header hero">
+  <h1>{{ site.data.translations[page.lang].contact_us }}</h1>
+  <p>Get in touch with us. We are ready to answer your questions and collaborate with you.</p>
+</section>
+
+<div class="contact-info">
+  <div class="card contact-card">
+    <i class="fas fa-phone-alt"></i>
+    <h3>{{ site.data.translations[page.lang].phone }}</h3>
+    <p dir="ltr" style="font-size: 1.2rem; font-weight: bold; color: var(--primary);">+1 (516) 898-9214</p>
+  </div>
+
+  <div class="card contact-card">
+    <i class="fas fa-envelope-open-text"></i>
+    <h3>Email</h3>
+    <p style="font-size: 1.1rem; color: var(--primary);">info@movtigroup.me</p>
+  </div>
+</div>
+
+<div class="map-section" style="margin-top: 2rem;">
+  <h2 style="text-align: center; margin-bottom: 2rem;">{{ site.data.translations[page.lang].our_location }}</h2>
+  <div class="map-frame">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem;">
+       <i class="fas fa-map-marked-alt fa-4x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+       <h3>Movti Group</h3>
+       <p style="color: var(--muted); margin-bottom: 2rem;">Click below to view our exact location on Google Maps.</p>
+       <a href="https://share.google/NCtsk32MYQqSa1802" target="_blank" class="btn btn-primary">
+         <i class="fas fa-external-link-alt"></i> {{ site.data.translations[page.lang].view_map }}
+       </a>
+    </div>
+  </div>
+</div>

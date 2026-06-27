@@ -19,15 +19,30 @@
 
 body {
   margin: 0;
-  font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 body.en {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+}
+
+/* Mix-language spacing improvement */
+[dir="rtl"] p, [dir="rtl"] li, [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 {
+  word-spacing: 0.05em;
+  letter-spacing: 0;
+}
+
+/* Specifically target English words inside Persian text for spacing */
+[dir="rtl"] :not(pre) > code,
+[dir="rtl"] em,
+[dir="rtl"] strong,
+[dir="rtl"] a {
+  margin: 0 0.25rem;
 }
 
 .bg-overlay {
@@ -44,13 +59,14 @@ body.en {
 .container {
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.2rem;
 }
 
+/* Header */
 .site-header {
-  padding: 1.5rem 0;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--border);
-  background: rgba(13, 17, 23, 0.8);
+  background: rgba(13, 17, 23, 0.85);
   backdrop-filter: blur(12px);
   position: sticky;
   top: 0;
@@ -61,13 +77,13 @@ body.en {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
+  flex-wrap: nowrap; /* Prevent wrap on mobile, use scrolling or menu */
 }
 
 .brand {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
 }
 
 .brand a {
@@ -75,7 +91,7 @@ body.en {
 }
 
 .logo-text {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 800;
   color: var(--text-bright);
 }
@@ -85,8 +101,13 @@ body.en {
 }
 
 .tagline {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--muted);
+}
+
+.main-nav {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .main-nav ul {
@@ -94,8 +115,9 @@ body.en {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 1.5rem;
+  gap: 1.2rem;
   align-items: center;
+  white-space: nowrap;
 }
 
 .main-nav a {
@@ -103,7 +125,7 @@ body.en {
   text-decoration: none;
   font-weight: 500;
   transition: color 0.2s;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .main-nav a:hover {
@@ -111,28 +133,31 @@ body.en {
 }
 
 .lang-switch {
-  padding: 0.4rem 0.8rem;
+  padding: 0.3rem 0.6rem;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: var(--surface);
+  font-size: 0.8rem !important;
 }
 
+/* Content */
 .content {
-  padding: 3rem 0;
-  min-height: calc(100vh - 250px);
+  padding: 2.5rem 0;
+  min-height: calc(100vh - 300px);
 }
 
 h1, h2, h3, h4 {
   color: var(--text-bright);
+  line-height: 1.3;
 }
 
 .hero {
   text-align: center;
-  padding: 4rem 0;
+  padding: 3rem 0;
 }
 
 .hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(1.8rem, 6vw, 3rem);
   margin-bottom: 1rem;
   background: linear-gradient(to right, var(--text-bright), var(--primary));
   -webkit-background-clip: text;
@@ -140,37 +165,43 @@ h1, h2, h3, h4 {
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 4vw, 1.15rem);
   color: var(--muted);
-  max-width: 700px;
+  max-width: 800px;
   margin: 0 auto 2rem;
 }
 
 .btn {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
   font-weight: 600;
   text-decoration: none;
-  transition: all 0.2s;
+  transition: all 0.25s;
   cursor: pointer;
+  font-size: 0.95rem;
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: #fff;
   box-shadow: 0 4px 14px var(--primary-glow);
+  border: none;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px var(--primary-glow);
+  filter: brightness(1.1);
 }
 
+/* Cards */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
   margin-top: 2rem;
 }
 
@@ -179,17 +210,95 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.5rem;
-  transition: all 0.2s;
+  transition: all 0.25s;
+  height: 100%;
 }
 
 .card:hover {
   border-color: var(--primary);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
   box-shadow: var(--shadow);
 }
 
+/* Better Code Blocks */
+pre {
+  background: #0d1117;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem;
+  overflow-x: auto;
+  position: relative;
+  margin: 1.5rem 0;
+  box-shadow: inset 0 2px 10px rgba(0,0,0,0.3);
+}
+
+code {
+  font-family: "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
+  direction: ltr;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(48, 54, 61, 0.8);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.copy-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.copy-btn.copied {
+  background: var(--accent);
+  color: #0b0e14;
+}
+
+/* Contact Page / Map */
+.contact-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contact-card {
+  text-align: center;
+  padding: 2rem;
+}
+
+.contact-card i {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.map-frame {
+  width: 100%;
+  height: 450px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  position: relative;
+}
+
+/* Footer */
 .site-footer {
-  padding: 3rem 0 1.5rem;
+  padding: 3rem 0 2rem;
   border-top: 1px solid var(--border);
   background: #0d1117;
 }
@@ -198,117 +307,87 @@ h1, h2, h3, h4 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   flex-wrap: wrap;
   gap: 2rem;
 }
 
 .footer-info h3 {
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.8rem;
+  font-size: 1.3rem;
 }
 
 .footer-social {
   display: flex;
-  gap: 1rem;
-  font-size: 1.5rem;
+  gap: 1.2rem;
+  font-size: 1.6rem;
 }
 
 .footer-social a {
   color: var(--muted);
-  transition: color 0.2s;
+  transition: transform 0.2s, color 0.2s;
 }
 
 .footer-social a:hover {
   color: var(--primary);
+  transform: scale(1.1);
 }
 
 .copyright {
   text-align: center;
   border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
-[dir="rtl"] .main-nav ul {
-  flex-direction: row;
-}
-
-@media (max-width: 768px) {
+/* Responsiveness Fixes */
+@media (max-width: 850px) {
   .site-header .container {
     flex-direction: column;
-    text-align: center;
+    gap: 1.2rem;
   }
 
-  .main-nav ul {
-    gap: 1rem;
-    justify-content: center;
-  }
-
-  .footer-content {
-    flex-direction: column;
+  .brand {
     text-align: center;
     align-items: center;
   }
+
+  .main-nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
 
-/* Better Code Blocks */
-pre, code {
-  font-family: "Fira Code", "Consolas", "Monaco", "Courier New", monospace;
-  direction: ltr;
-  text-align: left;
+@media (max-width: 500px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .main-nav ul {
+    gap: 0.8rem;
+  }
+
+  .main-nav a {
+    font-size: 0.85rem;
+  }
+
+  .hero {
+    padding: 2rem 0;
+  }
+
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .map-frame {
+    height: 300px;
+  }
 }
 
-pre {
-  background: #0d1117;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-x: auto;
-  position: relative;
-  margin: 1.5rem 0;
-}
-
-.post-content code:not(pre code) {
-  background: rgba(88, 166, 255, 0.15);
-  color: var(--primary);
-  padding: 0.2rem 0.4rem;
-  border-radius: 4px;
-}
-
-/* Copy Button Styling */
-.copy-btn {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--muted);
-  padding: 4px 8px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.75rem;
-  transition: all 0.2s;
-  z-index: 10;
-  font-family: sans-serif;
-}
-
-.copy-btn:hover {
-  background: var(--border);
-  color: var(--text-bright);
-}
-
-.copy-btn.copied {
-  background: var(--accent);
-  color: #000;
-  border-color: var(--accent);
-}
-
-/* Ensure Vazir is applied everywhere for Persian */
-body {
-  font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
-}
-
-body.en {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+/* RTL Adjustment for Copy Button */
+[dir="rtl"] .copy-btn {
+  right: auto;
+  left: 10px;
 }

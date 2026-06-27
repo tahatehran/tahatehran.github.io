@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Introduction to Iran System Encoding Project"
-date: 2024-05-22 15:00:00 +0330
+date: 2026-05-22 15:00:00 +0330
 lang: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/iran-system-encoding/
-description: "A high-performance, professional Python library for the legacy Iran System character encoding."
+description: "A high-performance, professional Python library for the legacy Iran System character encoding. Secure and fast."
 ---
 
 The **Iran System Encoding** project is a high-performance Python library for handling the legacy Iran System character encoding. It provides symmetrical encoding/decoding with automatic locale detection and smart number handling.
@@ -20,7 +20,7 @@ The **Iran System Encoding** project is a high-performance Python library for ha
 
 ## 📦 Installation
 ```bash
-pip install iran-encoding
+ pip install iran-encoding
 ```
 
 ## 🛠 Usage Example

@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Quick Tips for Site Optimization"
-date: 2024-05-21 12:00:00 +0330
+date: 2026-05-21 12:00:00 +0330
 lang: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/quick-tips/
-description: "Short and practical tips for optimization, SEO, and user experience."
+description: "Short and practical tips for optimization, SEO, and user experience. Professional web development."
 ---
 
 Here are some practical tips to improve your website:

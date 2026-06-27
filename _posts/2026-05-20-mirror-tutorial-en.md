@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Getting Started with Mirror Project"
-date: 2024-05-20 10:00:00 +0330
+date: 2026-05-20 10:00:00 +0330
 lang: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/mirror-tutorial/
-description: "Quick guide to using scripts and running the Mirror project locally."
+description: "Quick guide to using scripts and running the Mirror project locally. High performance software mirrors."
 ---
 
 This tutorial is based on the [movtigroup/Mirror](https://github.com/movtigroup/Mirror) repository.
