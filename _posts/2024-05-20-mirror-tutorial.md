@@ -15,11 +15,17 @@ Mirror مجموعه‌ای از مستندات و ابزارهای آینه نر
 
 ## ۲) دستورات One-click
 - لینوکس (اوبونتو/دبیان):
-  `bash <(curl -sSL https://Linux.ththt.ir)`
+```bash
+bash <(curl -sSL https://Linux.ththt.ir)
+```
 - نصب داکر و آینه:
-  `bash <(curl -sSL https://install.ththt.ir/docker.sh)`
+```bash
+bash <(curl -sSL https://install.ththt.ir/docker.sh)
+```
 - فقط تنظیم آینه داکر:
-  `bash <(curl -sSL https://install.ththt.ir/mirror.sh)`
+```bash
+bash <(curl -sSL https://install.ththt.ir/mirror.sh)
+```
 
 ## ۳) اجرای محلی مستندات
 برای اجرای محلی پروژه:
