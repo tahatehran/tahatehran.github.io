@@ -1,0 +1,10 @@
+fa:
+  tagline: "گروه توسعه نرم‌افزار موتی"
+  copyright: "تمامی حقوق برای موتی‌گروپ محفوظ است."
+  switch_lang: "English"
+  switch_url: "/en/"
+en:
+  tagline: "MovtiGroup Software Development"
+  copyright: "All rights reserved for MovtiGroup."
+  switch_lang: "فارسی"
+  switch_url: "/"

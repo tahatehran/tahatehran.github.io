@@ -1,0 +1,21 @@
+fa:
+  - title: "خانه"
+    url: "/"
+    icon: "fas fa-home"
+  - title: "تیم"
+    url: "/teams/"
+    icon: "fas fa-users"
+  - title: "بلاگ"
+    url: "/blog/"
+    icon: "fas fa-blog"
+
+en:
+  - title: "Home"
+    url: "/en/"
+    icon: "fas fa-home"
+  - title: "Team"
+    url: "/en/teams/"
+    icon: "fas fa-users"
+  - title: "Blog"
+    url: "/en/blog/"
+    icon: "fas fa-blog"

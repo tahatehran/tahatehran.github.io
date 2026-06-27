@@ -1,0 +1,37 @@
+---
+layout: default
+lang: en
+dir: ltr
+title: Home
+---
+
+<section class="hero">
+  <h1>Welcome to MovtiGroup</h1>
+  <p>Provider of smart solutions and professional software development tools.</p>
+  <div class="hero-actions">
+    <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-primary"><i class="fas fa-paper-plane"></i> View Blog</a>
+    <a href="https://github.com/movtigroup" class="btn btn-secondary" style="border: 1px solid var(--border); color: var(--text);"><i class="fab fa-github"></i> Our GitHub</a>
+  </div>
+</section>
+
+<section class="features">
+  <div class="card-grid">
+    <div class="card">
+      <i class="fas fa-code-branch fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+      <h3>Tool Development</h3>
+      <p>We build tools like Iran System Encoding and Mirror to improve the developer experience.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-network-wired fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+      <h3>Infrastructure</h3>
+      <p>Providing documentation and software mirrors for stable access to global services.</p>
+    </div>
+    <div class="card">
+      <i class="fas fa-globe-americas fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+      <h3>Open Source Community</h3>
+      <p>We believe in the power of open source and share our projects with everyone.</p>
+    </div>
+  </div>
+</section>
+
+{% include map.html %}

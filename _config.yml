@@ -1,0 +1,23 @@
+title: MovtiGroup
+email: info@movtigroup.me
+description: >-
+  Landing page رسمی MovtiGroup روی GitHub Pages.
+baseurl: ""
+url: "https://movtigroup.me"
+twitter_username: movtigroup
+github_username:  movtigroup
+
+# Build settings
+# theme: jekyll-theme-cayman
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+      lang: "fa"
+      dir: "rtl"
