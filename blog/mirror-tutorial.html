@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="fa-IR" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>آموزش Mirror | MovtiGroup Blog</title>
+    <meta
+      name="description"
+      content="آموزش سریع استفاده از مخزن movtigroup/Mirror و دستورات کاربردی آن."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="bg"></div>
+    <header class="site-header">
+      <div class="brand-block">
+        <div class="logo">Mirror Tutorial</div>
+        <span class="tagline">movtigroup/Mirror</span>
+      </div>
+      <nav class="site-nav" aria-label="Tutorial navigation">
+        <a href="../index.html">خانه</a>
+        <a href="./index.html">بلاگ</a>
+        <a href="https://github.com/movtigroup/Mirror" target="_blank" rel="noopener noreferrer"
+          >GitHub Mirror</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <article class="card">
+        <h1>آموزش سریع پروژه Mirror</h1>
+        <p class="section-lead">
+          این آموزش براساس اطلاعات مخزن
+          <a href="https://github.com/movtigroup/Mirror" target="_blank" rel="noopener noreferrer"
+            >movtigroup/Mirror</a
+          >
+          آماده شده است.
+        </p>
+
+        <h2>۱) معرفی</h2>
+        <p>
+          Mirror مجموعه‌ای از مستندات و ابزارهای آینه نرم‌افزاری است که برای دسترسی سریع‌تر
+          و پایدارتر به سرویس‌ها استفاده می‌شود.
+        </p>
+
+        <h2>۲) دستورات One-click</h2>
+        <ul>
+          <li>
+            لینوکس (اوبونتو/دبیان):
+            <code>bash &lt;(curl -sSL https://Linux.ththt.ir)</code>
+          </li>
+          <li>
+            نصب داکر و آینه:
+            <code>bash &lt;(curl -sSL https://install.ththt.ir/docker.sh)</code>
+          </li>
+          <li>
+            فقط تنظیم آینه داکر:
+            <code>bash &lt;(curl -sSL https://install.ththt.ir/mirror.sh)</code>
+          </li>
+        </ul>
+
+        <h2>۳) اجرای محلی مستندات</h2>
+        <p>برای اجرای محلی پروژه:</p>
+        <pre><code>docker-compose up -d --build</code></pre>
+        <p>سپس آدرس <code>http://localhost:8080</code> را باز کنید.</p>
+
+        <h2>۴) لینک‌های مهم</h2>
+        <ul>
+          <li>
+            مخزن GitHub:
+            <a href="https://github.com/movtigroup/Mirror">github.com/movtigroup/Mirror</a>
+          </li>
+          <li>
+            وبسایت مستندات:
+            <a href="https://doc.movtigroup.ir">doc.movtigroup.ir</a>
+          </li>
+        </ul>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <p class="copyright">© <span id="year"></span> MovtiGroup Blog</p>
+    </footer>
+
+    <script src="../script.js"></script>
+  </body>
+</html>
