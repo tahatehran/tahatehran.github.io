@@ -11,6 +11,9 @@ fa:
   - title: "بلاگ"
     url: "/blog/"
     icon: "fas fa-blog"
+  - title: "تماس"
+    url: "/contact/"
+    icon: "fas fa-envelope"
 
 en:
   - title: "Home"
@@ -25,3 +28,6 @@ en:
   - title: "Blog"
     url: "/en/blog/"
     icon: "fas fa-blog"
+  - title: "Contact"
+    url: "/en/contact/"
+    icon: "fas fa-envelope"

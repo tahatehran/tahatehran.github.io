@@ -20,7 +20,7 @@ The **Iran System Encoding** project is a high-performance Python library for ha
 
 ## 📦 Installation
 ```bash
-pip install iran-encoding
+ pip install iran-encoding
 ```
 
 ## 🛠 Usage Example
