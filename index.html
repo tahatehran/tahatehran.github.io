@@ -51,14 +51,21 @@
   <body>
     <div class="bg"></div>
     <header class="site-header">
-      <div class="logo">MovtiGroup</div>
+      <div class="brand-block">
+        <div class="logo">MovtiGroup</div>
+        <span class="tagline">Digital Innovation Studio</span>
+      </div>
       <nav class="site-nav" aria-label="منوی اصلی">
         <a href="#about">درباره ما</a>
         <a href="#services">خدمات</a>
+        <a href="#projects">پروژه‌ها</a>
         <a href="#blog">Blog</a>
         <a href="#contact">تماس</a>
       </nav>
-      <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">🌙</button>
+      <div class="header-actions">
+        <a class="btn ghost small" href="#projects">نمونه‌کارها</a>
+        <button id="themeToggle" class="theme-toggle" aria-label="تغییر تم">🌙</button>
+      </div>
     </header>
 
     <main>
@@ -101,6 +108,37 @@
         </div>
       </section>
 
+      <section id="projects" class="card">
+        <h2>پروژه‌ها</h2>
+        <p class="section-lead">نمونه‌ای از پروژه‌های اجراشده توسط تیم MovtiGroup.</p>
+        <div class="project-grid">
+          <article class="project-card">
+            <span class="chip">SaaS</span>
+            <h3>داشبورد تحلیل فروش</h3>
+            <p>
+              طراحی و توسعه یک داشبورد مدیریتی برای مانیتورینگ KPIها، گزارش‌گیری لحظه‌ای و
+              پیش‌بینی روند فروش.
+            </p>
+          </article>
+          <article class="project-card">
+            <span class="chip">E-commerce</span>
+            <h3>بازطراحی فروشگاه آنلاین</h3>
+            <p>
+              بهبود UX فروشگاه، بازطراحی صفحه محصول و بهینه‌سازی مسیر خرید برای افزایش نرخ
+              تبدیل.
+            </p>
+          </article>
+          <article class="project-card">
+            <span class="chip">Brand Growth</span>
+            <h3>کمپین رشد برند</h3>
+            <p>
+              اجرای کمپین دیجیتال چندکاناله شامل محتوا، SEO و تحلیل رفتار کاربر برای رشد
+              ارگانیک پایدار.
+            </p>
+          </article>
+        </div>
+      </section>
+
       <section id="blog" class="card">
         <h2>Blog</h2>
         <p class="section-lead">
@@ -108,6 +146,10 @@
         </p>
         <div class="blog-grid">
           <article class="blog-card">
+            <div class="blog-meta">
+              <span>SEO</span>
+              <time datetime="2026-06-20">۲۰ خرداد ۱۴۰۵</time>
+            </div>
             <h3>راهنمای شروع پروژه دیجیتال در ۲۰۲۶</h3>
             <p>چک‌لیست عملی برای شروع سریع‌تر و کاهش ریسک در پروژه‌های دیجیتال.</p>
             <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer"
@@ -115,6 +157,10 @@
             >
           </article>
           <article class="blog-card">
+            <div class="blog-meta">
+              <span>Product</span>
+              <time datetime="2026-05-28">۸ خرداد ۱۴۰۵</time>
+            </div>
             <h3>چطور UX خوب، نرخ تبدیل را بالا می‌برد؟</h3>
             <p>از تحقیق کاربر تا طراحی جریان‌های بهینه برای فروش و تعامل بیشتر.</p>
             <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer"
@@ -122,6 +168,10 @@
             >
           </article>
           <article class="blog-card">
+            <div class="blog-meta">
+              <span>Growth</span>
+              <time datetime="2026-05-10">۲۱ اردیبهشت ۱۴۰۵</time>
+            </div>
             <h3>سئو فنی برای سایت‌های شرکتی</h3>
             <p>بهینه‌سازی ساختار، متاها و دسترس‌پذیری برای دیده‌شدن بهتر در گوگل.</p>
             <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer"
@@ -154,7 +204,28 @@
     </main>
 
     <footer class="site-footer">
-      <p>© <span id="year"></span> MovtiGroup. همه حقوق محفوظ است.</p>
+      <div class="footer-grid">
+        <div>
+          <h3>MovtiGroup</h3>
+          <p>طراحی تجربه دیجیتال، توسعه محصول و رشد هوشمند برند.</p>
+        </div>
+        <div>
+          <h3>دسترسی سریع</h3>
+          <ul>
+            <li><a href="#services">خدمات</a></li>
+            <li><a href="#projects">پروژه‌ها</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>ارتباط با ما</h3>
+          <ul>
+            <li><a href="mailto:info@movtigroup.me">info@movtigroup.me</a></li>
+            <li><a href="https://github.com/movtigroup">github.com/movtigroup</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">© <span id="year"></span> MovtiGroup. همه حقوق محفوظ است.</p>
     </footer>
 
     <script src="./script.js"></script>
