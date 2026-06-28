@@ -29,7 +29,7 @@ body {
   font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.8;
+  font-size: 0.92rem; line-height: 1.9; letter-spacing: 0.02em;
   text-rendering: optimizeLegibility;
 }
 
@@ -458,4 +458,11 @@ code {
 [dir="rtl"] .fa-layer-group {
   margin-left: 8px;
   margin-right: 0;
+}
+
+/* Pagination count adjustments */
+@media (max-width: 500px) {
+  .card-grid .card:nth-child(n+5) {
+    display: none;
+  }
 }

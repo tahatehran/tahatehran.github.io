@@ -16,6 +16,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-paginate
 
 defaults:
   - scope:
@@ -24,3 +25,5 @@ defaults:
       layout: "default"
       lang: "fa"
       dir: "rtl"
+paginate: 6
+paginate_path: "/blog/page:num/"

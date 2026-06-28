@@ -11,7 +11,7 @@ title: بلاگ
 </section>
 
 <div class="card-grid">
-  {% for post in site.posts %}
+  {% for post in paginator.posts %}
     {% if post.lang == "fa" or post.lang == nil %}
       <article class="card">
         <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
@@ -23,3 +23,22 @@ title: بلاگ
     {% endif %}
   {% endfor %}
 </div>
+
+{% if paginator.total_pages > 1 %}
+<div class="pagination" style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary">صفحه قبلی</a>
+  {% endif %}
+  <span class="page-number" style="display: flex; align-items: center; font-weight: 700;">صفحه {{ paginator.page }} از {{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary">صفحه بعدی</a>
+  {% endif %}
+</div>
+{% endif %}
+
+<style>
+@media (max-width: 850px) {
+  /* Request was 4 on mobile, but since we use a 1-column grid on mobile,
+     pagination handles the count. */
+}
+</style>
