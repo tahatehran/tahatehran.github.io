@@ -4,7 +4,7 @@
 <html lang="{{ lang }}" dir="{{ dir }}">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
   <!-- SEO Meta Tags -->
@@ -40,31 +40,72 @@
 
   <header class="site-header">
     <div class="container">
-      <div class="brand">
-        {% if lang == "en" %}
-          <a href="{{ '/en/' | relative_url }}">
-        {% else %}
-          <a href="{{ '/' | relative_url }}">
-        {% endif %}
-          <span class="logo-text">Movti<span class="highlight">Group</span></span>
-        </a>
-        <span class="tagline">{{ site.data.translations[lang].tagline }}</span>
+      <div class="header-main">
+        <div class="brand">
+          {% if lang == "en" %}
+            <a href="{{ '/en/' | relative_url }}">
+          {% else %}
+            <a href="{{ '/' | relative_url }}">
+          {% endif %}
+            <span class="logo-text">Movti<span class="highlight">Group</span></span>
+          </a>
+        </div>
+
+        <div class="header-actions-desktop">
+          <nav class="main-nav">
+            <ul>
+              {% for link in site.data.navigation[lang] %}
+                <li><a href="{{ link.url | relative_url }}"><i class="{{ link.icon }}"></i> {{ link.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </nav>
+          <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-desktop">
+             {{ site.data.translations[lang].switch_lang }}
+          </a>
+        </div>
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay">
+    <div class="mobile-menu-content">
+      <div class="mobile-menu-header">
+        <div class="brand">
+           <span class="logo-text">Movti<span class="highlight">Group</span></span>
+        </div>
+        <button class="mobile-menu-close" aria-label="Close menu">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
 
-      <nav class="main-nav">
+      <div class="mobile-lang-selector">
+        <p>{{ site.data.translations[lang].switch_lang | append: " Version" | replace: "فارسی Version", "نسخه فارسی" }}</p>
+        <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-mobile">
+          <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
+        </a>
+      </div>
+
+      <nav class="mobile-nav">
         <ul>
           {% for link in site.data.navigation[lang] %}
             <li><a href="{{ link.url | relative_url }}"><i class="{{ link.icon }}"></i> {{ link.title }}</a></li>
           {% endfor %}
-          <li>
-            <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch">
-              <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
-            </a>
-          </li>
         </ul>
       </nav>
+
+      <div class="mobile-menu-footer">
+        <div class="social-links">
+          <a href="https://github.com/movtigroup" target="_blank"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/company/movtigroup" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
     </div>
-  </header>
+  </div>
 
   <main class="content container">
     {{ content }}

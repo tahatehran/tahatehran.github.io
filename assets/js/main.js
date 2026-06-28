@@ -1,72 +1,82 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const codeBlocks = document.querySelectorAll('pre');
+    // Hamburger Menu Logic
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const close = document.querySelector('.mobile-menu-close');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
 
+    if (toggle && overlay) {
+        toggle.addEventListener('click', () => {
+            overlay.classList.add('active');
+            body.classList.add('menu-open');
+        });
+
+        const closeMenu = () => {
+            overlay.classList.remove('active');
+            body.classList.remove('menu-open');
+        };
+
+        if (close) close.addEventListener('click', closeMenu);
+
+        // Close menu on link click
+        const navLinks = overlay.querySelectorAll('a');
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+    }
+
+    // Code Copy Logic
+    const codeBlocks = document.querySelectorAll('pre');
     codeBlocks.forEach((block) => {
-        // Prevent duplicate buttons
         if (block.querySelector('.copy-btn')) return;
 
         const button = document.createElement('button');
         button.className = 'copy-btn';
         button.type = 'button';
-        button.setAttribute('aria-label', 'Copy code to clipboard');
         button.innerHTML = '<i class="far fa-copy"></i> Copy';
-
-        // Ensure block has relative positioning
-        block.style.position = 'relative';
         block.appendChild(button);
 
         button.addEventListener('click', async () => {
-            // Find the code element inside the pre block
             const codeElement = block.querySelector('code');
             if (!codeElement) return;
-
-            // Get text content while excluding the button itself
-            // Clone the node to safely manipulate it
-            const clone = codeElement.cloneNode(true);
-            const textToCopy = clone.innerText.trim();
+            const textToCopy = codeElement.textContent.trim();
 
             try {
-                // Main Clipboard API
                 if (navigator.clipboard && window.isSecureContext) {
                     await navigator.clipboard.writeText(textToCopy);
-                    showSuccess(button);
+                    showStatus(button, true);
                 } else {
-                    // Fallback
                     const textArea = document.createElement("textarea");
                     textArea.value = textToCopy;
                     textArea.style.position = "fixed";
                     textArea.style.left = "-9999px";
-                    textArea.style.top = "0";
                     document.body.appendChild(textArea);
                     textArea.focus();
                     textArea.select();
                     const successful = document.execCommand('copy');
                     textArea.remove();
-                    if (successful) showSuccess(button);
-                    else throw new Error('execCommand failed');
+                    showStatus(button, successful);
                 }
             } catch (err) {
-                console.error('Failed to copy: ', err);
-                showError(button);
+                showStatus(button, false);
             }
         });
     });
 
-    function showSuccess(btn) {
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        btn.classList.add('copied');
+    function showStatus(btn, success) {
+        const original = btn.innerHTML;
+        if (success) {
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.classList.add('copied');
+        } else {
+            btn.innerHTML = '<i class="fas fa-times"></i> Error';
+        }
         setTimeout(() => {
-            btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+            btn.innerHTML = original;
             btn.classList.remove('copied');
-        }, 2000);
-    }
-
-    function showError(btn) {
-        btn.innerHTML = '<i class="fas fa-times"></i> Error';
-        btn.style.borderColor = '#ff7b72';
-        setTimeout(() => {
-            btn.innerHTML = '<i class="far fa-copy"></i> Copy';
-            btn.style.borderColor = '';
         }, 2000);
     }
 });
