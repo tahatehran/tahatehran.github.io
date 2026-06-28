@@ -1,6 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const codeBlocks = document.querySelectorAll('pre');
+    // Hamburger Menu Logic
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const close = document.querySelector('.mobile-menu-close');
+    const overlay = document.querySelector('.mobile-menu-overlay');
+    const body = document.body;
 
+    if (toggle && overlay) {
+        toggle.addEventListener('click', () => {
+            overlay.classList.add('active');
+            body.classList.add('menu-open');
+        });
+
+        const closeMenu = () => {
+            overlay.classList.remove('active');
+            body.classList.remove('menu-open');
+        };
+
+        if (close) close.addEventListener('click', closeMenu);
+
+        // Close menu on link click
+        const navLinks = overlay.querySelectorAll('a');
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Close on escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeMenu();
+        });
+    }
+
+    // Code Copy Logic
+    const codeBlocks = document.querySelectorAll('pre');
     codeBlocks.forEach((block) => {
         if (block.querySelector('.copy-btn')) return;
 
@@ -8,54 +37,46 @@ document.addEventListener('DOMContentLoaded', () => {
         button.className = 'copy-btn';
         button.type = 'button';
         button.innerHTML = '<i class="far fa-copy"></i> Copy';
-
         block.appendChild(button);
 
         button.addEventListener('click', async () => {
             const codeElement = block.querySelector('code');
             if (!codeElement) return;
-
-            // Critical fix: use textContent and trim to avoid including UI elements or hidden characters
             const textToCopy = codeElement.textContent.trim();
 
             try {
                 if (navigator.clipboard && window.isSecureContext) {
                     await navigator.clipboard.writeText(textToCopy);
-                    showSuccess(button);
+                    showStatus(button, true);
                 } else {
                     const textArea = document.createElement("textarea");
                     textArea.value = textToCopy;
                     textArea.style.position = "fixed";
                     textArea.style.left = "-9999px";
-                    textArea.style.top = "0";
                     document.body.appendChild(textArea);
                     textArea.focus();
                     textArea.select();
                     const successful = document.execCommand('copy');
                     textArea.remove();
-                    if (successful) showSuccess(button);
-                    else throw new Error('Fallback copy failed');
+                    showStatus(button, successful);
                 }
             } catch (err) {
-                console.error('Copy failed:', err);
-                showError(button);
+                showStatus(button, false);
             }
         });
     });
 
-    function showSuccess(btn) {
-        btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-        btn.classList.add('copied');
+    function showStatus(btn, success) {
+        const original = btn.innerHTML;
+        if (success) {
+            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.classList.add('copied');
+        } else {
+            btn.innerHTML = '<i class="fas fa-times"></i> Error';
+        }
         setTimeout(() => {
-            btn.innerHTML = '<i class="far fa-copy"></i> Copy';
+            btn.innerHTML = original;
             btn.classList.remove('copied');
-        }, 2000);
-    }
-
-    function showError(btn) {
-        btn.innerHTML = '<i class="fas fa-times"></i> Error';
-        setTimeout(() => {
-            btn.innerHTML = '<i class="far fa-copy"></i> Copy';
         }, 2000);
     }
 });
