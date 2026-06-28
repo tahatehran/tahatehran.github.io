@@ -16,7 +16,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-paginate
+  - jekyll-paginate-v2
 
 defaults:
   - scope:
@@ -25,5 +25,15 @@ defaults:
       layout: "default"
       lang: "fa"
       dir: "rtl"
-paginate: 6
-paginate_path: "/blog/page:num/"
+
+
+pagination:
+  enabled: true
+  debug: false
+  per_page: 6
+  permalink: '/page:num/'
+  title_suffix: ' - Page :num'
+  limit: 0
+  sort_field: 'date'
+  sort_reverse: true
+  indexpage: 'index'

@@ -3,6 +3,10 @@ layout: default
 lang: fa
 dir: rtl
 title: بلاگ
+pagination:
+  enabled: true
+  collection: posts
+  filter_index: true
 ---
 
 <section class="blog-header hero">
@@ -35,10 +39,3 @@ title: بلاگ
   {% endif %}
 </div>
 {% endif %}
-
-<style>
-@media (max-width: 850px) {
-  /* Request was 4 on mobile, but since we use a 1-column grid on mobile,
-     pagination handles the count. */
-}
-</style>
