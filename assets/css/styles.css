@@ -402,6 +402,18 @@ body.en {
   box-shadow: var(--shadow);
 }
 
+.member-avatar {
+  overflow: hidden;
+}
+
+.member-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
 /* Responsive Logic */
 @media (max-width: 850px) {
   .header-actions-desktop {
