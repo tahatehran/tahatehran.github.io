@@ -79,4 +79,26 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.remove('copied');
         }, 2000);
     }
+
+    // Blog Search Functionality
+    const searchInput = document.getElementById('blog-search');
+    const postsContainer = document.getElementById('blog-posts-container');
+
+    if (searchInput && postsContainer) {
+        searchInput.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const posts = postsContainer.querySelectorAll('.blog-post-card');
+
+            posts.forEach(post => {
+                const title = post.getAttribute('data-title').toLowerCase();
+                const description = post.getAttribute('data-description').toLowerCase();
+
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    post.style.display = '';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        });
+    }
 });

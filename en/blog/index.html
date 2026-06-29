@@ -16,14 +16,26 @@ pagination:
   <p>Latest tutorials, tips and news about our projects.</p>
 </section>
 
+<div class="blog-search-container" style="margin-bottom: 2rem;">
+  <div class="search-box" style="max-width: 500px; margin: 0 auto;">
+    <input type="text" id="blog-search" placeholder="Search articles..." class="search-input" style="width: 100%; padding: 0.8rem 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 1rem;">
+    <i class="fas fa-search" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%); color: var(--muted);"></i>
+  </div>
+</div>
+
 {% assign blog_posts = paginator.posts | default: site.posts %}
 {% assign localized_posts = blog_posts | where: "lang", page.lang %}
 
-<div class="card-grid blog-post-grid">
+<div class="card-grid blog-post-grid" id="blog-posts-container">
   {% for post in localized_posts %}
-    <article class="card">
+    <article class="card blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}">
+      <div class="post-icon"><i class="fas fa-brain"></i></div>
       <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      <p style="color: var(--muted); font-size: 0.9rem;">{{ post.description | strip_html | truncate: 120 }}</p>
+      <div class="post-meta-info">
+        <i class="fas fa-calendar-alt"></i>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+      </div>
       <div style="margin-top: 1rem;">
         <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Read More</a>
       </div>
