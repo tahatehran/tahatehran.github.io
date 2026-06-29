@@ -378,15 +378,72 @@ body.en {
 
 /* Post content fixes */
 [dir="rtl"] {
-  text-align: right;
+  text-align: start;
 }
 
-[dir="rtl"] p, [dir="rtl"] li {
-  text-align: justify;
+[dir="rtl"] p,
+[dir="rtl"] li,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  text-align: start;
 }
 
-[dir="rtl"] code, [dir="rtl"] strong, [dir="rtl"] em {
-  margin: 0 4px;
+.post-header {
+  margin-bottom: 2rem;
+}
+
+.post-meta {
+  color: var(--muted);
+  margin-top: 0.75rem;
+}
+
+.post-content {
+  line-height: 1.9;
+}
+
+.post-content p,
+.post-content ul,
+.post-content ol,
+.post-content blockquote,
+.post-content pre {
+  margin-bottom: 1.2rem;
+}
+
+.post-content ul,
+.post-content ol {
+  padding-inline-start: 1.5rem;
+}
+
+.post-content a,
+.related-post-card h3 a {
+  color: var(--text-bright);
+  text-decoration: none;
+}
+
+.post-content a:hover,
+.related-post-card h3 a:hover {
+  color: var(--primary);
+}
+
+.post-footer,
+.related-posts {
+  margin-top: 2rem;
+}
+
+.related-posts h2 {
+  color: var(--text-bright);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.related-post-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 0.75rem;
 }
 
 pre {
@@ -460,18 +517,11 @@ code {
   margin-right: 0;
 }
 
-/* Pagination count adjustments */
-@media (max-width: 500px) {
-  .card-grid .card:nth-child(n+5) {
-    display: none;
-  }
-}
-
 /* Persian specific font tweaks */
 body.fa {
-  font-size: 0.85rem;
+  font-size: 1rem;
   line-height: 1.9;
-  letter-spacing: 0.01em;
+  letter-spacing: 0;
   font-weight: 400;
 }
 

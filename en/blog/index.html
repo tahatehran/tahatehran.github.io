@@ -16,8 +16,11 @@ pagination:
   <p>Latest tutorials, tips and news about our projects.</p>
 </section>
 
-<div class="card-grid">
-  {% for post in paginator.posts %}
+{% assign blog_posts = paginator.posts | default: site.posts %}
+{% assign localized_posts = blog_posts | where: "lang", page.lang %}
+
+<div class="card-grid blog-post-grid">
+  {% for post in localized_posts %}
     <article class="card">
       <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
       <p style="color: var(--muted); font-size: 0.9rem;">{{ post.excerpt | strip_html | truncate: 120 }}</p>
