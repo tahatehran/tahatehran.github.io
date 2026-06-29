@@ -41,6 +41,61 @@ body.en {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
 }
 
+.fas,
+.far,
+.fab {
+  display: inline-block;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 1em;
+  text-align: center;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-home::before { content: "⌂"; }
+.fa-project-diagram::before,
+.fa-layer-group::before { content: "▦"; }
+.fa-users::before { content: "◉"; }
+.fa-blog::before,
+.fa-newspaper::before { content: "▤"; }
+.fa-envelope::before,
+.fa-envelope-open-text::before { content: "@"; }
+.fa-bars::before { content: "☰"; }
+.fa-times::before { content: "×"; }
+.fa-globe::before { content: "◎"; }
+.fa-github::before { content: "GH"; font-size: 0.72em; }
+.fa-linkedin::before { content: "in"; font-size: 0.78em; }
+.fa-rocket::before { content: "▲"; }
+.fa-shield-alt::before { content: "⬟"; }
+.fa-comments::before { content: "…"; }
+.fa-font::before { content: "A"; }
+.fa-server::before { content: "▣"; }
+.fa-phone-alt::before { content: "☎"; }
+.fa-map-marker-alt::before,
+.fa-map-marked-alt::before { content: "⌖"; }
+.fa-external-link-alt::before { content: "↗"; }
+.fa-user::before { content: "●"; }
+.fa-copy::before { content: "⧉"; }
+.fa-check::before { content: "✓"; }
+.fa-arrow-left::before { content: "←"; }
+.fa-arrow-right::before { content: "→"; }
+
 .bg-overlay {
   position: fixed;
   top: 0;
