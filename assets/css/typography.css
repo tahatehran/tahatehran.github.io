@@ -1,0 +1,28 @@
+body.fa,
+body.fa p,
+body.fa li,
+body.fa h1,
+body.fa h2,
+body.fa h3,
+body.fa h4,
+body.fa a {
+  font-size: 0.92rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+}
+
+body.fa h1 { font-size: 2.2rem; }
+body.fa h2 { font-size: 1.8rem; }
+body.fa h3 { font-size: 1.4rem; }
+
+body.en,
+body.en p,
+body.en li,
+body.en h1,
+body.en h2,
+body.en h3,
+body.en a {
+  font-size: 1rem;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
