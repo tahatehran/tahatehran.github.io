@@ -3,6 +3,7 @@ layout: post
 title: "نکات امنیتی ضروری در وب"
 date: 2026-05-24 13:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/web-security/

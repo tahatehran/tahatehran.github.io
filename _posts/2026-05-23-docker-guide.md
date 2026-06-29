@@ -3,6 +3,7 @@ layout: post
 title: "راهنمای جامع داکر برای توسعه‌دهندگان"
 date: 2026-05-23 11:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/docker-guide/

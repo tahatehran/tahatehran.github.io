@@ -3,6 +3,7 @@ layout: post
 title: "Introduction to Artificial Intelligence (AI)"
 date: 2026-05-23 10:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/artificial-intelligence-intro/

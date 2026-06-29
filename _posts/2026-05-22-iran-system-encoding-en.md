@@ -3,6 +3,7 @@ layout: post
 title: "Introduction to Iran System Encoding Project"
 date: 2026-05-22 15:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/iran-system-encoding/

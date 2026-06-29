@@ -31,7 +31,7 @@ pagination:
   enabled: true
   debug: false
   per_page: 6
-  permalink: '/page:num/'
+  permalink: 'page:num/'
   title_suffix: ' - Page :num'
   limit: 0
   sort_field: 'date'

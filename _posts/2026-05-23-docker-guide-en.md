@@ -3,6 +3,7 @@ layout: post
 title: "Comprehensive Docker Guide for Developers"
 date: 2026-05-23 11:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/docker-guide/

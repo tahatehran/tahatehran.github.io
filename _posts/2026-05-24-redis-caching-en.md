@@ -3,6 +3,7 @@ layout: post
 title: "Boosting App Speed with Redis"
 date: 2026-05-24 12:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/redis-caching/

@@ -3,6 +3,7 @@ layout: post
 title: "معرفی پروژه Iran System Encoding"
 date: 2026-05-22 15:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/iran-system-encoding/

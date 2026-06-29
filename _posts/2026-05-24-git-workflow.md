@@ -3,6 +3,7 @@ layout: post
 title: "جریان کاری حرفه‌ای با Git"
 date: 2026-05-24 10:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/git-workflow/

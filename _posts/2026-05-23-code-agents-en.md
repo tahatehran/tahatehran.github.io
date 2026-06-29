@@ -3,6 +3,7 @@ layout: post
 title: "Introduction to Code Agents"
 date: 2026-05-23 15:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/code-agents/

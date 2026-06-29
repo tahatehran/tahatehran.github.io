@@ -3,6 +3,7 @@ layout: post
 title: "نکته‌های سریع برای بهینه‌سازی سایت"
 date: 2026-05-21 12:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/quick-tips/
