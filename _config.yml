@@ -27,6 +27,8 @@ defaults:
       dir: "rtl"
 
 
+# Global pagination settings (for reference)
+# Actual filtering is done per-page via front matter
 pagination:
   enabled: true
   debug: false
@@ -37,3 +39,10 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
   indexpage: 'index'
+  collection: 'posts'
+
+# Collections configuration
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
