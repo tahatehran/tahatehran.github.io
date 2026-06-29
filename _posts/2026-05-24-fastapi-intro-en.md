@@ -3,6 +3,7 @@ layout: post
 title: "Building Fast APIs with FastAPI"
 date: 2026-05-24 14:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/fastapi-intro/

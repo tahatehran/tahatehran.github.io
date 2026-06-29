@@ -3,6 +3,7 @@ layout: post
 title: "Introduction to CI/CD and Deployment Automation"
 date: 2026-05-24 11:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/cicd-intro/

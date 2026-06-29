@@ -3,6 +3,7 @@ layout: post
 title: "Professional Git Workflow"
 date: 2026-05-24 10:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/git-workflow/

@@ -3,6 +3,7 @@ layout: post
 title: "Installing Python on Linux and Machine Wizard"
 date: 2026-05-23 17:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/python-linux/

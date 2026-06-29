@@ -3,6 +3,7 @@ layout: post
 title: "معرفی ایجنت‌های کدنویسی (Code Agents)"
 date: 2026-05-23 15:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/code-agents/

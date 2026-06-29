@@ -3,6 +3,7 @@ layout: post
 title: "Configuring and Optimizing PostgreSQL"
 date: 2026-05-23 14:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/postgresql-config/

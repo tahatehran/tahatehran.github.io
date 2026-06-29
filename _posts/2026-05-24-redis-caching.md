@@ -3,6 +3,7 @@ layout: post
 title: "افزایش سرعت اپلیکیشن با Redis"
 date: 2026-05-24 12:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/redis-caching/

@@ -3,6 +3,7 @@ layout: post
 title: "SQL vs NoSQL Databases Comparison"
 date: 2026-05-23 12:00:00 +0330
 lang: en
+locale: en
 dir: ltr
 author: MovtiGroup
 permalink: /en/blog/sql-vs-nosql/

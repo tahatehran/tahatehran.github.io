@@ -3,6 +3,7 @@ layout: post
 title: "آشنایی با دنیای هوش مصنوعی (AI)"
 date: 2026-05-23 10:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/artificial-intelligence-intro/

@@ -3,6 +3,7 @@ layout: post
 title: "مقایسه دیتابیس‌های SQL و NoSQL"
 date: 2026-05-23 12:00:00 +0330
 lang: fa
+locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/sql-vs-nosql/
