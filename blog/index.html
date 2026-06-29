@@ -6,7 +6,10 @@ title: بلاگ
 pagination:
   enabled: true
   collection: posts
-  locale: fa
+  per_page: 6
+  filter:
+    field: lang
+    value: fa
   sort_field: date
   sort_reverse: true
 ---
@@ -23,8 +26,7 @@ pagination:
   </div>
 </div>
 
-{% assign blog_posts = paginator.posts | default: site.posts %}
-{% assign localized_posts = blog_posts | where: "lang", page.lang %}
+{% assign localized_posts = paginator.posts | default: site.posts %}
 
 <div class="card-grid blog-post-grid" id="blog-posts-container">
   {% for post in localized_posts %}

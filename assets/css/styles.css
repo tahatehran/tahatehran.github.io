@@ -311,7 +311,36 @@ body.en {
 }
 
 .mobile-menu-footer .social-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
   color: var(--muted);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.mobile-menu-footer .social-links a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.mobile-menu-footer .social-links a.github:hover {
+  border-color: #6e5494;
+  color: #6e5494;
+  box-shadow: 0 4px 12px rgba(110, 84, 148, 0.3);
+}
+
+.mobile-menu-footer .social-links a.linkedin:hover {
+  border-color: #0077b5;
+  color: #0077b5;
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
 }
 
 /* Rest of Styles (Content, Cards, etc.) */
@@ -563,6 +592,79 @@ code {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 1.2rem;
+  transition: all 0.25s ease;
+  margin-left: 0.75rem;
+  text-decoration: none;
+}
+
+.footer-social a:first-child {
+  margin-left: 0;
+}
+
+[dir="rtl"] .footer-social a {
+  margin-left: 0;
+  margin-right: 0.75rem;
+}
+
+[dir="rtl"] .footer-social a:first-child {
+  margin-right: 0;
+}
+
+.footer-social a:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px var(--primary-glow);
+}
+
+.footer-social a.github:hover {
+  border-color: #6e5494;
+  color: #6e5494;
+  box-shadow: 0 4px 12px rgba(110, 84, 148, 0.3);
+}
+
+.footer-social a.linkedin:hover {
+  border-color: #0077b5;
+  color: #0077b5;
+  box-shadow: 0 4px 12px rgba(0, 119, 181, 0.3);
+}
+
+/* Team social buttons */
+.member-social .btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.member-social .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.member-social .btn.github:hover {
+  border-color: #6e5494 !important;
+  color: #6e5494 !important;
+}
+
+.member-social .btn.linkedin:hover {
+  border-color: #0077b5 !important;
+  color: #0077b5 !important;
 }
 
 [dir="rtl"] .fa-paper-plane,
