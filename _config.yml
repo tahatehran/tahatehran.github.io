@@ -1,3 +1,4 @@
+future: true
 title: MovtiGroup
 email: info@movtigroup.me
 description: >-
@@ -29,7 +30,7 @@ defaults:
 
 pagination:
   enabled: true
-  debug: false
+  debug: true
   per_page: 6
   permalink: 'page:num/'
   title_suffix: ' - Page :num'
@@ -37,3 +38,6 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
   indexpage: 'index'
+  trail:
+    before: 2
+    after: 2
