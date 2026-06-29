@@ -469,9 +469,10 @@ code {
 
 /* Persian specific font tweaks */
 body.fa {
-  font-size: 0.92rem;
+  font-size: 0.85rem;
   line-height: 1.9;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.01em;
+  font-weight: 400;
 }
 
 body.en {
