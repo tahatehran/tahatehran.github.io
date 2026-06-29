@@ -24,7 +24,7 @@ pagination:
 </div>
 
 {% assign blog_posts = paginator.posts | default: site.posts %}
-{% assign localized_posts = blog_posts | where: "lang", page.lang %}
+{% assign localized_posts = blog_posts | where_exp: "post.lang == page.lang" %}
 
 <div class="card-grid blog-post-grid" id="blog-posts-container">
   {% for post in localized_posts %}
@@ -44,13 +44,15 @@ pagination:
 </div>
 
 {% if paginator.total_pages > 1 %}
-<div class="pagination" style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary">Previous</a>
-  {% endif %}
+<div class="pagination" style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
   <span class="page-number" style="display: flex; align-items: center; font-weight: 700;">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  {% if paginator.next_page %}
+  <div style="display: flex; gap: 1rem;">
+    {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary">Previous</a>
+    {% endif %}
+    {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary">Next</a>
-  {% endif %}
+    {% endif %}
+  </div>
 </div>
 {% endif %}
