@@ -80,6 +80,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
+    // Contact Card Copy Functionality
+    const contactCards = document.querySelectorAll('.contact-card[data-copy]');
+
+    contactCards.forEach(card => {
+        card.addEventListener('click', async () => {
+            const textToCopy = card.getAttribute('data-copy');
+
+            try {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(textToCopy);
+                } else {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = textToCopy;
+                    textArea.style.position = "fixed";
+                    textArea.style.left = "-9999px";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    const successful = document.execCommand('copy');
+                    textArea.remove();
+
+                    if (!successful) {
+                        throw new Error('Copy failed');
+                    }
+                }
+
+                // Show copied state
+                card.classList.add('copied');
+                const hint = card.querySelector('.copy-hint');
+                if (hint) {
+                    const originalText = hint.textContent;
+                    hint.textContent = card.dir === 'rtl' ? 'کپی شد!' : 'Copied!';
+                    setTimeout(() => {
+                        hint.textContent = originalText;
+                        card.classList.remove('copied');
+                    }, 2000);
+                }
+            } catch (err) {
+                console.error('Failed to copy:', err);
+            }
+        });
+    });
+
     // Blog Search Functionality
     const searchInput = document.getElementById('blog-search');
     const postsContainer = document.getElementById('blog-posts-container');

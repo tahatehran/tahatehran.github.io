@@ -56,7 +56,7 @@
           <nav class="main-nav">
             <ul>
               {% for link in site.data.navigation[lang] %}
-                <li><a href="{{ link.url | relative_url }}"><i class="{{ link.icon }}"></i> {{ link.title }}</a></li>
+                <li><a href="{{ link.url | relative_url }}"><img src="{{ link.icon }}" alt="" style="width: 18px; height: 18px; object-fit: contain; vertical-align: middle; margin-left: 6px;"> {{ link.title }}</a></li>
               {% endfor %}
             </ul>
           </nav>
@@ -94,15 +94,15 @@
       <nav class="mobile-nav">
         <ul>
           {% for link in site.data.navigation[lang] %}
-            <li><a href="{{ link.url | relative_url }}"><i class="{{ link.icon }}"></i> {{ link.title }}</a></li>
+            <li><a href="{{ link.url | relative_url }}"><img src="{{ link.icon }}" alt="" style="width: 20px; height: 20px; object-fit: contain; vertical-align: middle; margin-left: 10px;"> {{ link.title }}</a></li>
           {% endfor %}
         </ul>
       </nav>
 
       <div class="mobile-menu-footer">
         <div class="social-links">
-          <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on GitHub" class="github"><i class="fab fa-github" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on LinkedIn" class="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on GitHub" class="github"><img src="/assets/images/icons/github.png" alt="GitHub" style="width: 24px; height: 24px; object-fit: contain;"></a>
+          <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on LinkedIn" class="linkedin"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn" style="width: 24px; height: 24px; object-fit: contain;"></a>
         </div>
       </div>
     </div>
@@ -120,9 +120,9 @@
           <p>{{ site.data.translations[lang].tagline }}</p>
         </div>
         <div class="footer-social">
-          <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on GitHub" title="GitHub" class="github"><i class="fab fa-github" aria-hidden="true"></i></a>
-          <a href="mailto:info@movtigroup.me" aria-label="Email MovtiGroup" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
-          <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on LinkedIn" title="LinkedIn" class="linkedin"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+          <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on GitHub" title="GitHub" class="github"><img src="/assets/images/icons/github.png" alt="GitHub" style="width: 20px; height: 20px; object-fit: contain;"></a>
+          <a href="mailto:info@movtigroup.me" aria-label="Email MovtiGroup" title="Email"><img src="/assets/images/icons/email.svg" alt="Email" style="width: 20px; height: 20px; object-fit: contain;"></a>
+          <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on LinkedIn" title="LinkedIn" class="linkedin"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn" style="width: 20px; height: 20px; object-fit: contain;"></a>
         </div>
       </div>
       <div class="copyright">

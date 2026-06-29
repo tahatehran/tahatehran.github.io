@@ -11,28 +11,30 @@ title: Contact Us
 </section>
 
 <div class="contact-info">
-  <div class="card contact-card">
-    <i class="fas fa-phone-alt"></i>
+  <div class="card contact-card" data-copy="+1 (516) 898-9214">
+    <div class="contact-icon"><img src="/assets/images/icons/phone.svg" alt="Phone"></div>
     <h3>{{ site.data.translations[page.lang].phone }}</h3>
     <p dir="ltr" style="font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;">+1 (516) 898-9214</p>
+    <span class="copy-hint">Copy</span>
   </div>
 
-  <div class="card contact-card">
-    <i class="fas fa-envelope-open-text"></i>
+  <div class="card contact-card" data-copy="info@movtigroup.me">
+    <div class="contact-icon"><img src="/assets/images/icons/email.svg" alt="Email"></div>
     <h3>Business Email</h3>
     <p style="font-size: 1.1rem; color: var(--primary); font-weight: 600;">info@movtigroup.me</p>
+    <span class="copy-hint">Copy</span>
   </div>
 </div>
 
 <div class="map-section" style="margin-top: 2rem;">
-  <h2 style="text-align: center; margin-bottom: 2.5rem;"><i class="fas fa-map-marker-alt"></i> {{ site.data.translations[page.lang].our_location }}</h2>
+  <h2 style="text-align: center; margin-bottom: 2.5rem;"><img src="/assets/images/icons/map.svg" alt="Location" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle; margin-left: 8px;"> {{ site.data.translations[page.lang].our_location }}</h2>
   <div class="map-frame">
     <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem;">
-       <i class="fas fa-map-marked-alt fa-5x" style="color: var(--primary); opacity: 0.8; margin-bottom: 2rem;"></i>
+       <img src="/assets/images/icons/map.svg" alt="Location" style="width: 64px; height: 64px; object-fit: contain; color: var(--primary); opacity: 0.8; margin-bottom: 2rem;">
        <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Movti Group</h3>
        <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px;">Click the button below to view our headquarters on Google Maps and get directions.</p>
        <a href="https://share.google/NCtsk32MYQqSa1802" target="_blank" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
-         <i class="fas fa-external-link-alt"></i> {{ site.data.translations[page.lang].view_map }}
+         <img src="/assets/images/icons/map.svg" alt="Map" style="width: 18px; height: 18px; object-fit: contain;"> {{ site.data.translations[page.lang].view_map }}
        </a>
     </div>
   </div>

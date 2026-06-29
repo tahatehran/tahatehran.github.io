@@ -42,11 +42,11 @@ layout: default
   <div class="post-footer">
     {% if post_lang == "en" %}
       <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-secondary">
-        <i class="fas fa-arrow-left" aria-hidden="true"></i> Back to blog
+        <img src="/assets/images/icons/arrow-left.svg" alt="" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-left: 6px;" onerror="this.style.display='none'"> Back to blog
       </a>
     {% else %}
       <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">
-        <i class="fas fa-arrow-right" aria-hidden="true"></i> بازگشت به بلاگ
+        <img src="/assets/images/icons/arrow-right.svg" alt="" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-right: 6px;" onerror="this.style.display='none'"> بازگشت به بلاگ
       </a>
     {% endif %}
   </div>

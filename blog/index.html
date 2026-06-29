@@ -31,11 +31,11 @@ pagination:
 <div class="card-grid blog-post-grid" id="blog-posts-container">
   {% for post in localized_posts %}
     <article class="card blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}">
-      <div class="post-icon"><i class="fas fa-brain"></i></div>
+      <div class="post-icon"><img src="/assets/images/icons/brain.svg" alt="AI" style="width: 32px; height: 32px; object-fit: contain;"></div>
       <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
       <p style="color: var(--muted); font-size: 0.9rem;">{{ post.description | strip_html | truncate: 120 }}</p>
       <div class="post-meta-info">
-        <i class="fas fa-calendar-alt"></i>
+        <img src="/assets/images/icons/calendar.svg" alt="Date" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-left: 4px;">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
       </div>
       <div style="margin-top: 1rem;">
