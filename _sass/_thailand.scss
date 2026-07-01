@@ -224,6 +224,31 @@
   color: var(--accent);
 }
 
+// Card icon styles
+.card-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 1.5rem;
+  filter: var(--icon-filter, none);
+}
+
+.icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  background: rgba(88, 166, 255, 0.1);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.icon-wrapper:hover {
+  background: rgba(88, 166, 255, 0.2);
+  transform: translateY(-2px);
+}
+
 // Tooltip
 [data-tooltip] {
   position: relative;
