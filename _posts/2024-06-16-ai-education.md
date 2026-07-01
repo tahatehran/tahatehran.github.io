@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "هوش مصنوعی در آموزش و یادگیری"
-date: 2024-06-16 10:00:00 +0330
+date: 2026-06-16 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

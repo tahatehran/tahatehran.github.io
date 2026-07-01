@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "مبانی یادگیری ماشین (Machine Learning) برای مبتدیان"
-date: 2024-06-01 10:00:00 +0330
+date: 2026-06-01 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

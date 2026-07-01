@@ -1,2 +1,8 @@
 _config.yml
 .idea/
+
+# Stakpak session files
+.stakpak/session*
+.junie
+.dirac-symbol-index
+.stakpak

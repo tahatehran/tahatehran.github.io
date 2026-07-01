@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "جریان کاری حرفه‌ای با Git"
-date: 2024-05-24 10:00:00 +0330
+date: 2026-05-24 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "مانیتورینگ زیرساخت با Prometheus و Grafana"
-date: 2024-05-24 15:00:00 +0330
+date: 2026-05-24 15:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

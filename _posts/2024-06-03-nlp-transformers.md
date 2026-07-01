@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "پردازش زبان طبیعی و معماری Transformer"
-date: 2024-06-03 10:00:00 +0330
+date: 2026-06-03 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

@@ -28,12 +28,12 @@ pagination:
 
 {% assign localized_posts = paginator.posts | default: site.posts %}
 
-<div class="card-grid blog-post-grid" id="blog-posts-container">
+<div class="card-grid blog-post-grid" id="blog-posts-container" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
   {% for post in localized_posts %}
-    <article class="card blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}">
+    <article class="card blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" style="display: flex; flex-direction: column;">
       <div class="post-icon"><img src="/assets/images/icons/brain.svg" alt="AI" style="width: 32px; height: 32px; object-fit: contain;"></div>
       <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
-      <p style="color: var(--muted); font-size: 0.9rem;">{{ post.description | strip_html | truncate: 120 }}</p>
+      <p style="color: var(--muted); font-size: 0.9rem; flex: 1;">{{ post.description | strip_html | truncate: 120 }}</p>
       <div class="post-meta-info">
         <img src="/assets/images/icons/calendar.svg" alt="Date" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-left: 4px;">
         <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
@@ -47,14 +47,19 @@ pagination:
 
 {% if paginator.total_pages > 1 %}
 <div class="pagination" style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-  <span class="page-number" style="display: flex; align-items: center; font-weight: 700;">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
-  <div style="display: flex; gap: 1rem;">
-    {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | relative_url }}" class="btn btn-secondary">Previous</a>
-    {% endif %}
-    {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | relative_url }}" class="btn btn-secondary">Next</a>
-    {% endif %}
+  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+    {% for page_num in (1..paginator.total_pages) %}
+      {% if page_num == paginator.page %}
+        <span class="btn btn-primary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</span>
+      {% else %}
+        {% if page_num == 1 %}
+          <a href="{{ '/en/' | relative_url }}" class="btn btn-secondary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</a>
+        {% else %}
+          <a href="{{ site.baseurl }}/en/page{{ page_num }}/" class="btn btn-secondary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
   </div>
+  <span class="page-number" style="display: flex; align-items: center; font-weight: 700; font-size: 0.9rem;">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
 </div>
 {% endif %}

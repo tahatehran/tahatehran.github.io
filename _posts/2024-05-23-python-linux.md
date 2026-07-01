@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "نصب پایتون روی لینوکس و Machine Wizard"
-date: 2024-05-23 17:00:00 +0330
+date: 2026-05-23 17:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

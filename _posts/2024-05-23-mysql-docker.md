@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "پیکربندی MySQL با داکر"
-date: 2024-05-23 13:00:00 +0330
+date: 2026-05-23 13:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

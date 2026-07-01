@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "بینایی کامپیوتری (Computer Vision) و کاربردهای آن"
-date: 2024-06-04 10:00:00 +0330
+date: 2026-06-04 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

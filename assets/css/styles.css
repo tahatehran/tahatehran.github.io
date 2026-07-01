@@ -20,13 +20,21 @@
   padding: 0;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
 }
 
 body {
-  font-family: "Vazirmatn", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+  font-family:
+    "Vazirmatn",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Helvetica,
+    Arial,
+    sans-serif !important;
   background-color: var(--bg);
   color: var(--text);
   line-height: 1.8;
@@ -38,7 +46,8 @@ body.menu-open {
 }
 
 body.en {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
 }
 
 .fas,
@@ -68,34 +77,84 @@ body.en {
   font-size: 5em;
 }
 
-.fa-home::before { content: "⌂"; }
+.fa-home::before {
+  content: "⌂";
+}
 .fa-project-diagram::before,
-.fa-layer-group::before { content: "▦"; }
-.fa-users::before { content: "◉"; }
+.fa-layer-group::before {
+  content: "▦";
+}
+.fa-users::before {
+  content: "◉";
+}
 .fa-blog::before,
-.fa-newspaper::before { content: "▤"; }
+.fa-newspaper::before {
+  content: "▤";
+}
 .fa-envelope::before,
-.fa-envelope-open-text::before { content: "@"; }
-.fa-bars::before { content: "☰"; }
-.fa-times::before { content: "×"; }
-.fa-globe::before { content: "◎"; }
-.fa-github::before { content: "GH"; font-size: 0.72em; }
-.fa-linkedin::before { content: "in"; font-size: 0.78em; }
-.fa-rocket::before { content: "▲"; }
-.fa-shield-alt::before { content: "⬟"; }
-.fa-comments::before { content: "…"; }
-.fa-font::before { content: "A"; }
-.fa-server::before { content: "▣"; }
-.fa-phone-alt::before { content: "☎"; }
+.fa-envelope-open-text::before {
+  content: "@";
+}
+.fa-bars::before {
+  content: "☰";
+}
+.fa-times::before {
+  content: "×";
+}
+.fa-globe::before {
+  content: "◎";
+}
+.fa-github::before {
+  content: "GH";
+  font-size: 0.72em;
+}
+.fa-linkedin::before {
+  content: "in";
+  font-size: 0.78em;
+}
+.fa-rocket::before {
+  content: "▲";
+}
+.fa-shield-alt::before {
+  content: "⬟";
+}
+.fa-comments::before {
+  content: "…";
+}
+.fa-font::before {
+  content: "A";
+}
+.fa-server::before {
+  content: "▣";
+}
+.fa-phone-alt::before {
+  content: "☎";
+}
 .fa-map-marker-alt::before,
-.fa-map-marked-alt::before { content: "⌖"; }
-.fa-external-link-alt::before { content: "↗"; }
-.fa-user::before { content: "●"; }
-.fa-copy::before { content: "⧉"; }
-.fa-check::before { content: "✓"; }
-.fa-arrow-left::before { content: "←"; }
-.fa-arrow-right::before { content: "→"; }
-.fa-search::before { content: "🔍"; }
+.fa-map-marked-alt::before {
+  content: "⌖";
+}
+.fa-external-link-alt::before {
+  content: "↗";
+}
+.fa-user::before {
+  content: "●";
+}
+.fa-copy::before {
+  content: "⧉";
+}
+.fa-check::before {
+  content: "✓";
+}
+.fa-arrow-left::before {
+  content: "←";
+}
+.fa-arrow-right::before {
+  content: "→";
+}
+.fa-search::before {
+  content: "🔍";
+}
 
 .bg-overlay {
   position: fixed;
@@ -299,7 +358,7 @@ body.en {
   font-size: 1.2rem;
   font-weight: 700;
   padding: 1rem;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   border: 1px solid transparent;
 }
@@ -507,7 +566,9 @@ body.en {
   background: var(--surface);
   color: var(--text);
   font-size: 1rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
 }
 
 .search-input:focus {
@@ -597,7 +658,7 @@ body.en {
   }
 
   .hero h1 {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .hero-actions .btn {
@@ -692,7 +753,7 @@ body.en {
 
 /* Windows High DPI and Desktop Fixes */
 @media (min-width: 1024px) and (-webkit-min-device-pixel-ratio: 1.5),
-       (min-width: 1024px) and (min-resolution: 144dpi) {
+  (min-width: 1024px) and (min-resolution: 144dpi) {
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.5rem);
   }
@@ -1260,4 +1321,446 @@ body.en {
   font-size: 1rem;
   line-height: 1.6;
   letter-spacing: normal;
+}
+
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInBottom {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(88, 166, 255, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.6s ease forwards;
+  opacity: 0;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.animate-slide-in-bottom {
+  animation: slideInBottom 0.7s ease forwards;
+  opacity: 0;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.delay-1 {
+  animation-delay: 0.1s;
+}
+.delay-2 {
+  animation-delay: 0.2s;
+}
+.delay-3 {
+  animation-delay: 0.3s;
+}
+.delay-4 {
+  animation-delay: 0.4s;
+}
+.delay-5 {
+  animation-delay: 0.5s;
+}
+.delay-6 {
+  animation-delay: 0.6s;
+}
+
+/* Scroll-triggered animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+[dir="rtl"] .reveal-left {
+  transform: translateX(30px);
+}
+[dir="rtl"] .reveal-left.revealed {
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hero animations */
+.hero {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.hero h1 {
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.hero p {
+  animation: fadeInUp 0.9s ease forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.hero-actions {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.4s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Card hover enhancements */
+.card {
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 40px rgba(88, 166, 255, 0.15);
+}
+
+/* Button hover animations */
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* Brand section */
+.brand-card {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.brand-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary);
+  box-shadow: 0 16px 48px rgba(88, 166, 255, 0.2);
+}
+
+/* Navigation link hover */
+.main-nav a::after,
+.mobile-nav a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.3s ease;
+}
+
+.main-nav a:hover::after,
+.mobile-nav a:hover::after {
+  width: 100%;
+}
+
+[dir="rtl"] .main-nav a::after,
+[dir="rtl"] .mobile-nav a::after {
+  left: auto;
+  right: 0;
+}
+
+/* Blog post grid animation */
+.blog-post-card {
+  transition: all 0.3s ease;
+}
+
+.blog-post-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+}
+
+/* Content animation */
+.content {
+  animation: fadeInUp 0.5s ease;
+}
+
+/* ============================================
+   Mobile Font Size Improvements (+2 units)
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.05rem;
+    line-height: 1.85;
+  }
+  
+  body.fa {
+    font-size: 1.05rem;
+    line-height: 1.95;
+  }
+  
+  body.en {
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+  
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+  
+  .hero p {
+    font-size: 1.05rem;
+  }
+  
+  .card h3 {
+    font-size: 1.15rem;
+  }
+  
+  .card p {
+    font-size: 1rem;
+  }
+  
+  .blog-post-card h3 {
+    font-size: 1.1rem;
+  }
+  
+  .post-content {
+    font-size: 1.05rem;
+  }
+  
+  .mobile-nav a {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 1.1rem;
+  }
+  
+  body.fa {
+    font-size: 1.1rem;
+    line-height: 2;
+  }
+  
+  body.en {
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+  
+  .hero h1 {
+    font-size: 1.65rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
+  
+  .card h3 {
+    font-size: 1.2rem;
+  }
+  
+  .card p {
+    font-size: 1.05rem;
+  }
+  
+  .btn {
+    font-size: 1rem;
+    padding: 0.85rem 1.5rem;
+  }
+  
+  .btn-small {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+  
+  .search-input {
+    font-size: 1rem;
+    padding: 0.85rem 2.5rem 0.85rem 1rem;
+  }
+  
+  .mobile-nav a {
+    font-size: 1.3rem;
+  }
+  
+  .post-content {
+    font-size: 1.1rem;
+  }
+  
+  .footer-info h3 {
+    font-size: 1.2rem;
+  }
+  
+  .footer-info p {
+    font-size: 1rem;
+  }
+  
+  .copyright p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    font-size: 1.08rem;
+  }
+  
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.05rem;
+  }
+  
+  .card h3 {
+    font-size: 1.15rem;
+  }
+  
+  .card p {
+    font-size: 1.02rem;
+  }
+}
+
+/* ============================================
+   Blog Pagination Table Styles
+   ============================================ */
+.pagination .btn {
+  border-radius: 10px;
+  min-width: 42px;
+  text-align: center;
+}
+
+.pagination .btn:hover {
+  transform: translateY(-2px);
+}
+
+.pagination {
+  padding: 1rem 0;
+}
+
+/* ============================================
+   Brand Section Styles
+   ============================================ */
+.brands-section {
+  border-top: 1px solid var(--border);
+  margin-top: 2rem;
+}
+
+.brand-card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.brand-card:hover {
+  border-color: var(--primary);
 }

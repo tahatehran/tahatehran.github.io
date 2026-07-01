@@ -145,3 +145,113 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+    // ============================================
+    // Scroll Reveal Animations
+    // ============================================
+    const revealElements = document.querySelectorAll('.card, .brand-card, .blog-post-card, section > h2, section > h3, .member-card, .contact-card');
+    
+    // Add reveal classes to elements
+    revealElements.forEach((el, index) => {
+        el.classList.add('reveal');
+        el.style.transitionDelay = `${(index % 6) * 0.1}s`;
+    });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ============================================
+    // Smooth Scroll for anchor links
+    // ============================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // ============================================
+    // Parallax effect for hero section
+    // ============================================
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            if (scrolled < 600) {
+                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
+                hero.style.opacity = 1 - (scrolled * 0.002);
+            }
+        }, { passive: true });
+    }
+
+    // ============================================
+    // Staggered card animation on page load
+    // ============================================
+    const cards = document.querySelectorAll('.card-grid .card');
+    cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.classList.add('animate-fade-in-up');
+    });
+
+    // ============================================
+    // Header scroll effect
+    // ============================================
+    const header = document.querySelector('.site-header');
+    if (header) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(11, 14, 20, 0.98)';
+                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'rgba(13, 17, 23, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        }, { passive: true });
+    }
+
+    // ============================================
+    // Brand card hover tilt effect
+    // ============================================
+    const brandCards = document.querySelectorAll('.brand-card');
+    brandCards.forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = (y - centerY) / 20;
+            const rotateY = (centerX - x) / 20;
+            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    // ============================================
+    // Typing effect for hero text
+    // ============================================
+    const heroH1 = document.querySelector('.hero h1');
+    if (heroH1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        heroH1.style.borderRight = '2px solid var(--primary)';
+        setTimeout(() => {
+            heroH1.style.borderRight = 'none';
+        }, 2000);
+    }

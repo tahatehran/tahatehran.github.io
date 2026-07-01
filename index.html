@@ -6,30 +6,56 @@ title: صفحه اصلی
 ---
 
 <section class="hero">
-  <h1>به <span class="highlight" style="color: var(--primary);">موتی‌گروپ</span> خوش آمدید</h1>
-  <p>پیشرو در ارائه راهکارهای نوین نرم‌افزاری و ابزارهای تخصصی متن‌باز برای توسعه‌دهندگان.</p>
-  <div class="hero-actions">
-    <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary"><i class="fas fa-newspaper"></i> ورود به بلاگ</a>
-    <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary"><i class="fas fa-layer-group"></i> مشاهده پروژه‌ها</a>
-  </div>
+    <h1>به <span class="highlight" style="color: var(--primary);">موتی‌گروپ</span> خوش آمدید</h1>
+    <p>پیشرو در ارائه راهکارهای نوین نرم‌افزاری و ابزارهای تخصصی متن‌باز برای توسعه‌دهندگان.</p>
+    <div class="hero-actions">
+        <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary"><i class="fas fa-newspaper"></i> ورود به
+            بلاگ</a>
+        <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary"><i class="fas fa-layer-group"></i> مشاهده
+            پروژه‌ها</a>
+    </div>
 </section>
 
 <section class="features">
-  <div class="card-grid">
-    <div class="card">
-      <i class="fas fa-rocket fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
-      <h3>سرعت و پایداری</h3>
-      <p>تمامی ابزارهای ما با تمرکز بر کارایی بالا و پایداری در محیط‌های عملیاتی طراحی شده‌اند.</p>
+    <div class="card-grid">
+        <div class="card">
+            <i class="fas fa-rocket fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+            <h3>سرعت و پایداری</h3>
+            <p>تمامی ابزارهای ما با تمرکز بر کارایی بالا و پایداری در محیط‌های عملیاتی طراحی شده‌اند.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-shield-alt fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+            <h3>امنیت و اعتماد</h3>
+            <p>پایبندی به استانداردهای امنیتی در کدنویسی و ارائه محصولات متن‌باز قابل اعتماد.</p>
+        </div>
+        <div class="card">
+            <i class="fas fa-comments fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
+            <h3>پشتیبانی فعال</h3>
+            <p>ما در کنار شما هستیم تا بهترین تجربه استفاده از محصولات موتی‌گروپ را داشته باشید.</p>
+        </div>
     </div>
-    <div class="card">
-      <i class="fas fa-shield-alt fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
-      <h3>امنیت و اعتماد</h3>
-      <p>پایبندی به استانداردهای امنیتی در کدنویسی و ارائه محصولات متن‌باز قابل اعتماد.</p>
+
+</section>
+
+<section class="brands-section" style="padding: 3rem 0; text-align: center;">
+    <h2 style="font-size: clamp(1.3rem, 4vw, 1.8rem); color: var(--text-bright); margin-bottom: 0.8rem;">برندهای ما</h2>
+    <p style="color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem;">محصولات و پروژه‌های اختصاصی موتی‌گروپ</p>
+    <div class="card-grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 700px; margin: 0 auto;">
+        <div class="card brand-card" style="text-align: center; padding: 2rem;">
+            <img src="/assets/images/team/armigram.jpg" alt="ArmiGram Logo" class="animate-float"
+                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; border: 3px solid var(--primary); box-shadow: 0 0 20px var(--primary-glow);">
+            <h3 style="font-size: 1.4rem; color: var(--text-bright); margin-bottom: 0.5rem;">ArmiGram</h3>
+            <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.3rem;">شبکه اجتماعی تصویری</p>
+            <p style="color: var(--muted); font-size: 0.85rem;">Visual Social Network</p>
+        </div>
+        <div class="card brand-card" style="text-align: center; padding: 2rem;">
+            <img src="/assets/images/team/animeti.jpg" alt="AnimeTi Logo" class="animate-float"
+                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; border: 3px solid var(--accent); box-shadow: 0 0 20px rgba(126, 231, 135, 0.3);">
+            <h3 style="font-size: 1.4rem; color: var(--text-bright); margin-bottom: 0.5rem;">AnimeTi</h3>
+            <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0.3rem;">پلتفرم انیمه و سرگرمی</p>
+            <p style="color: var(--muted); font-size: 0.85rem;">Anime & Entertainment Platform</p>
+        </div>
     </div>
-    <div class="card">
-      <i class="fas fa-comments fa-3x" style="color: var(--primary); margin-bottom: 1.5rem;"></i>
-      <h3>پشتیبانی فعال</h3>
-      <p>ما در کنار شما هستیم تا بهترین تجربه استفاده از محصولات موتی‌گروپ را داشته باشید.</p>
-    </div>
-  </div>
+</section>
 </section>

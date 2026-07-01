@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "استقرار هوش مصنوعی در ابر (Cloud Deployment)"
-date: 2024-06-13 10:00:00 +0330
+date: 2026-06-13 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

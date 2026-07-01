@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "شبکه‌های عصبی و یادگیری عمیق (Deep Learning)"
-date: 2024-06-02 10:00:00 +0330
+date: 2026-06-02 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

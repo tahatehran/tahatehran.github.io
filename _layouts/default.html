@@ -2,137 +2,166 @@
 {% assign lang = page.lang | default: "fa" %}
 {% assign dir = page.dir | default: "rtl" %}
 <html lang="{{ lang }}" dir="{{ dir }}">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="theme-color" content="#0b0e14">
-  <meta name="msapplication-TileColor" content="#0b0e14">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0e14">
+    <meta name="msapplication-TileColor" content="#0b0e14">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="{{ page.description | default: site.description }}">
-  <meta name="keywords" content="MovtiGroup, موتی‌گروپ, توسعه نرم‌افزار, متن‌باز, Iran System Encoding, Mirror Project, {{ page.keywords }}">
-  <meta name="author" content="MovtiGroup">
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/images/favicon.svg' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/images/favicon.svg' | relative_url }}">
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{{ page.description | default: site.description }}">
-  <meta property="og:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ page.description | default: site.description }}">
+    <meta name="keywords"
+        content="MovtiGroup, موتی‌گروپ, توسعه نرم‌افزار, متن‌باز, Iran System Encoding, Mirror Project, {{ page.keywords }}">
+    <meta name="author" content="MovtiGroup">
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="{{ page.url | absolute_url }}">
-  <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="twitter:description" content="{{ page.description | default: site.description }}">
-  <meta property="twitter:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="og:description" content="{{ page.description | default: site.description }}">
+    <meta property="og:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ page.url | absolute_url }}">
+    <meta property="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+    <meta property="twitter:description" content="{{ page.description | default: site.description }}">
+    <meta property="twitter:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | relative_url }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  {% seo %}
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml" | relative_url }}">
+
+    {% seo %}
 </head>
+
 <body class="{{ lang }}">
-  <div class="bg-overlay"></div>
+    <div class="bg-overlay"></div>
 
-  <header class="site-header">
-    <div class="container">
-      <div class="header-main">
-        <div class="brand">
-          {% if lang == "en" %}
-            <a href="{{ '/en/' | relative_url }}">
-          {% else %}
-            <a href="{{ '/' | relative_url }}">
-          {% endif %}
-            <span class="logo-text">Movti<span class="highlight">Group</span></span>
-          </a>
+    <header class="site-header">
+        <div class="container">
+            <div class="header-main">
+                <div class="brand">
+                    {% if lang == "en" %}
+                    <a href="{{ '/en/' | relative_url }}">
+                        {% else %}
+                        <a href="{{ '/' | relative_url }}">
+                            {% endif %}
+                            <span class="logo-text">Movti<span class="highlight">Group</span></span>
+                        </a>
+                </div>
+
+                <div class="header-actions-desktop">
+                    <nav class="main-nav">
+                        <ul>
+                            {% for link in site.data.navigation[lang] %}
+                            <li><a href="{{ link.url | relative_url }}"><img src="{{ link.icon }}" alt=""
+                                        style="width: 18px; height: 18px; object-fit: contain; vertical-align: middle; margin-left: 6px;">
+                                    {{ link.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                    <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-desktop">
+                        {{ site.data.translations[lang].switch_lang }}
+                    </a>
+                </div>
+
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </div>
+    </header>
 
-        <div class="header-actions-desktop">
-          <nav class="main-nav">
-            <ul>
-              {% for link in site.data.navigation[lang] %}
-                <li><a href="{{ link.url | relative_url }}"><img src="{{ link.icon }}" alt="" style="width: 18px; height: 18px; object-fit: contain; vertical-align: middle; margin-left: 6px;"> {{ link.title }}</a></li>
-              {% endfor %}
-            </ul>
-          </nav>
-          <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-desktop">
-             {{ site.data.translations[lang].switch_lang }}
-          </a>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+                <div class="brand">
+                    <span class="logo-text">Movti<span class="highlight">Group</span></span>
+                </div>
+                <button class="mobile-menu-close" aria-label="Close menu">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+
+            <div class="mobile-lang-selector">
+                <p>{{ site.data.translations[lang].switch_lang | append: " Version" | replace: "فارسی Version", "نسخه
+                    فارسی" }}</p>
+                <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-mobile">
+                    <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
+                </a>
+            </div>
+
+            <nav class="mobile-nav">
+                <ul>
+                    {% for link in site.data.navigation[lang] %}
+                    <li><a href="{{ link.url | relative_url }}"><img src="{{ link.icon }}" alt=""
+                                style="width: 20px; height: 20px; object-fit: contain; vertical-align: middle; margin-left: 10px;">
+                            {{ link.title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </nav>
+
+            <div class="mobile-menu-footer">
+                <div class="social-links">
+                    <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer"
+                        aria-label="MovtiGroup on GitHub" class="github"><img src="/assets/images/icons/github.png"
+                            alt="GitHub" style="width: 24px; height: 24px; object-fit: contain;"></a>
+                    <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer"
+                        aria-label="MovtiGroup on LinkedIn" class="linkedin"><img
+                            src="/assets/images/icons/linkedin.svg" alt="LinkedIn"
+                            style="width: 24px; height: 24px; object-fit: contain;"></a>
+                </div>
+            </div>
         </div>
-
-        <button class="mobile-menu-toggle" aria-label="Toggle menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
     </div>
-  </header>
 
-  <!-- Mobile Menu Overlay -->
-  <div class="mobile-menu-overlay">
-    <div class="mobile-menu-content">
-      <div class="mobile-menu-header">
-        <div class="brand">
-           <span class="logo-text">Movti<span class="highlight">Group</span></span>
+    <main class="content container">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>MovtiGroup</h3>
+                    <p>{{ site.data.translations[lang].tagline }}</p>
+                </div>
+                <div class="footer-social">
+                    <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer"
+                        aria-label="MovtiGroup on GitHub" title="GitHub" class="github"><img
+                            src="/assets/images/icons/github.png" alt="GitHub"
+                            style="width: 20px; height: 20px; object-fit: contain;"></a>
+                    <a href="mailto:info@movtigroup.me" aria-label="Email MovtiGroup" title="Email"><img
+                            src="/assets/images/icons/email.svg" alt="Email"
+                            style="width: 20px; height: 20px; object-fit: contain;"></a>
+                    <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer"
+                        aria-label="MovtiGroup on LinkedIn" title="LinkedIn" class="linkedin"><img
+                            src="/assets/images/icons/linkedin.svg" alt="LinkedIn"
+                            style="width: 20px; height: 20px; object-fit: contain;"></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p style="font-size: 0.78rem; color: var(--muted); text-align: center; width: 100%;">&copy; {{ "now" |
+                    date: "%Y" }} All Rights Reserved for MovtiGroup.</p>
+            </div>
         </div>
-        <button class="mobile-menu-close" aria-label="Close menu">
-          <i class="fas fa-times"></i>
-        </button>
-      </div>
+    </footer>
 
-      <div class="mobile-lang-selector">
-        <p>{{ site.data.translations[lang].switch_lang | append: " Version" | replace: "فارسی Version", "نسخه فارسی" }}</p>
-        <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-mobile">
-          <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
-        </a>
-      </div>
-
-      <nav class="mobile-nav">
-        <ul>
-          {% for link in site.data.navigation[lang] %}
-            <li><a href="{{ link.url | relative_url }}"><img src="{{ link.icon }}" alt="" style="width: 20px; height: 20px; object-fit: contain; vertical-align: middle; margin-left: 10px;"> {{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-      </nav>
-
-      <div class="mobile-menu-footer">
-        <div class="social-links">
-          <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on GitHub" class="github"><img src="/assets/images/icons/github.png" alt="GitHub" style="width: 24px; height: 24px; object-fit: contain;"></a>
-          <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on LinkedIn" class="linkedin"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn" style="width: 24px; height: 24px; object-fit: contain;"></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <main class="content container">
-    {{ content }}
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-info">
-          <h3>MovtiGroup</h3>
-          <p>{{ site.data.translations[lang].tagline }}</p>
-        </div>
-        <div class="footer-social">
-          <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on GitHub" title="GitHub" class="github"><img src="/assets/images/icons/github.png" alt="GitHub" style="width: 20px; height: 20px; object-fit: contain;"></a>
-          <a href="mailto:info@movtigroup.me" aria-label="Email MovtiGroup" title="Email"><img src="/assets/images/icons/email.svg" alt="Email" style="width: 20px; height: 20px; object-fit: contain;"></a>
-          <a href="https://www.linkedin.com/company/movtigroup" target="_blank" rel="noopener noreferrer" aria-label="MovtiGroup on LinkedIn" title="LinkedIn" class="linkedin"><img src="/assets/images/icons/linkedin.svg" alt="LinkedIn" style="width: 20px; height: 20px; object-fit: contain;"></a>
-        </div>
-      </div>
-      <div class="copyright">
-        <p>&copy; {{ "now" | date: "%Y" }} {{ site.data.translations[lang].copyright }}</p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
+
 </html>

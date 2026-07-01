@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "رباتیک هوشمند و هوش مصنوعی"
-date: 2024-06-11 10:00:00 +0330
+date: 2026-06-11 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

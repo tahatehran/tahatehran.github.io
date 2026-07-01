@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "هوش مصنوعی تولیدکننده (Generative AI) و انقلاب محتوا"
-date: 2024-06-07 10:00:00 +0330
+date: 2026-06-07 10:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl

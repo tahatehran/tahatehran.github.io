@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "مقدمه‌ای بر CI/CD و اتوماسیون استقرار"
-date: 2024-05-24 11:00:00 +0330
+date: 2026-05-24 11:00:00 +0330
 lang: fa
 locale: fa
 dir: rtl
