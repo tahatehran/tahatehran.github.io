@@ -144,132 +144,36 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-});
 
     // ============================================
-    // Scroll Reveal Animations
+    // Theme Toggle Logic
     // ============================================
-    const revealElements = document.querySelectorAll('.card, .brand-card, .blog-post-card, section > h2, section > h3, .member-card, .contact-card');
-    
-    // Add reveal classes to elements
-    revealElements.forEach((el, index) => {
-        el.classList.add('reveal');
-        el.style.transitionDelay = `${(index % 6) * 0.1}s`;
-    });
+    // Theme Toggle Logic
+    // ============================================
+    const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
-    const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('revealed');
-                revealObserver.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    });
+    const updateThemeColorMeta = (theme) => {
+        if (themeColorMeta) {
+            themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b0e14' : '#ffffff');
+        }
+    };
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    const savedTheme = localStorage.getItem('theme');
+    const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+    const currentTheme = savedTheme || systemTheme;
 
-    // ============================================
-    // Smooth Scroll for anchor links
-    // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const target = document.querySelector(targetId);
-            if (target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-
-    // ============================================
-    // Parallax effect for hero section
-    // ============================================
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            if (scrolled < 600) {
-                hero.style.transform = `translateY(${scrolled * 0.15}px)`;
-                hero.style.opacity = 1 - (scrolled * 0.002);
-            }
-        }, { passive: true });
-    }
-
-    // ============================================
-    // Staggered card animation on page load
-    // ============================================
-    const cards = document.querySelectorAll('.card-grid .card');
-    cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
-        card.classList.add('animate-fade-in-up');
-    });
-
-    // ============================================
-    // Header scroll effect
-    // ============================================
-    const header = document.querySelector('.site-header');
-    if (header) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        }, { passive: true });
-    }
-
-    // ============================================
-    // Brand card hover tilt effect
-    // ============================================
-    const brandCards = document.querySelectorAll('.brand-card');
-    brandCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            const rotateX = (y - centerY) / 20;
-            const rotateY = (centerX - x) / 20;
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.02)`;
-        });
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = '';
-        });
-    });
-
-    // ============================================
-    // Typing effect for hero text
-    // ============================================
-    const heroH1 = document.querySelector('.hero h1');
-    if (heroH1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        heroH1.style.borderRight = '2px solid var(--primary)';
-        setTimeout(() => {
-            heroH1.style.borderRight = 'none';
-        }, 2000);
-    }
-
-// ============================================
-// Theme Toggle Logic
-// ============================================
-const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
-const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-
-if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
-}
+    updateThemeColorMeta(currentTheme);
 
-themeToggles.forEach(toggle => {
-    toggle.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        let targetTheme = theme === 'dark' ? 'light' : 'dark';
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const theme = document.documentElement.getAttribute('data-theme');
+            const targetTheme = theme === 'dark' ? 'light' : 'dark';
 
-        document.documentElement.setAttribute('data-theme', targetTheme);
-        localStorage.setItem('theme', targetTheme);
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            localStorage.setItem('theme', targetTheme);
+            updateThemeColorMeta(targetTheme);
+        });
     });
 });

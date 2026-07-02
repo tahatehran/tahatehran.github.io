@@ -5,7 +5,7 @@
 :root {
   // Dark Theme (Default)
   --bg: #0b0e14;
-  --surface: #202731;
+  --surface: #161b22;
   --surface-hover: #1c2128;
   --text: #c9d1d9;
   --text-bright: #f0f6fc;
@@ -17,7 +17,7 @@
   --shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
   --header-bg: rgba(11, 14, 20, 0.95);
   --footer-bg: #0d1117;
-  --icon-filter: invert(1);
+  --icon-filter: brightness(0) invert(1);
   --hero-gradient: radial-gradient(circle at 50% -20%, #1e2631, transparent 75%);
 }
 
@@ -35,7 +35,7 @@
   --shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
   --header-bg: rgba(255, 255, 255, 0.95);
   --footer-bg: #f6f8fa;
-  --icon-filter: invert(0);
+  --icon-filter: brightness(0);
   --hero-gradient: radial-gradient(circle at 50% -20%, #e6f1ff, transparent 75%);
 }
 
