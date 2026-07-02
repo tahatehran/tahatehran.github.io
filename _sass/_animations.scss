@@ -77,10 +77,10 @@
 // Pulse Glow
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(88, 166, 255, 0.3);
+    box-shadow: 0 0 5px var(--primary-glow);
   }
   50% {
-    box-shadow: 0 0 20px rgba(88, 166, 255, 0.6);
+    box-shadow: 0 0 20px var(--primary-glow);
   }
 }
 

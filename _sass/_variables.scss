@@ -2,18 +2,43 @@
 // MovtiGroup SCSS Variables & Theme
 // ============================================
 
-// Colors
-$bg: #0b0e14;
-$surface: #202731;
-$surface-hover: #1c2128;
-$text: #c9d1d9;
-$text-bright: #f0f6fc;
-$muted: #8b949e;
-$primary: #58a6ff;
-$primary-glow: rgba(88, 166, 255, 0.3);
-$accent: #7ee787;
-$border: #30363d;
-$shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+:root {
+  // Dark Theme (Default)
+  --bg: #0b0e14;
+  --surface: #202731;
+  --surface-hover: #1c2128;
+  --text: #c9d1d9;
+  --text-bright: #f0f6fc;
+  --muted: #8b949e;
+  --primary: #58a6ff;
+  --primary-glow: rgba(88, 166, 255, 0.3);
+  --accent: #7ee787;
+  --border: #30363d;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+  --header-bg: rgba(11, 14, 20, 0.95);
+  --footer-bg: #0d1117;
+  --icon-filter: invert(1);
+  --hero-gradient: radial-gradient(circle at 50% -20%, #1e2631, transparent 75%);
+}
+
+[data-theme="light"] {
+  --bg: #ffffff;
+  --surface: #f6f8fa;
+  --surface-hover: #f3f4f6;
+  --text: #24292f;
+  --text-bright: #000000;
+  --muted: #57606a;
+  --primary: #0969da;
+  --primary-glow: rgba(9, 105, 218, 0.3);
+  --accent: #1a7f37;
+  --border: #d0d7de;
+  --shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  --header-bg: rgba(255, 255, 255, 0.95);
+  --footer-bg: #f6f8fa;
+  --icon-filter: invert(0);
+  --hero-gradient: radial-gradient(circle at 50% -20%, #e6f1ff, transparent 75%);
+}
+
 $container-width: 1100px;
 
 // Typography

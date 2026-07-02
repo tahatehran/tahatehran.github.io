@@ -116,7 +116,7 @@
 .bg-surface { background: var(--surface) !important; }
 .bg-transparent { background: transparent !important; }
 .bg-primary { background: var(--primary) !important; }
-.bg-overlay { background: rgba(11, 14, 20, 0.98) !important; }
+.bg-overlay { background: var(--header-bg) !important; }
 
 // Width/Height
 .w-100 { width: 100% !important; }
