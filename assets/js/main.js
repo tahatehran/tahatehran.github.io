@@ -144,36 +144,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-
-    // ============================================
-    // Theme Toggle Logic
-    // ============================================
-    // Theme Toggle Logic
-    // ============================================
-    const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
-    const themeColorMeta = document.querySelector('meta[name="theme-color"]');
-
-    const updateThemeColorMeta = (theme) => {
-        if (themeColorMeta) {
-            themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b0e14' : '#ffffff');
-        }
-    };
-
-    const savedTheme = localStorage.getItem('theme');
-    const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-    const currentTheme = savedTheme || systemTheme;
-
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeColorMeta(currentTheme);
-
-    themeToggles.forEach(toggle => {
-        toggle.addEventListener('click', () => {
-            const theme = document.documentElement.getAttribute('data-theme');
-            const targetTheme = theme === 'dark' ? 'light' : 'dark';
-
-            document.documentElement.setAttribute('data-theme', targetTheme);
-            localStorage.setItem('theme', targetTheme);
-            updateThemeColorMeta(targetTheme);
-        });
-    });
 });

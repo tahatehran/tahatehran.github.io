@@ -73,15 +73,9 @@
                             {% endfor %}
                         </ul>
                     </nav>
-                    <div class="header-controls">
-                        <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-desktop">
-                            {{ site.data.translations[lang].switch_lang }}
-                        </a>
-                        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-                            <i class="fas fa-sun"></i>
-                            <i class="fas fa-moon"></i>
-                        </button>
-                    </div>
+                    <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-desktop">
+                        {{ site.data.translations[lang].switch_lang }}
+                    </a>
                 </div>
 
                 <button class="mobile-menu-toggle" aria-label="Toggle menu">
@@ -103,18 +97,12 @@
                 </button>
             </div>
 
-            <div class="mobile-controls">
-                <div class="mobile-lang-selector">
-                    <p>{{ site.data.translations[lang].switch_lang | append: " Version" | replace: "فارسی Version", "نسخه
-                        فارسی" }}</p>
-                    <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-mobile">
-                        <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
-                    </a>
-                </div>
-                <button class="theme-toggle" id="theme-toggle-mobile" aria-label="Toggle Theme">
-                    <i class="fas fa-sun"></i>
-                    <i class="fas fa-moon"></i>
-                </button>
+            <div class="mobile-lang-selector">
+                <p>{{ site.data.translations[lang].switch_lang | append: " Version" | replace: "فارسی Version", "نسخه
+                    فارسی" }}</p>
+                <a href="{{ site.data.translations[lang].switch_url | relative_url }}" class="lang-switch-mobile">
+                    <i class="fas fa-globe"></i> {{ site.data.translations[lang].switch_lang }}
+                </a>
             </div>
 
             <nav class="mobile-nav">
