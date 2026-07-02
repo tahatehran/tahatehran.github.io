@@ -216,11 +216,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (header) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
-                header.style.background = 'rgba(11, 14, 20, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.3)';
+                header.classList.add('scrolled');
             } else {
-                header.style.background = 'rgba(13, 17, 23, 0.95)';
-                header.style.boxShadow = 'none';
+                header.classList.remove('scrolled');
             }
         }, { passive: true });
     }
@@ -255,3 +253,23 @@ document.addEventListener('DOMContentLoaded', () => {
             heroH1.style.borderRight = 'none';
         }, 2000);
     }
+
+// ============================================
+// Theme Toggle Logic
+// ============================================
+const themeToggles = document.querySelectorAll('#theme-toggle, #theme-toggle-mobile');
+const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+}
+
+themeToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let targetTheme = theme === 'dark' ? 'light' : 'dark';
+
+        document.documentElement.setAttribute('data-theme', targetTheme);
+        localStorage.setItem('theme', targetTheme);
+    });
+});
