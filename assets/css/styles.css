@@ -178,7 +178,7 @@ body.en {
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
-  backdrop-filter: blur(20px);
+
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -274,10 +274,10 @@ body.en {
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--bg);
+  background: #0b0e14 !important; /* Always dark and non-transparent */
   z-index: 2000;
   display: none;
-  opacity: 0;
+  opacity: 1 !important; /* Full opacity */
   transition: opacity 0.3s ease;
 }
 
@@ -1850,27 +1850,22 @@ body.en {
     color: var(--primary) !important;
 }
 
-/* Force high contrast for mobile nav links in all themes */
 .mobile-nav a {
-    color: var(--text-bright) !important;
+    color: #f0f6fc !important; /* Always bright in dark menu */
 }
 
-[data-theme="light"] .mobile-nav a {
-    color: var(--text) !important;
+.mobile-nav a:hover {
+    color: var(--primary) !important;
 }
 
-.logo-text {
-    color: var(--text-bright) !important;
+.mobile-menu-close, .mobile-menu-toggle {
+    color: #f0f6fc !important; /* Always bright in dark menu */
 }
 
-[data-theme="light"] .logo-text {
-    color: var(--text) !important;
+.mobile-menu-header .logo-text {
+    color: #f0f6fc !important; /* Always bright in dark menu */
 }
-
-.mobile-menu-close {
-    color: var(--text-bright) !important;
-}
-
-[data-theme="light"] .mobile-menu-close {
-    color: var(--text) !important;
+/* Force mobile menu icons to be white in the dark menu */
+.mobile-nav img, .mobile-menu-header .brand img, .mobile-menu-footer img {
+    filter: brightness(0) invert(1) !important;
 }
