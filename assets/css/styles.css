@@ -274,11 +274,23 @@ body.en {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #0b0e14 !important; /* Always dark and non-transparent */
+  background: #000000 !important;
   z-index: 2000;
   display: none;
-  opacity: 1 !important; /* Full opacity */
+  opacity: 1 !important;
   transition: opacity 0.3s ease;
+}
+
+.mobile-menu-content {
+  color: #ffffff !important;
+}
+
+.mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
+  color: #ffffff !important;
+}
+
+.mobile-nav img {
+  filter: brightness(0) invert(1) !important;
 }
 
 .mobile-menu-overlay.active {
@@ -1770,26 +1782,9 @@ body.en {
     box-shadow: 0 4px 20px var(--shadow) !important;
 }
 
-.theme-toggle {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 0.5rem;
-    border-radius: 50%;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    margin-left: 0.5rem;
-}
 
-[dir="rtl"] .theme-toggle {
-    margin-left: 0;
-    margin-right: 0.5rem;
-}
+
+[dir="rtl"]
 
 .theme-toggle:hover {
     border-color: var(--primary);
@@ -1801,13 +1796,9 @@ body.en {
     font-size: 1.1rem;
 }
 
-[data-theme="light"] .theme-toggle .fa-moon {
-    display: none;
-}
 
-[data-theme="dark"] .theme-toggle .fa-sun {
-    display: none;
-}
+
+
 
 .card-icon, .footer-social img, .main-nav img, .mobile-nav img {
     filter: var(--icon-filter);
@@ -1838,9 +1829,7 @@ body.en {
     color: var(--text-bright) !important;
 }
 
-[data-theme="light"] .mobile-menu-close, [data-theme="light"] .mobile-menu-toggle {
-    color: var(--text) !important;
-}
+
 
 .mobile-nav a {
     color: var(--text) !important;
@@ -1868,4 +1857,48 @@ body.en {
 /* Force mobile menu icons to be white in the dark menu */
 .mobile-nav img, .mobile-menu-header .brand img, .mobile-menu-footer img {
     filter: brightness(0) invert(1) !important;
+}
+
+/* GitHub and other icons forced to black as requested */
+img[src*="github.png"], img[src*="github.svg"], .card-icon, .main-nav img, .footer-social img {
+    filter: brightness(0) !important;
+}
+
+/* Ensure mobile menu is still solid but maybe slightly different black */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000 !important;
+  z-index: 2000;
+  display: none;
+  opacity: 1 !important;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu-content {
+  color: #ffffff !important;
+}
+
+.mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
+  color: #ffffff !important;
+}
+
+.mobile-nav img {
+  filter: brightness(0) invert(1) !important;
+}
+
+.mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
+    color: #ffffff !important;
+}
+
+.mobile-nav img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* GitHub icon forced to black */
+img[src*="github"] {
+    filter: brightness(0) !important;
 }
