@@ -8,6 +8,7 @@ fa:
   phone: "شماره تماس"
   address: "آدرس ما"
   view_map: "مشاهده در نقشه"
+  police: "پلیس"
 en:
   tagline: "MovtiGroup Software Development"
   copyright: "All rights reserved for MovtiGroup."
@@ -18,3 +19,4 @@ en:
   phone: "Phone Number"
   address: "Address"
   view_map: "View on Map"
+  police: "Police"

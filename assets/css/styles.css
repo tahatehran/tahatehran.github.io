@@ -1854,17 +1854,36 @@ body.en {
 .mobile-menu-header .logo-text {
     color: #f0f6fc !important; /* Always bright in dark menu */
 }
-/* Force mobile menu icons to be white in the dark menu */
-.mobile-nav img, .mobile-menu-header .brand img, .mobile-menu-footer img {
+
+/* ============================================
+   Icon Visibility Fixes (Force White/Bright)
+   ============================================ */
+/* Navigation icons */
+.main-nav img, .mobile-nav img {
     filter: brightness(0) invert(1) !important;
 }
 
-/* GitHub and other icons forced to black as requested */
-img[src*="github.png"], img[src*="github.svg"], .card-icon, .main-nav img, .footer-social img {
-    filter: brightness(0) !important;
+/* Brand/Logo icons */
+.brand img, .mobile-menu-header .brand img {
+    filter: brightness(0) invert(1) !important;
 }
 
-/* Ensure mobile menu is still solid but maybe slightly different black */
+/* GitHub, Email, LinkedIn, etc. in footer and social sections */
+.footer-social img, .social-links img, .member-social img, .contact-card img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Card icons in projects, blog, and main pages */
+.card-icon, .icon-wrapper img, .blog-post-card img {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Specific GitHub overrides for full certainty */
+img[src*="github"], img[src*="linkedin"], img[src*="email"], img[src*="telegram"], img[src*="instagram"] {
+    filter: brightness(0) invert(1) !important;
+}
+
+/* Ensure mobile menu is solid black and visible */
 .mobile-menu-overlay {
   position: fixed;
   top: 0;
@@ -1878,27 +1897,6 @@ img[src*="github.png"], img[src*="github.svg"], .card-icon, .main-nav img, .foot
   transition: opacity 0.3s ease;
 }
 
-.mobile-menu-content {
-  color: #ffffff !important;
-}
-
 .mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
   color: #ffffff !important;
-}
-
-.mobile-nav img {
-  filter: brightness(0) invert(1) !important;
-}
-
-.mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
-    color: #ffffff !important;
-}
-
-.mobile-nav img {
-    filter: brightness(0) invert(1) !important;
-}
-
-/* GitHub icon forced to black */
-img[src*="github"] {
-    filter: brightness(0) !important;
 }
