@@ -285,7 +285,9 @@ body.en {
   color: #ffffff !important;
 }
 
-.mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
+.mobile-nav a,
+.mobile-menu-header .logo-text,
+.mobile-menu-close {
   color: #ffffff !important;
 }
 
@@ -1614,41 +1616,41 @@ body.en {
     font-size: 1.05rem;
     line-height: 1.85;
   }
-  
+
   body.fa {
     font-size: 1.05rem;
     line-height: 1.95;
   }
-  
+
   body.en {
     font-size: 1.05rem;
     line-height: 1.7;
   }
-  
+
   .hero h1 {
     font-size: 1.9rem;
   }
-  
+
   .hero p {
     font-size: 1.05rem;
   }
-  
+
   .card h3 {
     font-size: 1.15rem;
   }
-  
+
   .card p {
     font-size: 1rem;
   }
-  
+
   .blog-post-card h3 {
     font-size: 1.1rem;
   }
-  
+
   .post-content {
     font-size: 1.05rem;
   }
-  
+
   .mobile-nav a {
     font-size: 1.25rem;
   }
@@ -1658,64 +1660,64 @@ body.en {
   body {
     font-size: 1.1rem;
   }
-  
+
   body.fa {
     font-size: 1.1rem;
     line-height: 2;
   }
-  
+
   body.en {
     font-size: 1.1rem;
     line-height: 1.75;
   }
-  
+
   .hero h1 {
     font-size: 1.65rem;
   }
-  
+
   .hero p {
     font-size: 1.1rem;
   }
-  
+
   .card h3 {
     font-size: 1.2rem;
   }
-  
+
   .card p {
     font-size: 1.05rem;
   }
-  
+
   .btn {
     font-size: 1rem;
     padding: 0.85rem 1.5rem;
   }
-  
+
   .btn-small {
     font-size: 0.95rem;
     padding: 0.5rem 1rem;
   }
-  
+
   .search-input {
     font-size: 1rem;
     padding: 0.85rem 2.5rem 0.85rem 1rem;
   }
-  
+
   .mobile-nav a {
     font-size: 1.3rem;
   }
-  
+
   .post-content {
     font-size: 1.1rem;
   }
-  
+
   .footer-info h3 {
     font-size: 1.2rem;
   }
-  
+
   .footer-info p {
     font-size: 1rem;
   }
-  
+
   .copyright p {
     font-size: 0.85rem;
   }
@@ -1725,19 +1727,19 @@ body.en {
   body {
     font-size: 1.08rem;
   }
-  
+
   .hero h1 {
     font-size: 1.5rem;
   }
-  
+
   .hero p {
     font-size: 1.05rem;
   }
-  
+
   .card h3 {
     font-size: 1.15rem;
   }
-  
+
   .card p {
     font-size: 1.02rem;
   }
@@ -1778,109 +1780,114 @@ body.en {
 }
 
 .site-header.scrolled {
-    background: var(--bg) !important;
-    box-shadow: 0 4px 20px var(--shadow) !important;
+  background: var(--bg) !important;
+  box-shadow: 0 4px 20px var(--shadow) !important;
 }
 
-
-
-[dir="rtl"]
-
-.theme-toggle:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: var(--surface);
+[dir="rtl"] .theme-toggle:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--surface);
 }
 
 .theme-toggle i {
-    font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
-
-
-
-
-.card-icon, .footer-social img, .main-nav img, .mobile-nav img {
-    filter: var(--icon-filter);
+.card-icon,
+.footer-social img,
+.main-nav img,
+.mobile-nav img {
+  filter: var(--icon-filter);
 }
 
 .header-controls {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .mobile-controls {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
 }
 
 .mobile-controls .mobile-lang-selector {
-    padding: 0;
-    border-bottom: none;
-    margin-bottom: 0;
+  padding: 0;
+  border-bottom: none;
+  margin-bottom: 0;
 }
 
-.mobile-menu-close, .mobile-menu-toggle {
-    color: var(--text-bright) !important;
-}
-
-
-
-.mobile-nav a {
-    color: var(--text) !important;
-}
-
-.mobile-nav a:hover {
-    color: var(--primary) !important;
+.mobile-menu-close,
+.mobile-menu-toggle {
+  color: var(--text-bright) !important;
 }
 
 .mobile-nav a {
-    color: #f0f6fc !important; /* Always bright in dark menu */
+  color: var(--text) !important;
 }
 
 .mobile-nav a:hover {
-    color: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
-.mobile-menu-close, .mobile-menu-toggle {
-    color: #f0f6fc !important; /* Always bright in dark menu */
+.mobile-nav a {
+  color: #f0f6fc !important; /* Always bright in dark menu */
+}
+
+.mobile-nav a:hover {
+  color: var(--primary) !important;
+}
+
+.mobile-menu-close,
+.mobile-menu-toggle {
+  color: #f0f6fc !important; /* Always bright in dark menu */
 }
 
 .mobile-menu-header .logo-text {
-    color: #f0f6fc !important; /* Always bright in dark menu */
+  color: #f0f6fc !important; /* Always bright in dark menu */
 }
 
 /* ============================================
    Icon Visibility Fixes (Force White/Bright)
    ============================================ */
 /* Navigation icons */
-.main-nav img, .mobile-nav img {
-    filter: brightness(0) invert(1) !important;
+.main-nav img,
+.mobile-nav img {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Brand/Logo icons */
-.brand img, .mobile-menu-header .brand img {
-    filter: brightness(0) invert(1) !important;
+.brand img,
+.mobile-menu-header .brand img {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* GitHub, Email, LinkedIn, etc. in footer and social sections */
-.footer-social img, .social-links img, .member-social img, .contact-card img {
-    filter: brightness(0) invert(1) !important;
+.footer-social img,
+.social-links img,
+.member-social img,
+.contact-card img {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Card icons in projects, blog, and main pages */
-.card-icon, .icon-wrapper img, .blog-post-card img {
-    filter: brightness(0) invert(1) !important;
+.card-icon,
+.icon-wrapper img,
+.blog-post-card img {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Specific GitHub overrides for full certainty */
-img[src*="github"], img[src*="linkedin"], img[src*="email"], img[src*="telegram"], img[src*="instagram"] {
-    filter: brightness(0) invert(1) !important;
+img[src*="linkedin"],
+img[src*="email"],
+img[src*="telegram"],
+img[src*="instagram"] {
+  filter: brightness(0) invert(1) !important;
 }
 
 /* Ensure mobile menu is solid black and visible */
@@ -1897,6 +1904,8 @@ img[src*="github"], img[src*="linkedin"], img[src*="email"], img[src*="telegram"
   transition: opacity 0.3s ease;
 }
 
-.mobile-nav a, .mobile-menu-header .logo-text, .mobile-menu-close {
+.mobile-nav a,
+.mobile-menu-header .logo-text,
+.mobile-menu-close {
   color: #ffffff !important;
 }
