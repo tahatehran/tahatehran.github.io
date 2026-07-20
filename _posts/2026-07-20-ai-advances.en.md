@@ -6,7 +6,7 @@ lang: en
 locale: en
 dir: ltr
 author: MovtiGroup
-permalink: /blog/ai-advances/
+permalink: /en/blog/ai-advances/
 description: "A practical overview of recent AI breakthroughs and how they affect software development, automation, and product design."
 ---
 

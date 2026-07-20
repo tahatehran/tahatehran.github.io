@@ -6,7 +6,7 @@ lang: en
 locale: en
 dir: ltr
 author: MovtiGroup
-permalink: /blog/systems-thinking/
+permalink: /en/blog/systems-thinking/
 description: "Why systems thinking matters more than ever for backend, DevOps, and scalable architecture decisions."
 ---
 
