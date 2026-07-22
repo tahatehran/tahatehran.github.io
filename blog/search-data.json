@@ -1,0 +1,886 @@
+{
+  "posts": [
+    {
+      "title": "Getting Started with Mirror Project",
+      "url": "/en/blog/mirror-tutorial/",
+      "description": "Quick guide to using scripts and running the Mirror project locally. High performance software mirrors.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "آموزش شروع کار با پروژه Mirror",
+      "url": "/blog/mirror-tutorial/",
+      "description": "راهنمای سریع برای استفاده از اسکریپت‌ها و اجرای محلی پروژه Mirror. آموزش Mirror را در موتی‌گروپ بخوانید.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Quick Tips for Site Optimization",
+      "url": "/en/blog/quick-tips/",
+      "description": "Short and practical tips for optimization, SEO, and user experience. Professional web development.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نکته‌های سریع برای بهینه‌سازی سایت",
+      "url": "/blog/quick-tips/",
+      "description": "چند نکته کوتاه و کاربردی برای بهینه‌سازی سایت، سئو و تجربه کاربری. سئو حرفه‌ای با موتی‌گروپ.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Introduction to Iran System Encoding Project",
+      "url": "/en/blog/iran-system-encoding/",
+      "description": "A high-performance, professional Python library for the legacy Iran System character encoding. Secure and fast.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "معرفی پروژه Iran System Encoding",
+      "url": "/blog/iran-system-encoding/",
+      "description": "کتابخانه پایتون حرفه‌ای و با کارایی بالا برای کدگذاری قدیمی ایران سیستم. Iran System Encoding Library.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Introduction to Artificial Intelligence (AI)",
+      "url": "/en/blog/artificial-intelligence-intro/",
+      "description": "An introduction to AI, Machine Learning, and its role in the future of technology.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "آشنایی با دنیای هوش مصنوعی (AI)",
+      "url": "/blog/artificial-intelligence-intro/",
+      "description": "مقدمه‌ای بر هوش مصنوعی، یادگیری ماشین و نقش آن در آینده تکنولوژی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Introduction to Code Agents",
+      "url": "/en/blog/code-agents/",
+      "description": "The future of programming with smart assistants and autonomous agents.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "معرفی ایجنت‌های کدنویسی (Code Agents)",
+      "url": "/blog/code-agents/",
+      "description": "آینده برنامه‌نویسی با دستیارهای هوشمند و ایجنت‌های خودمختار.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Comprehensive Docker Guide for Developers",
+      "url": "/en/blog/docker-guide/",
+      "description": "Why is Docker essential for software development? Concepts of containers, images, and benefits.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "راهنمای جامع داکر برای توسعه‌دهندگان",
+      "url": "/blog/docker-guide/",
+      "description": "چرا داکر برای توسعه نرم‌افزار ضروری است؟ مفاهیم کانتینر، ایمیج و مزایای استفاده از Docker.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Configuring MySQL with Docker",
+      "url": "/en/blog/mysql-docker/",
+      "description": "Step-by-step tutorial on setting up a MySQL database using Docker Compose.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "پیکربندی MySQL با داکر",
+      "url": "/blog/mysql-docker/",
+      "description": "آموزش گام‌به‌گام راه‌اندازی دیتابیس MySQL با استفاده از Docker Compose.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Installing and Monitoring with Portainer on Linux",
+      "url": "/en/blog/portainer-linux/",
+      "description": "Visual management of Docker containers using the powerful Portainer panel.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نصب و مانیتورینگ با Portainer در لینوکس",
+      "url": "/blog/portainer-linux/",
+      "description": "مدیریت بصری کانتینرهای داکر با استفاده از پنل قدرتمند Portainer.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Configuring and Optimizing PostgreSQL",
+      "url": "/en/blog/postgresql-config/",
+      "description": "Key tips for configuring and improving the performance of PostgreSQL database.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "پیکربندی و بهینه‌سازی PostgreSQL",
+      "url": "/blog/postgresql-config/",
+      "description": "نکات کلیدی برای پیکربندی و افزایش کارایی دیتابیس PostgreSQL.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Installing Python on Linux and Machine Wizard",
+      "url": "/en/blog/python-linux/",
+      "description": "Professional Python installation and using Machine Wizard for Linux environment management.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نصب پایتون روی لینوکس و Machine Wizard",
+      "url": "/blog/python-linux/",
+      "description": "آموزش نصب حرفه‌ای پایتون و استفاده از جادوگر ماشین برای مدیریت محیط‌های لینوکسی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "SQL vs NoSQL Databases Comparison",
+      "url": "/en/blog/sql-vs-nosql/",
+      "description": "Which database is right for your project? Examining differences, pros, and cons.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مقایسه دیتابیس‌های SQL و NoSQL",
+      "url": "/blog/sql-vs-nosql/",
+      "description": "کدام دیتابیس برای پروژه شما مناسب است؟ بررسی تفاوت‌ها، مزایا و معایب SQL و NoSQL.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Remote Access with VPN and DDNS",
+      "url": "/en/blog/vpn-ddns/",
+      "description": "How to use DDNS and VPN to connect to your local network from anywhere in the world.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "دسترسی از راه دور با VPN و DDNS",
+      "url": "/blog/vpn-ddns/",
+      "description": "چگونه با استفاده از DDNS و VPN به شبکه داخلی خود از هر کجای دنیا متصل شویم.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Introduction to CI/CD and Deployment Automation",
+      "url": "/en/blog/cicd-intro/",
+      "description": "How to reduce human errors and increase software delivery speed using CI/CD.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مقدمه‌ای بر CI/CD و اتوماسیون استقرار",
+      "url": "/blog/cicd-intro/",
+      "description": "چگونه با استفاده از CI/CD خطاهای انسانی را کاهش داده و سرعت تحویل نرم‌افزار را بالا ببریم.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Building Fast APIs with FastAPI",
+      "url": "/en/blog/fastapi-intro/",
+      "description": "Why is FastAPI the best choice for Python developers in 2024?",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "ساخت API سریع با FastAPI",
+      "url": "/blog/fastapi-intro/",
+      "description": "چرا FastAPI بهترین انتخاب برای توسعه‌دهندگان پایتون در سال ۲۰۲۴ است؟",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Professional Git Workflow",
+      "url": "/en/blog/git-workflow/",
+      "description": "How to improve project management using Git Flow and Conventional Commits.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "جریان کاری حرفه‌ای با Git",
+      "url": "/blog/git-workflow/",
+      "description": "چگونه با استفاده از Git Flow و Conventional Commits، مدیریت پروژه را بهبود ببخشیم.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Infrastructure Monitoring with Prometheus and Grafana",
+      "url": "/en/blog/monitoring-stack/",
+      "description": "Smart monitoring of server and application health using visual dashboards.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مانیتورینگ زیرساخت با Prometheus و Grafana",
+      "url": "/blog/monitoring-stack/",
+      "description": "نظارت هوشمند بر سلامت سرورها و اپلیکیشن‌ها با استفاده از داشبوردهای بصری.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Boosting App Speed with Redis",
+      "url": "/en/blog/redis-caching/",
+      "description": "Tutorial on using Redis as a caching layer to reduce pressure on the main database.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "افزایش سرعت اپلیکیشن با Redis",
+      "url": "/blog/redis-caching/",
+      "description": "آموزش استفاده از Redis به عنوان لایه کش برای کاهش فشار روی دیتابیس اصلی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Essential Web Security Tips",
+      "url": "/en/blog/web-security/",
+      "description": "Protecting user data against common web attacks like XSS and SQL Injection.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نکات امنیتی ضروری در وب",
+      "url": "/blog/web-security/",
+      "description": "حفاظت از داده‌های کاربران در برابر حملات متداول وب مثل XSS و SQL Injection.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Machine Learning Basics for Beginners",
+      "url": "/en/blog/machine-learning-basics/",
+      "description": "Complete introduction to machine learning fundamentals, basic algorithms, and real-world applications.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مبانی یادگیری ماشین (Machine Learning) برای مبتدیان",
+      "url": "/blog/machine-learning-basics/",
+      "description": "آشنایی کامل با مبانی یادگیری ماشین، الگوریتم‌های ابتدایی و کاربردهای عملی در دنیای واقعی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Deep Learning and Neural Networks Explained",
+      "url": "/en/blog/deep-learning-neural-networks/",
+      "description": "Complete guide to artificial neural networks, layer architectures, and deep learning applications in vision and language.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "شبکه‌های عصبی و یادگیری عمیق (Deep Learning)",
+      "url": "/blog/deep-learning-neural-networks/",
+      "description": "بررسی کامل شبکه‌های عصبی مصنوعی، معماری لایه‌ها و کاربردهای یادگیری عمیق در پردازش تصویر و زبان.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Natural Language Processing and Transformers",
+      "url": "/en/blog/nlp-transformers/",
+      "description": "Comprehensive guide to Natural Language Processing (NLP) and the impact of Transformer architecture on Large Language Models.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "پردازش زبان طبیعی و معماری Transformer",
+      "url": "/blog/nlp-transformers/",
+      "description": "بررسی جامع پردازش زبان طبیعی (NLP) و تأثیر معماری Transformer بر مدل‌های زبانی بزرگ.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Computer Vision and Its Applications",
+      "url": "/en/blog/computer-vision/",
+      "description": "Introduction to computer vision, advanced techniques, and industrial applications across various sectors.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "بینایی کامپیوتری (Computer Vision) و کاربردهای آن",
+      "url": "/blog/computer-vision/",
+      "description": "معرفی بینایی کامپیوتری، تکنیک‌های پیشرفته و کاربردهای صنعتی در حوزه‌های مختلف.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Ethics and Ethical Challenges",
+      "url": "/en/blog/ai-ethics/",
+      "description": "Exploring ethical challenges in AI, algorithmic transparency, and developer responsibilities.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "اخلاق هوش مصنوعی و چالش‌های اخلاقی",
+      "url": "/blog/ai-ethics/",
+      "description": "بررسی چالش‌های اخلاقی در هوش مصنوعی، شفافیت الگوریتمی و مسئولیت‌های توسعه‌دهندگان.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI-Powered Business Automation",
+      "url": "/en/blog/ai-business-automation/",
+      "description": "AI solutions for business process automation, time and cost savings, and operational efficiency.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "اتوماسیون کسب‌وکار با هوش مصنوعی",
+      "url": "/blog/ai-business-automation/",
+      "description": "راه‌حل‌های هوش مصنوعی برای اتوماسیون فرآیندهای کسب‌وکار، صرفه‌جویی در زمان و هزینه.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Generative AI and the Content Revolution",
+      "url": "/en/blog/generative-ai/",
+      "description": "Exploring Generative AI, text and image models, and its impact on creative industries.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "هوش مصنوعی تولیدکننده (Generative AI) و انقلاب محتوا",
+      "url": "/blog/generative-ai/",
+      "description": "بررسی هوش مصنوعی تولیدکننده، مدل‌های متنی و تصویری، و تأثیر آن بر صنایع خلاقانه.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI in Healthcare and Medicine",
+      "url": "/en/blog/ai-in-healthcare/",
+      "description": "Novel AI applications in healthcare, disease diagnosis, and personalized treatments.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "هوش مصنوعی در پزشکی و بهداشت",
+      "url": "/blog/ai-in-healthcare/",
+      "description": "کاربردهای نوین هوش مصنوعی در پزشکی، تشخیص بیماری و درمان‌های شخصی‌سازی‌شده.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Chatbots and Intelligent Consultation",
+      "url": "/en/blog/ai-chatbots/",
+      "description": "Building intelligent chatbots with LLM, advisory and customer support applications.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "چت‌بات‌های هوشمند و مشاوره مصنوعی",
+      "url": "/blog/ai-chatbots/",
+      "description": "ساخت چت‌بات‌های هوشمند با LLM، کاربردهای مشاوره و پشتیبانی مشتریان.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Future Trends and 2025 Predictions",
+      "url": "/en/blog/ai-future-trends/",
+      "description": "Predicting new AI trends, technological transformations, and impact on the future of work.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "روندهای آینده هوش مصنوعی و پیش‌بینی‌های ۲۰۲۵",
+      "url": "/blog/ai-future-trends/",
+      "description": "پیش‌بینی روندهای نوین هوش مصنوعی، تحولات فناوری و تأثیر بر آینده کارها.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Intelligent Robotics and AI Integration",
+      "url": "/en/blog/ai-robotics/",
+      "description": "AI integration in robotics, industrial and service robots with artificial intelligence.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "رباتیک هوشمند و هوش مصنوعی",
+      "url": "/blog/ai-robotics/",
+      "description": "ادغام هوش مصنوعی در رباتیک، ربات‌های صنعتی و خدماتی با هوش مصنوعی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Data Science and AI: The Perfect Combination",
+      "url": "/en/blog/ai-data-science/",
+      "description": "The role of data science in AI, big data analysis, and knowledge extraction.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "علم داده و هوش مصنوعی: ترکیب دو تخصص",
+      "url": "/blog/ai-data-science/",
+      "description": "نقش علم داده در هوش مصنوعی، تحلیل داده‌های بزرگ و استخراج دانش.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Cloud Deployment and Optimization",
+      "url": "/en/blog/ai-cloud-deployment/",
+      "description": "Complete guide to deploying AI models in cloud services and cost optimization.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "استقرار هوش مصنوعی در ابر (Cloud Deployment)",
+      "url": "/blog/ai-cloud-deployment/",
+      "description": "راهنمای کامل استقرار مدل‌های هوش مصنوعی در سرویس‌های ابری و بهینه‌سازی هزینه‌ها.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Security and Threat Defense",
+      "url": "/en/blog/ai-security/",
+      "description": "AI security challenges, adversarial attacks, and defensive methods.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "امنیت هوش مصنوعی و دفاع در برابر تهدیدات",
+      "url": "/blog/ai-security/",
+      "description": "چالش‌های امنیتی در هوش مصنوعی، حملات Adversarial و روش‌های دفاعی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI in Smart Agriculture",
+      "url": "/en/blog/ai-agriculture/",
+      "description": "New AI applications in agriculture, plant health, and crop optimization.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "هوش مصنوعی در کشاورزی هوشمند",
+      "url": "/blog/ai-agriculture/",
+      "description": "کاربردهای نوین هوش مصنوعی در کشاورزی، بهداشت گیاهان و بهینه‌سازی محصول.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI in Education and Learning",
+      "url": "/en/blog/ai-education/",
+      "description": "AI transformations in education, automated teaching, and personalized learning.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "هوش مصنوعی در آموزش و یادگیری",
+      "url": "/blog/ai-education/",
+      "description": "تحولات هوش مصنوعی در آموزش، تدریس خودکار و یادگیری شخصی‌سازی‌شده.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI in Finance and Banking",
+      "url": "/en/blog/ai-finance/",
+      "description": "New AI applications in finance, fraud detection, and intelligent financial decision-making.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "هوش مصنوعی در مالی و بانکداری",
+      "url": "/blog/ai-finance/",
+      "description": "کاربردهای نوین هوش مصنوعی در مالی، تشخیص تقلب و تصمیم‌گیری مالی هوشمند.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Autonomous Vehicles and AI Technology",
+      "url": "/en/blog/ai-autonomous-vehicles/",
+      "description": "AI technologies in autonomous vehicles, driving systems, and safety.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "خودروهای خودران و هوش مصنوعی",
+      "url": "/blog/ai-autonomous-vehicles/",
+      "description": "فناوری‌های هوش مصنوعی در خودروهای خودران، سیستم‌های رانندگی و ایمنی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI in Energy and Environment",
+      "url": "/en/blog/ai-energy/",
+      "description": "AI applications in energy, consumption optimization, and renewable energy.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "هوش مصنوعی در انرژی و محیط زیست",
+      "url": "/blog/ai-energy/",
+      "description": "کاربردهای هوش مصنوعی در انرژی، بهینه‌سازی مصرف و انرژی تجدیدپذیر.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Startups in Iran",
+      "url": "/en/blog/ai-startups-iran/",
+      "description": "Introducing new AI startups in Iran, opportunities and challenges in this field.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "استارتاپ‌های هوش مصنوعی در ایران",
+      "url": "/blog/ai-startups-iran/",
+      "description": "معرفی استارتاپ‌های نوین هوش مصنوعی در ایران، فرصت‌ها و چالش‌های این حوزه.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Smart Car Ad Monitoring and Notification System on Divar",
+      "url": "/en/blog/divar-car-monitoring-bot/",
+      "description": "An intelligent bot for monitoring and notifying car ads on Divar using advanced web scraping and Bale messenger",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "سیستم هوشمند پایش و اعلان آگهی‌های خودرو در دیوار",
+      "url": "/blog/divar-car-monitoring-bot/",
+      "description": "ربات هوشمند پایش و اعلان آگهی‌های خودرو در دیوار با استفاده از وب اسکرپر پیشرفته و ربات Bale",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Complete Guide: Deploying Hermes on a VPS",
+      "url": "/en/blog/hermes-vps/",
+      "description": "Step-by-step guide to deploy and configure Hermes on a cloud VPS — from server selection to stable Docker deployment with security.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "راهنمای کامل راه‌اندازی Hermes روی VPS",
+      "url": "/blog/hermes-vps/",
+      "description": "نحوه استقرار و پیکربندی Hermes روی سرور ابری (VPS) — از انتخاب سرور تا اجرای پایدار با Docker و امنیت.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw vs KiloClaw: Architecture & Comparison",
+      "url": "/en/blog/openclaw-vs-kiloclaw/",
+      "description": "Deep comparison of OpenClaw and KiloClaw, gateway architecture, security layers, and key differences for choosing the right platform.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "بررسی و مقایسه OpenClaw، KiloClaw و زیربنای سیستم",
+      "url": "/blog/openclaw-vs-kiloclaw/",
+      "description": "مقایسه عمیق OpenClaw و KiloClaw، معماری گت‌وی، لایه‌های امنیتی، و تفاوت‌های کلیدی برای انتخاب پلتفرم مناسب.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw: A Customizable AI Assistant for Every Team",
+      "url": "/en/blog/openclaw/",
+      "description": "What is OpenClaw? A deep dive into the customizable AI assistant platform with skills, local file access, browser automation, and real-world use cases.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw: دستیار هوشمند شخصی‌سازی‌شده برای هر تیم",
+      "url": "/blog/openclaw/",
+      "description": "OpenClaw چیست؟ معرفی دستیار هوشمند شخصی‌سازی‌شده، قابلیت‌های کلیدی، اسکیل‌ها و کاربردهای عملی برای تیم‌های فنی.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Recent Advances in AI and What They Mean for Developers",
+      "url": "/en/blog/ai-advances/",
+      "description": "A practical overview of recent AI breakthroughs and how they affect software development, automation, and product design.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "داکر و کانتینرها: تغییر پارادایم استقرار نرم‌افزار",
+      "url": "/blog/docker-containerization/",
+      "description": "آشنایی با داکر و فناوری کانتینرها، مزایای استقرار نرم‌افزار در کانتینر و کاربردهای عملی در توسعه و تولید.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "دستورات ضروری لینوکس برای توسعه‌دهندگان",
+      "url": "/blog/linux-commands/",
+      "description": "آشنایی با دستورات کاربردی لینوکس که هر توسعه‌دهنده باید بداند، از grep و sed تا systemctl و جستجوی فایل‌ها.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "پایتون برای علوم داده: از صفر تا صداشدن",
+      "url": "/blog/python-data-science/",
+      "description": "راهنمای کامل شروع با پایتون در علوم داده، کتابخانه‌های NumPy، Pandas و Matplotlib و کاربردهای عملی در تحلیل داده.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نکات کاربردی پایتون که هر برنامه‌نویسی باید بداند",
+      "url": "/blog/python-tips/",
+      "description": "راهنمای نکات کاربردی و بهینه‌سازی کد پایتون برای برنامه‌نویسی حرفه‌ای، شامل مدیریت حافظه، لیست‌های فشرده و کار با datetime.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Systems Thinking for Modern Software Engineering",
+      "url": "/en/blog/systems-thinking/",
+      "description": "Why systems thinking matters more than ever for backend, DevOps, and scalable architecture decisions.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Recent Advances in AI and What They Mean for Developers",
+      "url": "/en/blog/ai-advances/",
+      "description": "A practical overview of recent AI breakthroughs and how they affect software development, automation, and product design.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "دستورات ضروری لینوکس برای توسعه‌دهندگان",
+      "url": "/blog/linux-commands/",
+      "description": "آشنایی با دستورات کاربردی لینوکس که هر توسعه‌دهنده باید بداند، از grep و sed تا systemctl و جستجوی فایل‌ها.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نکات کاربردی پایتون که هر برنامه‌نویسی باید بداند",
+      "url": "/blog/python-tips/",
+      "description": "راهنمای نکات کاربردی و بهینه‌سازی کد پایتون برای برنامه‌نویسی حرفه‌ای، شامل مدیریت حافظه، لیست‌های فشرده و کار با datetime.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Systems Thinking for Modern Software Engineering",
+      "url": "/en/blog/systems-thinking/",
+      "description": "Why systems thinking matters more than ever for backend, DevOps, and scalable architecture decisions.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "دستورات ضروری لینوکس برای توسعه‌دهندگان",
+      "url": "/blog/linux-commands/",
+      "description": "آشنایی با دستورات کاربردی لینوکس که هر توسعه‌دهنده باید بداند، از grep و sed تا systemctl و جستجوی فایل‌ها.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "نکات کاربردی پایتون که هر برنامه‌نویسی باید بداند",
+      "url": "/blog/python-tips/",
+      "description": "راهنمای نکات کاربردی و بهینه‌سازی کد پایتون برای برنامه‌نویسی حرفه‌ای، شامل مدیریت حافظه، لیست‌های فشرده و کار با datetime.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Agentic AI Readiness Assessment: A Founder Checklist for 2026",
+      "url": "/en/blog/2026-07-23-agentic-ai-readiness-assessment-founders-2026/",
+      "description": "Agentic AI Readiness Assessment: A Founder Checklist for 2026",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agent Cost Control: The 2026 Founder Playbook for Keeping Spend Boring",
+      "url": "/en/blog/2026-07-23-ai-agent-cost-control-playbook-2026/",
+      "description": "AI Agent Cost Control: The 2026 Founder Playbook for Keeping Spend Boring",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agent Evaluation Scorecard: What Founders Should Test Before Rollout",
+      "url": "/en/blog/2026-07-23-ai-agent-evaluation-scorecard-founders-2026/",
+      "description": "AI Agent Evaluation Scorecard: What Founders Should Test Before Rollout",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agent Permission Design for Startups: Give Agents Power Without Losing Control",
+      "url": "/en/blog/2026-07-23-ai-agent-permission-design-startups-2026/",
+      "description": "AI Agent Permission Design for Startups: Give Agents Power Without Losing Control",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agent Procurement Checklist for Startups in 2026",
+      "url": "/en/blog/2026-07-23-ai-agent-procurement-checklist-startups-2026/",
+      "description": "AI Agent Procurement Checklist for Startups in 2026",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agent Sandboxing: How Founders Let Agents Use Tools Without Losing Control in 2026",
+      "url": "/en/blog/2026-07-23-ai-agent-sandboxing-business-guide-2026/",
+      "description": "AI Agent Sandboxing: How Founders Let Agents Use Tools Without Losing Control in 2026",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agents for Compliance Ops: A Founder Guide to Safer Automation in 2026",
+      "url": "/en/blog/2026-07-23-ai-agents-for-compliance-ops-2026/",
+      "description": "AI Agents for Compliance Ops: A Founder Guide to Safer Automation in 2026",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agents for HR Operations: Where Automation Helps Without Replacing Judgment",
+      "url": "/en/blog/2026-07-23-ai-agents-for-hr-operations-2026/",
+      "description": "AI Agents for HR Operations: Where Automation Helps Without Replacing Judgment",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agents for Legal Ops: Contract Review Workflows That Pay Back in 2026",
+      "url": "/en/blog/2026-07-23-ai-agents-for-legal-ops-contract-review-2026/",
+      "description": "AI Agents for Legal Ops: Contract Review Workflows That Pay Back in 2026",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "AI Agents vs RPA: Which Automation Should Your Business Buy in 2026?",
+      "url": "/en/blog/2026-07-23-ai-agents-vs-rpa-business-automation-2026/",
+      "description": "AI Agents vs RPA: Which Automation Should Your Business Buy in 2026?",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Free AI Coding Models: GLM 4.7 and MiniMax M2.1 in Kilo Code",
+      "url": "/en/blog/free-glm-4.7-and-minimax-m2-1-kilo-code/",
+      "description": "Free AI Coding Models: GLM 4.7 and MiniMax M2.1 in Kilo Code",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مدل‌های رایگان کدنویسی هوش مصنوعی: GLM 4.7 و MiniMax M2.1 در Kilo Code",
+      "url": "/blog/free-glm-4.7-and-minimax-m2-1-kilo-code/",
+      "description": "مدل‌های رایگان کدنویسی هوش مصنوعی: GLM 4.7 و MiniMax M2.1 در Kilo Code",
+      "lang": "fa",
+      "categories": []
+    },
+    {
+      "title": "GPT-Load: High-Performance AI API Proxy for OpenAI, Gemini, and Claude",
+      "url": "/en/blog/2026-07-23-gpt-load-high-performance-ai-api-proxy-2026/",
+      "description": "GPT-Load: High-Performance AI API Proxy for OpenAI, Gemini, and Claude",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "How to Install Docker on CentOS / RHEL 9: Step-by-Step Guide",
+      "url": "/en/blog/2026-07-23-how-to-install-docker-on-centos-rhel-9/",
+      "description": "How to Install Docker on CentOS / RHEL 9: Step-by-Step Guide",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "How to Install Docker on macOS: Step-by-Step Guide",
+      "url": "/en/blog/2026-07-23-how-to-install-docker-on-macintosh/",
+      "description": "How to Install Docker on macOS: Step-by-Step Guide",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "How to Install Docker on Ubuntu 24.04 LTS: Step-by-Step Guide",
+      "url": "/en/blog/2026-07-23-how-to-install-docker-on-ubuntu-24-04/",
+      "description": "How to Install Docker on Ubuntu 24.04 LTS: Step-by-Step Guide",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Kilo Auto Model: Automatic AI Model Routing for Coding Tasks",
+      "url": "/en/blog/kilo-auto-model-routing-ai-coding-tasks/",
+      "description": "Kilo Auto Model: Automatic AI Model Routing for Coding Tasks",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "Kilo Auto Model: مسیریابی خودکار مدل‌های هوش مصنوعی برای وظایف کدنویسی",
+      "url": "/blog/kilo-auto-model-routing-ai-coding-tasks/",
+      "description": "Kilo Auto Model: مسیریابی خودکار مدل‌های هوش مصنوعی برای وظایف کدنویسی",
+      "lang": "fa",
+      "categories": []
+    },
+    {
+      "title": "KiloBench: AI Coding Model Benchmark Results for 2026",
+      "url": "/en/blog/kilobench-ai-coding-model-benchmark-results/",
+      "description": "KiloBench: AI Coding Model Benchmark Results for 2026",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "KiloBench: نتایج بنچمارک مدل‌های کدنویسی هوش مصنوعی",
+      "url": "/blog/kilobench-benchmark-ai-coding-models/",
+      "description": "KiloBench: نتایج بنچمارک مدل‌های کدنویسی هوش مصنوعی",
+      "lang": "fa",
+      "categories": []
+    },
+    {
+      "title": "OmniRoute: Free Open-Source AI Gateway With 268 Providers and Auto-Fallback",
+      "url": "/en/blog/2026-07-23-omniroute-free-open-source-ai-gateway-2026/",
+      "description": "OmniRoute: Free Open-Source AI Gateway With 268 Providers and Auto-Fallback",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw vs Hermes Agent: Every Feature That Matters for Founders in 2026",
+      "url": "/en/blog/openclaw-vs-hermes-agent-feature-comparison-founders-2026/",
+      "description": "A tactical feature-by-feature breakdown of OpenClaw and Hermes Agent covering memory, channels, skills, deployment, model support, automation, and security. Each feature is scored by what it actually saves or enables for a founder.",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw vs Hermes Agent: Honest Comparison Based on User Reports (2026)",
+      "url": "/en/blog/openclaw-vs-hermes-honest-comparison/",
+      "description": "OpenClaw vs Hermes Agent: Honest Comparison Based on User Reports (2026)",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مقایسه OpenClaw و Hermes Agent: مقایسه صادقانه بر اساس گزارش‌های کاربران (۲۰۲۶)",
+      "url": "/blog/openclaw-vs-hermes-honest-comparison/",
+      "description": "مقایسه OpenClaw و Hermes Agent: مقایسه صادقانه بر اساس گزارش‌های کاربران (۲۰۲۶)",
+      "lang": "fa",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw vs Perplexity Computer: Honest Agent Comparison (2026)",
+      "url": "/en/blog/openclaw-vs-perplexity-computer-honest-comparison/",
+      "description": "OpenClaw vs Perplexity Computer: Honest Agent Comparison (2026)",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مقایسه OpenClaw و Perplexity Computer: مقایسه رobot خودمختار هوش مصنوعی (۲۰۲۶)",
+      "url": "/blog/openclaw-vs-perplexity-computer-honest-comparison/",
+      "description": "مقایسه OpenClaw و Perplexity Computer: مقایسه رobot خودمختار هوش مصنوعی (۲۰۲۶)",
+      "lang": "fa",
+      "categories": []
+    },
+    {
+      "title": "OpenClaw vs ZeroClaw: TypeScript vs Rust Agent Comparison (2026)",
+      "url": "/en/blog/openclaw-vs-zeroclaw-typescript-vs-rust-agent/",
+      "description": "OpenClaw vs ZeroClaw: TypeScript vs Rust Agent Comparison (2026)",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "مقایسه OpenClaw و ZeroClaw: عامل TypeScript در برابر Rust (۲۰۲۶)",
+      "url": "/blog/openclaw-vs-zeroclaw-typescript-vs-rust-agent/",
+      "description": "مقایسه OpenClaw و ZeroClaw: عامل TypeScript در برابر Rust (۲۰۲۶)",
+      "lang": "fa",
+      "categories": []
+    },
+    {
+      "title": "Plexus: Open-Source AI Gateway With Protocol Translation, Routing, and Quota Tracking",
+      "url": "/en/blog/2026-07-23-plexus-open-source-ai-gateway-usage-tracking-2026/",
+      "description": "Plexus: Open-Source AI Gateway With Protocol Translation, Routing, and Quota Tracking",
+      "lang": "en",
+      "categories": []
+    },
+    {
+      "title": "📣 پایان خدمات آپلودبوی: پایان ۱۳ سال فعالیت",
+      "url": "/blog/uploadboy-shutdown/",
+      "description": "اعلام پایان خدمات آپلودبوی پس از ۱۳ سال فعالیت و خداحافظی از میلیون‌ها کاربر.",
+      "lang": "en",
+      "categories": []
+    }
+  ]
+}

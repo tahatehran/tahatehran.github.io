@@ -1,0 +1,98 @@
+---
+layout: default
+title: "Search -MovtiGroup Blog"
+permalink: /blog/search/
+lang: en
+locale: en
+dir: ltr
+---
+
+<div class="blog-header">
+  <h1>Search Blog</h1>
+  <p>Search across all {{ site.posts | size }} posts</p>
+</div>
+
+<div class="search-container">
+  <input 
+    type="search" 
+    id="blog-search" 
+    placeholder="Search posts..." 
+    autocomplete="off"
+    aria-label="Search blog posts"
+  >
+  <div id="search-results" class="search-results">
+    <div class="search-info">Type to search...</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const searchInput = document.getElementById('blog-search');
+  const resultsContainer = document.getElementById('search-results');
+  
+  const posts = [];
+  
+  fetch('/blog/search-data.json')
+    .then(r => r.json())
+    .then(data => {
+      window.searchPosts = data.posts || [];
+      renderSearchResults(window.searchPosts);
+    })
+    .catch(() => {
+      resultsContainer.innerHTML = '<div class="search-info">Search index loading...</div>';
+    });
+  
+  function escapeHtml(text) {
+    if (!text) return '';
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  function renderSearchResults(postsToShow) {
+    if (!postsToShow.length) {
+      resultsContainer.innerHTML = '<div class="search-info">No posts found</div>';
+      return;
+    }
+    
+    const html = postsToShow.map(post => {
+      const title = escapeHtml(post.title);
+      const desc = escapeHtml(post.description);
+      const cats = (post.categories || []).map(c => `<span class="category-tag">${escapeHtml(c)}</span>`).join('');
+      return `
+        <article class="blog-post-card search-result-card" data-title="${title}" data-description="${desc}">
+          <div class="post-card-content">
+            <h2 class="post-card-title">
+              <a href="${post.url}">${title}</a>
+            </h2>
+            <p class="post-card-excerpt">${desc}</p>
+            <div class="post-card-meta">${cats}</div>
+          </div>
+        </article>
+      `;
+    }).join('');
+    
+    resultsContainer.innerHTML = `<div class="search-info">${postsToShow.length} results</div>` + html;
+  }
+  
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase().trim();
+      
+      if (!query) {
+        renderSearchResults(window.searchPosts || []);
+        return;
+      }
+      
+      const filtered = (window.searchPosts || []).filter(post => {
+        const title = (post.title || '').toLowerCase();
+        const desc = (post.description || '').toLowerCase();
+        const cats = (post.categories || []).join(' ').toLowerCase();
+        return title.includes(query) || desc.includes(query) || cats.includes(query);
+      });
+      
+      renderSearchResults(filtered);
+    });
+  }
+})();
+</script>

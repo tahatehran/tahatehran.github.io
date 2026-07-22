@@ -1,65 +1,73 @@
 ---
-layout: default
-lang: fa
-dir: rtl
-title: بلاگ
-pagination:
-  enabled: true
-  collection: posts
-  per_page: 6
-  filter:
-    field: lang
-    value: fa
-  sort_field: date
-  sort_reverse: true
+layout: category
+title: "All Blog Posts"
+description: "All posts on MovtiGroup blog"
+permalink: /blog/
+lang: en
+locale: en
+dir: ltr
+category: all
 ---
 
-<section class="blog-header hero">
-  <h1>بلاگ موتی‌گروپ</h1>
-  <p>آخرین آموزش‌ها، نکات و اخبار پروژه‌های ما.</p>
-</section>
-
-<div class="blog-search-container">
-  <div class="search-box">
-    <input type="text" id="blog-search" placeholder="جستجو در مقالات..." class="search-input">
-    <img src="/assets/images/icons/search.svg" alt="Search" class="search-icon">
-  </div>
+<div class="blog-header">
+  <h1>All Blog Posts</h1>
+  <p>{{ site.posts | size }} posts total</p>
 </div>
 
-{% assign localized_posts = paginator.posts | default: site.posts %}
+<div class="blog-filters">
+  <button class="filter-btn active" data-filter="all">All</button>
+  {% assign all_categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+  {% for cat in all_categories %}
+    {% if cat != '' %}
+      <button class="filter-btn" data-filter="{{ cat | strip }}">{{ cat | strip }}</button>
+    {% endif %}
+  {% endfor %}
+</div>
 
-<div class="card-grid blog-post-grid" id="blog-posts-container" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
-  {% for post in localized_posts %}
-    <article class="card blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" style="display: flex; flex-direction: column;">
-      <div class="post-icon"><img src="/assets/images/icons/brain.svg" alt="AI" style="width: 32px; height: 32px; object-fit: contain;"></div>
-      <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
-      <p style="color: var(--muted); font-size: 0.9rem; flex: 1;">{{ post.description | strip_html | truncate: 120 }}</p>
-      <div class="post-meta-info">
-        <img src="/assets/images/icons/calendar.svg" alt="Date" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-left: 4px;">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-      </div>
-      <div style="margin-top: 1rem;">
-        <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">ادامه مطلب</a>
+<div class="blog-posts-container" id="blog-posts-container">
+  {% for post in site.posts %}
+    <article class="blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" data-categories="{{ post.categories | join: ' ' }}">
+      <div class="post-card-content">
+        <h2 class="post-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <p class="post-card-excerpt">{{ post.description | strip_html | truncate: 150 }}</p>
+        <div class="post-card-meta">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+          {% if post.categories %}
+            <span class="post-categories">
+              {% for cat in post.categories %}
+                <span class="category-tag">{{ cat }}</span>
+              {% endfor %}
+            </span>
+          {% endif %}
+        </div>
       </div>
     </article>
   {% endfor %}
 </div>
 
-{% if paginator.total_pages > 1 %}
-<div class="pagination" style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
-    {% for page_num in (1..paginator.total_pages) %}
-      {% if page_num == paginator.page %}
-        <span class="btn btn-primary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</span>
-      {% else %}
-        {% if page_num == 1 %}
-          <a href="{{ '/' | relative_url }}" class="btn btn-secondary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</a>
-        {% else %}
-          <a href="{{ site.baseurl }}/page{{ page_num }}/" class="btn btn-secondary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</a>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </div>
-  <span class="page-number" style="display: flex; align-items: center; font-weight: 700; font-size: 0.9rem;">صفحه {{ paginator.page }} از {{ paginator.total_pages }}</span>
-</div>
-{% endif %}
+<script>
+(function() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const posts = document.querySelectorAll('.blog-post-card');
+  
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const filter = this.dataset.filter;
+      
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      
+      posts.forEach(post => {
+        if (filter === 'all') {
+          post.style.display = '';
+        } else {
+          const cats = post.dataset.categories || '';
+          post.style.display = cats.includes(filter) ? '' : 'none';
+        }
+      });
+    });
+  });
+})();
+</script>

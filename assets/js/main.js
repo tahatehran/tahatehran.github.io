@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to copy:', err);
             }
         });
-    });
+    }
 
     // Blog Search Functionality
     const searchInput = document.getElementById('blog-search');

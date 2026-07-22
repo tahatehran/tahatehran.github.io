@@ -1,0 +1,41 @@
+---
+layout: default
+title: "{{ page.title }} - MovtiGroup"
+permalink: /blog/category/{{ page.category }}/
+lang: en
+locale: en
+dir: ltr
+---
+
+<div class="blog-header">
+  <h1>{{ page.title }}</h1>
+  <p>{{ page.description }}</p>
+</div>
+
+<div class="category-posts-container" id="category-posts-container" data-category="{{ page.category }}">
+  {% assign filtered = site.posts | where_exp: "post", "post.categories contains page.category" %}
+  {% if filtered.size == 0 %}
+    <p>No posts found in this category.</p>
+  {% else %}
+    {% for post in filtered %}
+      <article class="blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" data-categories="{{ post.categories | join: ' ' }}">
+        <div class="post-card-content">
+          <h2 class="post-card-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          <p class="post-card-excerpt">{{ post.description | strip_html | truncate: 150 }}</p>
+          <div class="post-card-meta">
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+            {% if post.categories %}
+              <span class="post-categories">
+                {% for cat in post.categories %}
+                  <span class="category-tag">{{ cat }}</span>
+                {% endfor %}
+              </span>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  {% endif %}
+</div>
