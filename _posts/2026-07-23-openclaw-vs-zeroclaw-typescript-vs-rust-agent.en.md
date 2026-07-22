@@ -6,8 +6,9 @@ lang: en
 locale: en
 dir: ltr
 author: MovtiGroup
-permalink: /en/blog/openclaw-vs-zeroclaw-typescript-vs-rust-agent/
-description: "OpenClaw vs ZeroClaw: TypeScript vs Rust Agent Comparison (2026)"
+permalink: /en/blog/openclaw-vs-zeroclaw-typescript-vs-rust-agent.en/
+description:
+categories: [openclaw, comparison, ai-agents] "OpenClaw vs ZeroClaw: TypeScript vs Rust Agent Comparison (2026)"
 ---
 
 OpenClaw and ZeroClaw are both open-source AI agent platforms, but they target opposite ends of the hardware and performance spectrum. OpenClaw is built on Node.js and offers the largest community, 700+ skills, and broad hosting options. ZeroClaw is built on Rust and uses less than 5MB of RAM, starts in under 10 milliseconds, and runs on hardware as small as a Raspberry Pi or a $10 VPS.

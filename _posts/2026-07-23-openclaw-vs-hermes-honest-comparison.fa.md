@@ -6,8 +6,9 @@ lang: fa
 locale: fa
 dir: rtl
 author: MovtiGroup
-permalink: /fa/blog/openclaw-vs-hermes-honest-comparison/
-description: "مقایسه OpenClaw و Hermes Agent: مقایسه صادقانه بر اساس گزارش‌های کاربران (۲۰۲۶)"
+permalink: /blog/openclaw-vs-hermes-honest-comparison/
+description:
+categories: [openclaw, comparison, ai-agents] "مقایسه OpenClaw و Hermes Agent: مقایسه صادقانه بر اساس گزارش‌های کاربران (۲۰۲۶)"
 ---
 
 OpenClaw و Hermes Agent هر دو چارچوب عامل هوش مصنوعی هستند، اما کاربران متفاوتی را بر اساس اندازه جامعه، تجربه راه‌اندازی و فلسفه طراحی جذب می‌کنند. OpenClaw ۳۷۰K+ ستاره GitHub، اکوسیستم ۷۰۰+ مهارت و پشتیبانی پلتفرم گسترده دارد. Hermes راه‌اندازی روان‌تر، یادگیری داخلی که شکست‌ها را به مهارت تبدیل می‌کند و تجربه حافظه پیش‌فرض پایدارتر را ارائه می‌دهد — به قیمت fewer یکپارچگی‌ها و جامعه کوچکتر.

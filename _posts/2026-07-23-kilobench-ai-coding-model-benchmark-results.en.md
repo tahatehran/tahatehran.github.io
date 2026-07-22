@@ -6,8 +6,9 @@ lang: en
 locale: en
 dir: ltr
 author: MovtiGroup
-permalink: /en/blog/2026-07-23-kilobench-ai-coding-model-benchmark-results.en/
-description: "KiloBench: AI Coding Model Benchmark Results for 2026"
+permalink: /en/blog/kilobench-ai-coding-model-benchmark-results.en/
+description:
+categories: [kilo-ai, benchmarks, ai-coding] "KiloBench: AI Coding Model Benchmark Results for 2026"
 ---
 
 KiloBench is an AI coding model benchmark that ranks the most capable coding models by cost versus performance. If you want to know which model gives the best coding results for the lowest price, KiloBench publishes official scores you can sort by capability, cost, or token usage.
@@ -40,4 +41,3 @@ KiloBench gives you numbers instead of marketing claims. You can compare models 
 ## Limitations
 
 Benchmarks are not everything. A model that scores well on KiloBench might still underperform on your codebase if your stack, language, or review standards differ from the benchmark design. Always validate with your own projects before locking in a model for production use.
-
