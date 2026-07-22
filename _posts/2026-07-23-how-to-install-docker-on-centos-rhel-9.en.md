@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-how-to-install-docker-on-centos-rhel-9/
 description: "How to Install Docker on CentOS / RHEL 9: Step-by-Step Guide"
+categories: [docker, devops, tutorial]
 ---
 
 Docker Engine runs well on Red Hat Enterprise Linux 9 and its downstream siblings, CentOS Stream and Rocky Linux. The official installation path uses Docker's own repository, which keeps packages up to date and avoids the older `docker` package shipped by the base operating system.

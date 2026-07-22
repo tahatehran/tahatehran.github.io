@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/mysql-docker/
 description: "Step-by-step tutorial on setting up a MySQL database using Docker Compose."
+categories: [docker, devops, databases, tutorial]
 ---
 
 Setting up MySQL with Docker is simple and fast. In this tutorial, you'll learn how to create a stable database with Docker Compose.

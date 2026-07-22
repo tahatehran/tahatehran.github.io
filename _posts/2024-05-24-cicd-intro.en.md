@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/cicd-intro/
 description: "How to reduce human errors and increase software delivery speed using CI/CD."
+categories: [tutorial]
 ---
 
 The Continuous Integration (CI) and Continuous Deployment (CD) process is the heartbeat of modern software development.

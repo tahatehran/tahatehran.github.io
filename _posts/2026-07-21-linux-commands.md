@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/linux-commands/
 description: "آشنایی با دستورات کاربردی لینوکس که هر توسعه‌دهنده باید بداند، از grep و sed تا systemctl و جستجوی فایل‌ها."
+categories: [python, linux, docker, api]
 ---
 
 لینوکس به عنوان سیستم‌عامل غالب در سرورها و محیط‌های توسعه، تسلط بر دستورات آن یکی از مهارت‌های ضروری برای توسعه‌دهندگان است.

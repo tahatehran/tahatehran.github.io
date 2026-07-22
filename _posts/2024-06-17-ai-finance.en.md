@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-finance/
 description: "New AI applications in finance, fraud detection, and intelligent financial decision-making."
+categories: [security, api]
 ---
 
 AI in finance and banking has improved decision accuracy and security.

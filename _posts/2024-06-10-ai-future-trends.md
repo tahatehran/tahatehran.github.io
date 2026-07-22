@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-future-trends/
 description: "پیش‌بینی روندهای نوین هوش مصنوعی، تحولات فناوری و تأثیر بر آینده کارها."
+categories: [general]
 ---
 
 هوش مصنوعی در سال‌های اخیر تحولات شگفت‌انگیزی داشته است و آینده پر از چشم‌اندازهای نوین است.

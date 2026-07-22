@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-education/
 description: "AI transformations in education, automated teaching, and personalized learning."
+categories: [ai-agents]
 ---
 
 AI in education has personalized and made learning more accessible.

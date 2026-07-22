@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/openclaw-vs-hermes-agent-feature-comparison-founders-2026/
 description: "A tactical feature-by-feature breakdown of OpenClaw and Hermes Agent covering memory, channels, skills, deployment, model support, automation, and security. Each feature is scored by what it actually saves or enables for a founder."
+categories: [openclaw, comparison, ai-agents, docker, security, api]
 ---
 
 A tactical feature-by-feature breakdown of OpenClaw and Hermes Agent covering memory, channels, skills, deployment, model support, automation, and security. Each feature is scored by what it actually saves or enables for a founder.

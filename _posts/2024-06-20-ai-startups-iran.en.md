@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-startups-iran/
 description: "Introducing new AI startups in Iran, opportunities and challenges in this field."
+categories: [general]
 ---
 
 Iran is developing AI startups with its human and cultural capabilities.

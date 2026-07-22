@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-how-to-install-docker-on-ubuntu-24-04/
 description: "How to Install Docker on Ubuntu 24.04 LTS: Step-by-Step Guide"
+categories: [docker, devops, tutorial]
 ---
 
 Docker is the de facto standard for containerizing applications, and Ubuntu 24.04 LTS is one of the most common host operating systems for development and production. This guide shows how to install Docker Engine from Docker's official repository, configure it to run without sudo, and verify that the installation works.

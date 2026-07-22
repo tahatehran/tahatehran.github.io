@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/python-data-science/
 description: "راهنمای کامل شروع با پایتون در علوم داده، کتابخانه‌های NumPy، Pandas و Matplotlib و کاربردهای عملی در تحلیل داده."
+categories: [python, linux]
 ---
 
 پایتون به عنوان یکی از محبوب‌ترین زبان‌های برنامه‌نویسی در حوزه علوم داده، ابزارهای قدرتمندی برای تحلیل، بصری‌سازی و استخراج بینش از داده‌ها ارائه می‌دهد.

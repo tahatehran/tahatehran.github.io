@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/generative-ai/
 description: "Exploring Generative AI, text and image models, and its impact on creative industries."
+categories: [ai-agents]
 ---
 
 Generative AI can create new content based on learned patterns.

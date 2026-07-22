@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/web-security/
 description: "حفاظت از داده‌های کاربران در برابر حملات متداول وب مثل XSS و SQL Injection."
+categories: [security, databases]
 ---
 
 امنیت در وب یک موضوع حیاتی است. نادیده گرفتن آن می‌تواند به اعتبار و دارایی‌های شما آسیب جدی بزند.

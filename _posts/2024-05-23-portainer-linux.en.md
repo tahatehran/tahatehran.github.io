@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/portainer-linux/
 description: "Visual management of Docker containers using the powerful Portainer panel."
+categories: [python, linux, docker, api]
 ---
 
 If you're tired of the Docker command line, Portainer is the best GUI for managing your containers.

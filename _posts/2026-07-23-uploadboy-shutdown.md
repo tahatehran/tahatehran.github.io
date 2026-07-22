@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/uploadboy-shutdown/
 description: "اعلام پایان خدمات آپلودبوی پس از ۱۳ سال فعالیت و خداحافظی از میلیون‌ها کاربر."
+categories: [general]
 ---
 
 کاربران عزیز آپلودبوی

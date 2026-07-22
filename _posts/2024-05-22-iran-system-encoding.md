@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/iran-system-encoding/
 description: "کتابخانه پایتون حرفه‌ای و با کارایی بالا برای کدگذاری قدیمی ایران سیستم. Iran System Encoding Library."
+categories: [python, api]
 ---
 
 پروژه **Iran System Encoding** یک کتابخانه قدرتمند پایتون برای کار با کدگذاری متنی قدیمی ایران سیستم است. این پکیج امکان تبدیل دوطرفه، تشخیص خودکار زبان و مدیریت هوشمند اعداد را فراهم می‌کند.

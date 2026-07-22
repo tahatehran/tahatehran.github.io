@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-security/
 description: "AI security challenges, adversarial attacks, and defensive methods."
+categories: [security, api]
 ---
 
 Security in AI systems is a very important priority that requires special attention and advanced solutions.

@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-finance/
 description: "کاربردهای نوین هوش مصنوعی در مالی، تشخیص تقلب و تصمیم‌گیری مالی هوشمند."
+categories: [api]
 ---
 
 هوش مصنوعی در حوزه مالی و بانکداری، دقت تصمیمات و امنیت را بهبود بخشیده است.

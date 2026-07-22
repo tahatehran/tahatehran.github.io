@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-chatbots/
 description: "Building intelligent chatbots with LLM, advisory and customer support applications."
+categories: [ai-agents, databases, api, tutorial]
 ---
 
 Intelligent chatbots using Large Language Models (LLM) have revolutionized user experience in digital services.

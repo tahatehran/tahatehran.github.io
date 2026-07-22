@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/mysql-docker/
 description: "آموزش گام‌به‌گام راه‌اندازی دیتابیس MySQL با استفاده از Docker Compose."
+categories: [docker, devops, databases]
 ---
 
 راه‌اندازی MySQL با داکر بسیار ساده و سریع است. در این آموزش یاد می‌گیرید چگونه با Docker Compose یک دیتابیس پایدار ایجاد کنید.

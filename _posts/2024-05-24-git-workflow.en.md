@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/git-workflow/
 description: "How to improve project management using Git Flow and Conventional Commits."
+categories: [tutorial]
 ---
 
 Correct use of the Git version control system is essential for the success of any team. In this article, we explore the best practices.

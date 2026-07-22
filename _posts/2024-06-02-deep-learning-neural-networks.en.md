@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/deep-learning-neural-networks/
 description: "Complete guide to artificial neural networks, layer architectures, and deep learning applications in vision and language."
+categories: [ai-agents, tutorial]
 ---
 
 Deep Learning uses multi-layer neural networks to model increasingly complex patterns in data.

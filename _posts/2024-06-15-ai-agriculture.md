@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-agriculture/
 description: "کاربردهای نوین هوش مصنوعی در کشاورزی، بهداشت گیاهان و بهینه‌سازی محصول."
+categories: [general]
 ---
 
 هوش مصنوعی در کشاورزی، باصطلاح کشاورزی هوشمند (Smart Farming) نقش مهمی در افزایش بهره‌وری و کاهش هزینه‌های کشاورزی ایفا می‌کند.

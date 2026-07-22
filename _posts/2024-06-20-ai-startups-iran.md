@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-startups-iran/
 description: "معرفی استارتاپ‌های نوین هوش مصنوعی در ایران، فرصت‌ها و چالش‌های این حوزه."
+categories: [general]
 ---
 
 ایران با توجه به ظرفیت‌های انسانی و فرهنگی، در حال توسعه استارتاپ‌های هوش مصنوعی است.

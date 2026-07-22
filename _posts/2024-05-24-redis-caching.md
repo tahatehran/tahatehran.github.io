@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/redis-caching/
 description: "آموزش استفاده از Redis به عنوان لایه کش برای کاهش فشار روی دیتابیس اصلی."
+categories: [general]
 ---
 
 ردیس (Redis) یک پایگاه داده درون‌حافظه‌ای (In-memory) است که سرعت پاسخگویی اپلیکیشن شما را به طرز چشمگیری افزایش می‌دهد.

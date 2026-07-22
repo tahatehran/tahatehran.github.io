@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/docker-guide/
 description: "Why is Docker essential for software development? Concepts of containers, images, and benefits."
+categories: [docker, devops, tutorial]
 ---
 
 Docker has revolutionized how we build, test, and deploy software. With Docker, you'll never hear the famous "It worked on my machine!" again.

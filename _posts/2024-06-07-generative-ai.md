@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/generative-ai/
 description: "بررسی هوش مصنوعی تولیدکننده، مدل‌های متنی و تصویری، و تأثیر آن بر صنایع خلاقانه."
+categories: [ai-agents]
 ---
 
 هوش مصنوعی تولیدکننده (Generative AI) توانسته محتوای جدیدی را از روی الگوهای یادگرفته‌شده تولید کند.

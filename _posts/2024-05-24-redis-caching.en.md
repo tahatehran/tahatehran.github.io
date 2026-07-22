@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/redis-caching/
 description: "Tutorial on using Redis as a caching layer to reduce pressure on the main database."
+categories: [databases, tutorial]
 ---
 
 Redis is an in-memory database that significantly increases your application's responsiveness.

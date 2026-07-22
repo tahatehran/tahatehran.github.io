@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/mirror-tutorial/
 description: "راهنمای سریع برای استفاده از اسکریپت‌ها و اجرای محلی پروژه Mirror. آموزش Mirror را در موتی‌گروپ بخوانید."
+categories: [docker, tutorial]
 ---
 
 این آموزش براساس اطلاعات مخزن [movtigroup/Mirror](https://github.com/movtigroup/Mirror) آماده شده است.

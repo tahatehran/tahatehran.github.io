@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-ai-agent-sandboxing-business-guide-2026/
 description: "AI Agent Sandboxing: How Founders Let Agents Use Tools Without Losing Control in 2026"
+categories: [docker, ai-agents, security, tutorial]
 ---
 
 AI agent sandboxing is becoming a board-level operating question because useful agents no longer just answer questions. They browse websites, edit files, run background tasks, use business tools, prepare purchases, and sometimes control a desktop. If you let that happen in the same environment your team uses for payroll, production admin, and customer data, you are not buying automation. You are accepting an unmanaged blast radius.

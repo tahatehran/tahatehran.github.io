@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/python-linux/
 description: "آموزش نصب حرفه‌ای پایتون و استفاده از جادوگر ماشین برای مدیریت محیط‌های لینوکسی."
+categories: [python, linux]
 ---
 
 پایتون زبان اول لینوکس است. در این مطلب نحوه نصب صحیح و مدیریت نسخه‌های مختلف را یاد می‌گیرید.

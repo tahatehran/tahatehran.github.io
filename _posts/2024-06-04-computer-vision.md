@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/computer-vision/
 description: "معرفی بینایی کامپیوتری، تکنیک‌های پیشرفته و کاربردهای صنعتی در حوزه‌های مختلف."
+categories: [general]
 ---
 
 بینایی کامپیوتری (Computer Vision) توانایی کامپیوترها را درک، تحلیل و درک تصاویر دیجیتال می‌دهد.

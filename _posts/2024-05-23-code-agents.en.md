@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/code-agents/
 description: "The future of programming with smart assistants and autonomous agents."
+categories: [general]
 ---
 
 Code Agents are the next generation of software development tools, doing much more than simple code completion.

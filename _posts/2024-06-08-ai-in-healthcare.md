@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-in-healthcare/
 description: "کاربردهای نوین هوش مصنوعی در پزشکی، تشخیص بیماری و درمان‌های شخصی‌سازی‌شده."
+categories: [general]
 ---
 
 هوش مصنوعی در حوزه پزشکی، دقت تشخیص را بالا برده و دسترسی به خدمات درمانی را گسترده‌تر کرده است.

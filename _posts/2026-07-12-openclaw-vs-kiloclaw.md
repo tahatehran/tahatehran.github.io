@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/openclaw-vs-kiloclaw/
 description: "مقایسه عمیق OpenClaw و KiloClaw، معماری گت‌وی، لایه‌های امنیتی، و تفاوت‌های کلیدی برای انتخاب پلتفرم مناسب."
+categories: [openclaw, comparison, ai-agents, kilo-ai, ai-coding, security]
 ---
 
 در دنیای دستیارهای هوشمند، دو نام **OpenClaw** و **KiloClaw** زیاد شنیده می‌شوند. در این مقاله، هر دو را بررسی می‌کنیم، معماری زیربنایی OpenClaw را کالبدشکافی می‌کنیم، و تفاوت‌های کلیدی را برای انتخاب بهتر شما آشکار می‌کنیم.

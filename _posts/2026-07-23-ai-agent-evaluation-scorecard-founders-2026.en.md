@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-ai-agent-evaluation-scorecard-founders-2026/
 description: "AI Agent Evaluation Scorecard: What Founders Should Test Before Rollout"
+categories: [ai-agents, api]
 ---
 
 AI Agent Evaluation Scorecard: What Founders Should Test Before Rollout is not a prediction piece. It is a buying and rollout memo for founders who want agent work to show up as fewer hours, fewer dropped tasks, and cleaner decisions inside the business.

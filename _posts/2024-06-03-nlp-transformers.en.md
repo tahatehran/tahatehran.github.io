@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/nlp-transformers/
 description: "Comprehensive guide to Natural Language Processing (NLP) and the impact of Transformer architecture on Large Language Models."
+categories: [ai-agents, tutorial]
 ---
 
 Natural Language Processing (NLP) is one of the most widely used fields of AI that helps computers understand and generate human text.

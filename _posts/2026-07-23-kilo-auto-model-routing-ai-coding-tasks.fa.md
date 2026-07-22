@@ -7,8 +7,8 @@ locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/kilo-auto-model-routing-ai-coding-tasks/
-description:
-categories: [kilo-ai, model-routing, ai-coding] "Kilo Auto Model: مسیریابی خودکار مدل‌های هوش مصنوعی برای وظایف کدنویسی"
+categories: [kilo-ai, model-routing, ai-coding]
+description: "Kilo Auto Model: مسیریابی خودکار مدل‌های هوش مصنوعی برای وظایف کدنویسی"
 ---
 
 Kilo Auto Model یک قابلیت مسیریابی خودکار مدل در Kilo Code است که بهترین مدل هوش مصنوعی را برای هر وظیفه کدنویسی بدون نیاز به تغییر دستی مدل انتخاب می‌کند. اگر از دستیاران کدنویسی هوش مصنوعی استفاده می‌کنید و وقت خود را صرف انتخاب بین Claude، GPT، Gemini یا مدل‌های رایگان برای کارهای مختلف می‌کنید، Auto Model این مسیریابی را برای شما انجام می‌دهد.

@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/fastapi-intro/
 description: "چرا FastAPI بهترین انتخاب برای توسعه‌دهندگان پایتون در سال ۲۰۲۴ است؟"
+categories: [api]
 ---
 
 اگر به دنبال سرعت بالا در توسعه و اجرا هستید، FastAPI گزینه اول شماست.

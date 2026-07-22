@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/nlp-transformers/
 description: "بررسی جامع پردازش زبان طبیعی (NLP) و تأثیر معماری Transformer بر مدل‌های زبانی بزرگ."
+categories: [ai-agents]
 ---
 
 پردازش زبان طبیعی (NLP) یکی از پرکاربردترین حوزه‌های هوش مصنوعی است که به کامپیوترها کمک می‌کند تا متون انسانی را درک و تولید کنند.

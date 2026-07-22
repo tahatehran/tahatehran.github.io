@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-chatbots/
 description: "ساخت چت‌بات‌های هوشمند با LLM، کاربردهای مشاوره و پشتیبانی مشتریان."
+categories: [ai-agents, api]
 ---
 
 چت‌بات‌های هوشمند با استفاده از مدل‌های زبانی بزرگ (LLM) توانسته‌اند تجربه کاربری را در سرویس‌های دیجیتال نوین کنند.

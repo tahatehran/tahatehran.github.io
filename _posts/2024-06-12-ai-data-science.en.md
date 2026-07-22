@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-data-science/
 description: "The role of data science in AI, big data analysis, and knowledge extraction."
+categories: [python, databases]
 ---
 
 Data Science and AI are two related specialties whose combination yields the best results in data analysis and prediction.

@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/machine-learning-basics/
 description: "Complete introduction to machine learning fundamentals, basic algorithms, and real-world applications."
+categories: [python]
 ---
 
 Machine Learning (ML) is a key branch of Artificial Intelligence that enables systems to learn patterns from data without explicit programming.

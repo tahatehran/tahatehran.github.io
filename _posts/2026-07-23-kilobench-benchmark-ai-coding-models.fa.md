@@ -7,8 +7,8 @@ locale: fa
 dir: rtl
 author: MovtiGroup
 permalink: /blog/kilobench-benchmark-ai-coding-models/
-description:
-categories: [kilo-ai, benchmarks, ai-coding] "KiloBench: نتایج بنچمارک مدل‌های کدنویسی هوش مصنوعی"
+categories: [kilo-ai, benchmarks, ai-coding]
+description: "KiloBench: نتایج بنچمارک مدل‌های کدنویسی هوش مصنوعی"
 ---
 
 KiloBench یک بنچمارک کدنویسی هوش مصنوعی است که مدل‌های کدنویسی برتر را بر اساس هزینه در مقابل عملکرد رتبه‌بندی می‌کند. اگر می‌خواهید بدانید کدام مدل بهترین نتیجه کدنویسی را با کمترین قیمت ارائه می‌دهد، KiloBench نمرات رسمی را منتشر می‌کند که می‌توانید بر اساس قابلیت، هزینه یا مصرف توکن مرتب‌سازی کنید.

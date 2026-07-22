@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/cicd-intro/
 description: "چگونه با استفاده از CI/CD خطاهای انسانی را کاهش داده و سرعت تحویل نرم‌افزار را بالا ببریم."
+categories: [general]
 ---
 
 فرآیند Continuous Integration (CI) و Continuous Deployment (CD) قلب تپنده توسعه نرم‌افزار مدرن است.

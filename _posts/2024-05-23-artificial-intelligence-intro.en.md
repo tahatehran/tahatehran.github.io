@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/artificial-intelligence-intro/
 description: "An introduction to AI, Machine Learning, and its role in the future of technology."
+categories: [general]
 ---
 
 Artificial Intelligence (AI) is no longer just a sci-fi concept; it's an integral part of our daily lives and industry. From voice assistants to self-driving cars, AI is redefining the boundaries of knowledge.

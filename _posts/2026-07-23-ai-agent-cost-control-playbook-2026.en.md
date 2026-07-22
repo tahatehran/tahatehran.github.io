@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-ai-agent-cost-control-playbook-2026/
 description: "AI Agent Cost Control: The 2026 Founder Playbook for Keeping Spend Boring"
+categories: [ai-agents]
 ---
 
 AI Agent Cost Control: The 2026 Founder Playbook for Keeping Spend Boring is not a prediction piece. It is a buying and rollout memo for founders who want agent work to show up as fewer hours, fewer dropped tasks, and cleaner decisions inside the business.

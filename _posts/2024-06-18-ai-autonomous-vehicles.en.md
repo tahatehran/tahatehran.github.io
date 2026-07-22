@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-autonomous-vehicles/
 description: "AI technologies in autonomous vehicles, driving systems, and safety."
+categories: [general]
 ---
 
 Autonomous vehicles combine AI technologies to revolutionize driving.

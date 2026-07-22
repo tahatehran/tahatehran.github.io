@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/monitoring-stack/
 description: "نظارت هوشمند بر سلامت سرورها و اپلیکیشن‌ها با استفاده از داشبوردهای بصری."
+categories: [general]
 ---
 
 داشتن دید کامل نسبت به وضعیت زیرساخت، کلید پایداری سیستم‌های بزرگ است.

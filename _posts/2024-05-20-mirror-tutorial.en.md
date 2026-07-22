@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/mirror-tutorial/
 description: "Quick guide to using scripts and running the Mirror project locally. High performance software mirrors."
+categories: [docker, tutorial]
 ---
 
 This tutorial is based on the [movtigroup/Mirror](https://github.com/movtigroup/Mirror) repository.

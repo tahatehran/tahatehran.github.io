@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/monitoring-stack/
 description: "Smart monitoring of server and application health using visual dashboards."
+categories: [general]
 ---
 
 Having full visibility into the infrastructure status is the key to the stability of large systems.

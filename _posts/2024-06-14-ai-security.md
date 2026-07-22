@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-security/
 description: "چالش‌های امنیتی در هوش مصنوعی، حملات Adversarial و روش‌های دفاعی."
+categories: [security, api]
 ---
 
 امنیت در سیستم‌های هوش مصنوعی یک اولویت بسیار مهم است که نیازمند توجه ویژه و راهکارهای پیشرفته است.

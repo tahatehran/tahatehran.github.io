@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-cloud-deployment/
 description: "راهنمای کامل استقرار مدل‌های هوش مصنوعی در سرویس‌های ابری و بهینه‌سازی هزینه‌ها."
+categories: [docker, ai-agents, api]
 ---
 
 استقرار مدل‌های هوش مصنوعی در محیط‌های ابری، دسترس‌پذیری و مقیاس‌پذیری را افزایش می‌دهد.

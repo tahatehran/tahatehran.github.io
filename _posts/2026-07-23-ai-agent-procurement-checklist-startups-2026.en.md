@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-ai-agent-procurement-checklist-startups-2026/
 description: "AI Agent Procurement Checklist for Startups in 2026"
+categories: [ai-agents]
 ---
 
 AI Agent Procurement Checklist for Startups in 2026 is not a prediction piece. It is a buying and rollout memo for founders who want agent work to show up as fewer hours, fewer dropped tasks, and cleaner decisions inside the business.

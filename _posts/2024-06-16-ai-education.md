@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-education/
 description: "تحولات هوش مصنوعی در آموزش، تدریس خودکار و یادگیری شخصی‌سازی‌شده."
+categories: [ai-agents]
 ---
 
 هوش مصنوعی در حوزه آموزش، تجربه یادگیری را شخصی‌سازی و دسترس‌پذیرتر کرده است.

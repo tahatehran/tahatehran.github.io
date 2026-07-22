@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-robotics/
 description: "AI integration in robotics, industrial and service robots with artificial intelligence."
+categories: [security, api]
 ---
 
 Intelligent robotics combines AI and robotic engineering to create robots that can understand and make decisions about their environment.

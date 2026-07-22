@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/divar-car-monitoring-bot/
 description: "ربات هوشمند پایش و اعلان آگهی‌های خودرو در دیوار با استفاده از وب اسکرپر پیشرفته و ربات Bale"
+categories: [python, databases, api]
 ---
 
 ## معرفی پروژه

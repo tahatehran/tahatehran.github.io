@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/python-linux/
 description: "Professional Python installation and using Machine Wizard for Linux environment management."
+categories: [python, linux, tutorial]
 ---
 
 Python is the primary language for Linux. In this post, you'll learn how to correctly install and manage different versions.

@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/machine-learning-basics/
 description: "آشنایی کامل با مبانی یادگیری ماشین، الگوریتم‌های ابتدایی و کاربردهای عملی در دنیای واقعی."
+categories: [python]
 ---
 
 یادگیری ماشین (Machine Learning) یکی از شاخه‌های کلیدی هوش مصنوعی است که به سیستم‌ها امکان می‌دهد بدون برنامه‌نویسی صریح، الگوها را از داده‌ها بیاموزند.

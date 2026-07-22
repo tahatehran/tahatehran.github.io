@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-data-science/
 description: "نقش علم داده در هوش مصنوعی، تحلیل داده‌های بزرگ و استخراج دانش."
+categories: [python, databases]
 ---
 
 علم داده (Data Science) و هوش مصنوعی (AI) دو تخصص مرتبط هستند که ترکیب آنها بهترین نتایج را در تحلیل و پیش‌بینی داده‌ها می‌دهد.

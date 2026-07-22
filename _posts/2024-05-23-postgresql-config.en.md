@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/postgresql-config/
 description: "Key tips for configuring and improving the performance of PostgreSQL database."
+categories: [databases]
 ---
 
 PostgreSQL is one of the most advanced open-source databases. However, for large projects, it needs precise tuning.

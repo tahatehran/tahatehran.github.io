@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/sql-vs-nosql/
 description: "Which database is right for your project? Examining differences, pros, and cons."
+categories: [databases, api]
 ---
 
 Choosing the right database is one of the most critical decisions in software architecture. In this article, we explore the fundamental differences between SQL and NoSQL.

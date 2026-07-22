@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-agriculture/
 description: "New AI applications in agriculture, plant health, and crop optimization."
+categories: [general]
 ---
 
 AI in agriculture, known as Smart Farming, plays a significant role in increasing efficiency and reducing farming costs.

@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-business-automation/
 description: "راه‌حل‌های هوش مصنوعی برای اتوماسیون فرآیندهای کسب‌وکار، صرفه‌جویی در زمان و هزینه."
+categories: [python, ai-agents, api]
 ---
 
 هوش مصنوعی امکان اتوماسیون فرآیندهای پیچیده را فراهم می‌کند که قبلاً نیاز به تعهد انسانی داشتند.

@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-in-healthcare/
 description: "Novel AI applications in healthcare, disease diagnosis, and personalized treatments."
+categories: [javascript]
 ---
 
 AI in healthcare has improved diagnostic accuracy and expanded access to medical services.

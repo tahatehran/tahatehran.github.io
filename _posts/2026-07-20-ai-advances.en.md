@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-advances/
 description: "A practical overview of recent AI breakthroughs and how they affect software development, automation, and product design."
+categories: [api]
 ---
 
 Artificial intelligence continues to evolve rapidly, with new models, tools, and deployment patterns appearing every week.

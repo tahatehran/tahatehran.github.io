@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/hermes-vps/
 description: "Step-by-step guide to deploy and configure Hermes on a cloud VPS — from server selection to stable Docker deployment with security."
+categories: [openclaw, comparison, ai-agents, docker, python, security]
 ---
 
 Hermes is a communication/bridge layer (gateway) that connects AI assistants to various channels (Telegram, web, API). In this article, we explain how to deploy Hermes on a VPS step by step.

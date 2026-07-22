@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/postgresql-config/
 description: "نکات کلیدی برای پیکربندی و افزایش کارایی دیتابیس PostgreSQL."
+categories: [databases]
 ---
 
 PostgreSQL یکی از پیشرفته‌ترین دیتابیس‌های متن‌باز است. اما برای پروژه‌های بزرگ، نیاز به تنظیمات دقیق دارد.

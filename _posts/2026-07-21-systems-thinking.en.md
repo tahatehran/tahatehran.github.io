@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/systems-thinking/
 description: "Why systems thinking matters more than ever for backend, DevOps, and scalable architecture decisions."
+categories: [general]
 ---
 
 Modern software problems are rarely about a single service or a single language. They are about interaction, failure modes, and long-term evolution.

@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/portainer-linux/
 description: "مدیریت بصری کانتینرهای داکر با استفاده از پنل قدرتمند Portainer."
+categories: [python, linux, docker, api]
 ---
 
 اگر از خط فرمان داکر خسته شده‌اید، Portainer بهترین رابط گرافیکی برای مدیریت کانتینرهای شماست.

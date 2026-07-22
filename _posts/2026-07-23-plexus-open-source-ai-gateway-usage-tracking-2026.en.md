@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-plexus-open-source-ai-gateway-usage-tracking-2026/
 description: "Plexus: Open-Source AI Gateway With Protocol Translation, Routing, and Quota Tracking"
+categories: [ai-tools, gateway, docker, python, ai-agents, databases]
 ---
 
 Plexus is an open-source AI gateway and proxy built for teams that need to route requests across multiple AI providers, enforce quota limits, and track usage without relying on external services. If your project calls OpenAI, Anthropic Claude, Google Gemini, or other compatible APIs through a single endpoint, Plexus handles protocol translation, provider selection, and real-time usage accounting.

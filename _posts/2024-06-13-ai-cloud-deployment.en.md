@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-cloud-deployment/
 description: "Complete guide to deploying AI models in cloud services and cost optimization."
+categories: [docker, ai-agents, security, api, tutorial]
 ---
 
 Deploying AI models in cloud environments increases accessibility and scalability.

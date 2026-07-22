@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/computer-vision/
 description: "Introduction to computer vision, advanced techniques, and industrial applications across various sectors."
+categories: [python, security]
 ---
 
 Computer Vision gives computers the ability to understand, analyze, and interpret digital images.

@@ -7,9 +7,6 @@ url: "https://movtigroup.me"
 twitter_username: movtigroup
 github_username:  movtigroup
 
-# Permalinks configuration
-permalink: /blog/:title/
-
 # Build settings
 # theme: jekyll-theme-cayman
 plugins:
@@ -18,31 +15,33 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate-v2
 
+# Multilingual defaults
 defaults:
-  - scope:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+  -
+    scope:
       path: ""
     values:
       layout: "default"
       lang: "fa"
       dir: "rtl"
 
-
-# Global pagination settings (for reference)
-# Actual filtering is done per-page via front matter
-pagination:
-  enabled: true
-  debug: false
-  per_page: 6
-  permalink: 'page:num/'
-  title_suffix: ' - Page :num'
-  limit: 0
-  sort_field: 'date'
-  sort_reverse: true
-  indexpage: 'index'
-  collection: 'posts'
-
 # Collections configuration
 collections:
   posts:
     output: true
     permalink: /blog/:title/
+
+# Pagination
+pagination:
+  enabled: true
+  per_page: 12
+  permalink: '/page/:num/'
+  title: ':title - page :num'
+  sort_field: 'date'
+  sort_reverse: true

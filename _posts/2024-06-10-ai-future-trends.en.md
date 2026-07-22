@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-future-trends/
 description: "Predicting new AI trends, technological transformations, and impact on the future of work."
+categories: [ai-agents, security]
 ---
 
 AI has undergone remarkable transformations in recent years, and the future is full of new horizons.

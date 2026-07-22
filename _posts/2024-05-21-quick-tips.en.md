@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/quick-tips/
 description: "Short and practical tips for optimization, SEO, and user experience. Professional web development."
+categories: [general]
 ---
 
 Here are some practical tips to improve your website:

@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/divar-car-monitoring-bot/
 description: "An intelligent bot for monitoring and notifying car ads on Divar using advanced web scraping and Bale messenger"
+categories: [python, security, databases, api, tutorial]
 ---
 
 ## Project Introduction

@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/quick-tips/
 description: "چند نکته کوتاه و کاربردی برای بهینه‌سازی سایت، سئو و تجربه کاربری. سئو حرفه‌ای با موتی‌گروپ."
+categories: [general]
 ---
 
 در اینجا چند نکته کاربردی برای بهبود وب‌سایت شما آورده شده است:

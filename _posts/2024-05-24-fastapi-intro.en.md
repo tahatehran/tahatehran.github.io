@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/fastapi-intro/
 description: "Why is FastAPI the best choice for Python developers in 2024?"
+categories: [python, api]
 ---
 
 If you are looking for high development and execution speed, FastAPI is your first choice.

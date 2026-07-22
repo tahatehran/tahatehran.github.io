@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/git-workflow/
 description: "چگونه با استفاده از Git Flow و Conventional Commits، مدیریت پروژه را بهبود ببخشیم."
+categories: [general]
 ---
 
 استفاده صحیح از سیستم کنترل ورژن Git برای موفقیت هر تیمی ضروری است. در این مقاله به بررسی بهترین روش‌ها می‌پردازیم.

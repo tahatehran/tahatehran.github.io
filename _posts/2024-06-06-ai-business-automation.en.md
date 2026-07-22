@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/ai-business-automation/
 description: "AI solutions for business process automation, time and cost savings, and operational efficiency."
+categories: [python, ai-agents, api]
 ---
 
 AI enables automation of complex processes that previously required human intervention.

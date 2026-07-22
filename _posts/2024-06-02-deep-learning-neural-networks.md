@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/deep-learning-neural-networks/
 description: "بررسی کامل شبکه‌های عصبی مصنوعی، معماری لایه‌ها و کاربردهای یادگیری عمیق در پردازش تصویر و زبان."
+categories: [ai-agents]
 ---
 
 یادگیری عمیق (Deep Learning) با استفاده از شبکه‌های عصبی چندلایه، انواب پیچیده‌تری از داده‌ها را می‌تواند مدل‌سازی کند.

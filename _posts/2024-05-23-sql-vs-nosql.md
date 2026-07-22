@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/sql-vs-nosql/
 description: "کدام دیتابیس برای پروژه شما مناسب است؟ بررسی تفاوت‌ها، مزایا و معایب SQL و NoSQL."
+categories: [databases]
 ---
 
 انتخاب دیتابیس مناسب یکی از حیاتی‌ترین تصمیمات در معماری نرم‌افزار است. در این مقاله تفاوت‌های بنیادین SQL و NoSQL را بررسی می‌کنیم.

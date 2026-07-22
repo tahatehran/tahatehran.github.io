@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/web-security/
 description: "Protecting user data against common web attacks like XSS and SQL Injection."
+categories: [security, databases]
 ---
 
 Security on the web is a vital issue. Ignoring it can seriously damage your reputation and assets.

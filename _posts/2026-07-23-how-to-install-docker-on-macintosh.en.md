@@ -8,6 +8,7 @@ dir: ltr
 author: MovtiGroup
 permalink: /en/blog/2026-07-23-how-to-install-docker-on-macintosh/
 description: "How to Install Docker on macOS: Step-by-Step Guide"
+categories: [docker, devops, databases, api, tutorial]
 ---
 
 Docker Desktop is the easiest way to run Docker on a Mac. It bundles the Docker Engine, CLI, BuildKit, Kubernetes, and a graphical dashboard into one application. This guide covers installation on both Apple Silicon and Intel Macs, basic configuration, and how to verify that Docker is working.

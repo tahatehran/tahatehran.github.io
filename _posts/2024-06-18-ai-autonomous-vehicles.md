@@ -8,6 +8,7 @@ dir: rtl
 author: MovtiGroup
 permalink: /blog/ai-autonomous-vehicles/
 description: "فناوری‌های هوش مصنوعی در خودروهای خودران، سیستم‌های رانندگی و ایمنی."
+categories: [general]
 ---
 
 خودروهای خودران با ترکیب فناوری‌های هوش مصنوعی، امیدوارند روانه‌گیری رانندگی را به دنیا بیاورند.

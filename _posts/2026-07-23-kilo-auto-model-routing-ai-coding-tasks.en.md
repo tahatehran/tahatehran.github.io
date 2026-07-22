@@ -6,9 +6,9 @@ lang: en
 locale: en
 dir: ltr
 author: MovtiGroup
-permalink: /en/blog/kilo-auto-model-routing-ai-coding-tasks.en/
-description:
-categories: [kilo-ai, model-routing, ai-coding] "Kilo Auto Model: Automatic AI Model Routing for Coding Tasks"
+permalink: /en/blog/kilo-auto-model-routing-ai-coding-tasks/
+categories: [kilo-ai, model-routing, ai-coding]
+description: "Kilo Auto Model: Automatic AI Model Routing for Coding Tasks"
 ---
 
 Kilo Auto Model is an automatic model routing feature in Kilo Code that selects the best AI model for each coding task without forcing you to switch models manually. If you use AI coding assistants and spend time choosing between Claude, GPT, Gemini, or free models for different jobs, Auto Model handles the routing for you.
