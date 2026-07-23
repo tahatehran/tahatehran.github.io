@@ -1543,6 +1543,66 @@
       ],
       "date": "2026-07-23 12:00:00 +0330",
       "excerpt": "Plexus is an opensource AI gateway and proxy built for teams that need to route requests across multiple AI providers, enforce quota limits, and track usage without relying on external services. If yo"
+    },
+    {
+      "title": "Drivebase: Telegram-Based Infrastructure for File Management",
+      "url": "/en/blog/drivebase-telegram-infrastructure/",
+      "description": "Learn about Drivebase, an infrastructure toolkit for building file management systems on top of Telegram, designed for developers and self-hosters.",
+      "lang": "en",
+      "categories": [
+        "general",
+        "tutorial"
+      ],
+      "date": "2026-07-24 12:00:00 +0330",
+      "excerpt": "What is Drivebase? Drivebase is an infrastructure project that provides the building blocks for creating file management systems powered by Telegram's storage backend. Available at github.com/drivebas"
+    },
+    {
+      "title": "TGDrive: Turn Telegram into Your Personal Cloud Drive",
+      "url": "/en/blog/tgdrive-cloud-storage/",
+      "description": "Explore TGDrive, a Telegram cloud drive client that transforms your Telegram account into a fast, free personal cloud drive for storing and managing files.",
+      "lang": "en",
+      "categories": [
+        "general",
+        "tutorial"
+      ],
+      "date": "2026-07-24 12:00:00 +0330",
+      "excerpt": "What is TGDrive? TGDrive is an opensource Telegram cloud drive client that allows you to use Telegram as your personal cloud storage service. Available at github.com/TechShreyash/TGDrivehttps://github"
+    },
+    {
+      "title": "Teldrive: Build Your Own Cloud Storage on Telegram",
+      "url": "/en/blog/teldrive-telegram-storage/",
+      "description": "Discover Teldrive, a self-hosted cloud storage solution that leverages Telegram as its backend to provide unlimited, free file storage with full API access.",
+      "lang": "en",
+      "categories": [
+        "general",
+        "tutorial"
+      ],
+      "date": "2026-07-24 12:00:00 +0330",
+      "excerpt": "What is Teldrive? Teldrive is an opensource, selfhosted cloud storage solution that uses Telegram as its backend storage engine. By leveraging Telegram's robust infrastructure and generous file size l"
+    },
+    {
+      "title": "Telegram Drive for VPNs: Secure File Storage for Privacy Tools",
+      "url": "/en/blog/telegram-drive-vpns/",
+      "description": "Explore Telegram Drive for VPNs — a specialized Telegram-based file storage client designed for users who need secure, encrypted file storage alongside their VPN usage.",
+      "lang": "en",
+      "categories": [
+        "general",
+        "security"
+      ],
+      "date": "2026-07-24 12:00:00 +0330",
+      "excerpt": "What is Telegram Drive for VPNs? Telegram Drive for VPNs is a specialized opensource project that combines the storage capabilities of Telegram with the security needs of VPN users. Available at githu"
+    },
+    {
+      "title": "Telegram Drive: Open-Source File Manager for Telegram",
+      "url": "/en/blog/telegram-drive-open-source/",
+      "description": "Discover Telegram Drive, an open-source file manager that transforms your Telegram account into a fully-featured cloud drive with upload, download, and API support.",
+      "lang": "en",
+      "categories": [
+        "general",
+        "tutorial"
+      ],
+      "date": "2026-07-24 12:00:00 +0330",
+      "excerpt": "What is Telegram Drive? Telegram Drive is an opensource file manager and cloud drive client that uses Telegram as its storage backend. Available at github.com/caamer20/TelegramDrivehttps://github.com/"
     }
   ]
 }
