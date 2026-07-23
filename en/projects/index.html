@@ -6,377 +6,414 @@ title: Projects
 description: "List of open-source projects and development tools by MovtiGroup."
 ---
 
-<section class="projects-header hero">
-  <h1>MovtiGroup Projects</h1>
-  <p>We build practical and powerful tools to solve real-world challenges.</p>
+<style>
+  .projects-hero {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 40%, #1a2332 70%, #0d2818 100%);
+    padding: 4rem 2rem 3.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(126, 231, 135, 0.15);
+  }
+  .projects-hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at center, rgba(126, 231, 135, 0.05) 0%, transparent 60%);
+    animation: heroPulse 8s ease-in-out infinite;
+  }
+  @keyframes heroPulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+  .projects-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-bright);
+    margin: 0 0 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .projects-hero h1 span {
+    color: var(--accent);
+  }
+  .projects-hero p {
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    z-index: 1;
+    line-height: 1.7;
+  }
+  .project-count-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(126, 231, 135, 0.1);
+    border: 1px solid rgba(126, 231, 135, 0.25);
+    color: var(--accent);
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+  }
+  .project-count-badge .count {
+    background: var(--accent);
+    color: #0d1117;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+  .project-card {
+    background: var(--card-bg, #161b22);
+    border: 1px solid var(--border, rgba(126, 231, 135, 0.1));
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+    border-color: rgba(126, 231, 135, 0.25);
+  }
+  .project-card-header {
+    padding: 1.5rem 1.5rem 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    opacity: 0.08;
+    border-radius: 16px 16px 0 0;
+  }
+  .project-card-header.cat-python::before { background: linear-gradient(135deg, #3572A5, #306998); }
+  .project-card-header.cat-infrastructure::before { background: linear-gradient(135deg, #f97316, #ea580c); }
+  .project-card-header.cat-opensource::before { background: linear-gradient(135deg, #7ee787, #56d364); }
+  .project-card-header.cat-extension::before { background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+  .project-card-header.cat-bot::before { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+  .project-card-header.cat-ai::before { background: linear-gradient(135deg, #ec4899, #d946ef); }
+  .project-card-header.cat-aitools::before { background: linear-gradient(135deg, #f59e0b, #d97706); }
+
+  .project-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    position: relative;
+    z-index: 1;
+  }
+  .project-card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(126, 231, 135, 0.08);
+    border: 1px solid rgba(126, 231, 135, 0.12);
+  }
+  .project-card-icon img {
+    width: 22px;
+    height: 22px;
+  }
+  .chip {
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .chip-python { background: rgba(53, 114, 165, 0.15); color: #79c0ff; }
+  .chip-infrastructure { background: rgba(249, 115, 22, 0.15); color: #fb923c; }
+  .chip-opensource { background: rgba(126, 231, 135, 0.12); color: #7ee787; }
+  .chip-extension { background: rgba(124, 58, 237, 0.15); color: #a78bfa; }
+  .chip-bot { background: rgba(6, 182, 212, 0.15); color: #67e8f9; }
+  .chip-ai { background: rgba(236, 72, 153, 0.15); color: #f472b6; }
+  .chip-aitools { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+
+  .project-card-body {
+    padding: 0 1.5rem 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+  }
+  .project-card-body h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+  .project-card-body h3 a {
+    color: var(--text-bright);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .project-card-body h3 a:hover {
+    color: var(--accent);
+  }
+  .project-card-body p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    flex: 1;
+    margin: 0 0 1rem;
+  }
+  .github-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(126, 231, 135, 0.08);
+    border: 1px solid rgba(126, 231, 135, 0.15);
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 12px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    width: fit-content;
+  }
+  .project-card-actions {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  .project-card-actions .btn {
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+    padding: 2.5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  @media (max-width: 768px) {
+    .projects-hero h1 { font-size: 1.8rem; }
+    .projects-grid { grid-template-columns: 1fr; padding: 1.5rem 1rem; }
+  }
+</style>
+
+<section class="projects-hero">
+  <h1>MovtiGroup <span>Projects</span></h1>
+  <p>We build practical and powerful tools to solve real-world challenges. From Python libraries to AI platforms.</p>
+  <div class="project-count-badge">
+    <span class="count">9</span>
+    Active Projects
+  </div>
 </section>
 
-<div class="card-grid">
-  <!-- Project 1 -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/python.svg"
-        alt="Python"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Python</span
-      >
+<div class="projects-grid">
+
+  <!-- Dirac.run -->
+  <article class="project-card">
+    <div class="project-card-header cat-ai">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/brain.svg" alt="Dirac.run" />
+        </div>
+        <span class="chip chip-ai">AI</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="{{ '/en/blog/iran-system-encoding/' | relative_url }}"
-        style="color: var(--text-bright); text-decoration: none"
-        >Iran System Encoding</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      A professional Python library for converting and managing the old Iran
-      System encoding with 100% accuracy and high speed. Ideal for developers
-      working with legacy Iran System data.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="{{ '/en/blog/iran-system-encoding/' | relative_url }}"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
+    <div class="project-card-body">
+      <h3><a href="https://github.com/dirac-run/dirac" target="_blank">Dirac.run</a></h3>
+      <div class="github-badge">
+        ⭐ Open Source on GitHub
+      </div>
+      <p>High-performance AI inference platform. A unified environment for optimized AI model execution with support for multiple frameworks and hardware backends.</p>
+      <div class="project-card-actions">
+        <a href="https://github.com/dirac-run/dirac" target="_blank" class="btn btn-primary">View on GitHub</a>
+        <a href="https://github.com/dirac-run/dirac" target="_blank" class="btn btn-secondary">Documentation</a>
+      </div>
     </div>
   </article>
 
-  <!-- Project 2 -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/infrastructure.svg"
-        alt="Infrastructure"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Infrastructure</span
-      >
+  <!-- Kilo Code -->
+  <article class="project-card">
+    <div class="project-card-header cat-aitools">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/brain.svg" alt="Kilo Code" />
+        </div>
+        <span class="chip chip-aitools">AI Tools</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="{{ '/en/blog/mirror-tutorial/' | relative_url }}"
-        style="color: var(--text-bright); text-decoration: none"
-        >Mirror Project</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      Software mirror infrastructure for stable and fast access to package
-      managers, Docker, and cloud services. High speed and reliability for all
-      your infrastructure needs.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="{{ '/en/blog/mirror-tutorial/' | relative_url }}"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
+    <div class="project-card-body">
+      <h3><a href="https://github.com/kilo-org/kilo" target="_blank">Kilo Code</a></h3>
+      <div class="github-badge">
+        ⭐ Open Source on GitHub
+      </div>
+      <p>AI-powered coding assistant that accelerates software development with intelligent code generation, context-aware search, and automated suggestions.</p>
+      <div class="project-card-actions">
+        <a href="https://github.com/kilo-org/kilo" target="_blank" class="btn btn-primary">View on GitHub</a>
+        <a href="https://github.com/kilo-org/kilo" target="_blank" class="btn btn-secondary">Documentation</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Iran System Encoding -->
+  <article class="project-card">
+    <div class="project-card-header cat-python">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/python.svg" alt="Python" />
+        </div>
+        <span class="chip chip-python">Python</span>
+      </div>
+    </div>
+    <div class="project-card-body">
+      <h3><a href="{{ '/en/blog/iran-system-encoding/' | relative_url }}">Iran System Encoding</a></h3>
+      <p>A professional Python library for converting and managing the old Iran System encoding with 100% accuracy and high speed. Ideal for developers working with legacy Iran System data.</p>
+      <div class="project-card-actions">
+        <a href="{{ '/en/blog/iran-system-encoding/' | relative_url }}" class="btn btn-primary">View Project</a>
+      </div>
+    </div>
+  </article>
+
+  <!-- Mirror Project -->
+  <article class="project-card">
+    <div class="project-card-header cat-infrastructure">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/infrastructure.svg" alt="Infrastructure" />
+        </div>
+        <span class="chip chip-infrastructure">Infrastructure</span>
+      </div>
+    </div>
+    <div class="project-card-body">
+      <h3><a href="{{ '/en/blog/mirror-tutorial/' | relative_url }}">Mirror Project</a></h3>
+      <p>Software mirror infrastructure for stable and fast access to package managers, Docker, and cloud services. High speed and reliability for all your infrastructure needs.</p>
+      <div class="project-card-actions">
+        <a href="{{ '/en/blog/mirror-tutorial/' | relative_url }}" class="btn btn-primary">View Project</a>
+      </div>
     </div>
   </article>
 
   <!-- ArmiGram -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/github.svg"
-        alt="Open Source"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Open Source</span
-      >
+  <article class="project-card">
+    <div class="project-card-header cat-opensource">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/github.svg" alt="Open Source" />
+        </div>
+        <span class="chip chip-opensource">Open Source</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="https://github.com/ArmiGram"
-        target="_blank"
-        style="color: var(--text-bright); text-decoration: none"
-        >ArmiGram</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      Open source project ArmiGram on GitHub. An innovative visual social
-      network with advanced features.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="https://github.com/ArmiGram"
-        target="_blank"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
+    <div class="project-card-body">
+      <h3><a href="https://github.com/ArmiGram" target="_blank">ArmiGram</a></h3>
+      <div class="github-badge">
+        ⭐ Open Source on GitHub
+      </div>
+      <p>Open source project ArmiGram on GitHub. An innovative visual social network with advanced features.</p>
+      <div class="project-card-actions">
+        <a href="https://github.com/ArmiGram" target="_blank" class="btn btn-primary">View on GitHub</a>
+      </div>
     </div>
   </article>
 
   <!-- animeti -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/github.svg"
-        alt="Open Source"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Open Source</span
-      >
+  <article class="project-card">
+    <div class="project-card-header cat-opensource">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/github.svg" alt="Open Source" />
+        </div>
+        <span class="chip chip-opensource">Open Source</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="https://github.com/animeti"
-        target="_blank"
-        style="color: var(--text-bright); text-decoration: none"
-        >animeti</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      Open source project animeti on GitHub. A comprehensive anime and
-      entertainment platform for enthusiasts.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="https://github.com/animeti"
-        target="_blank"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
+    <div class="project-card-body">
+      <h3><a href="https://github.com/animeti" target="_blank">animeti</a></h3>
+      <div class="github-badge">
+        ⭐ Open Source on GitHub
+      </div>
+      <p>Open source project animeti on GitHub. A comprehensive anime and entertainment platform for enthusiasts.</p>
+      <div class="project-card-actions">
+        <a href="https://github.com/animeti" target="_blank" class="btn btn-primary">View on GitHub</a>
+      </div>
     </div>
   </article>
 
   <!-- Sepre Am -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/shield-icon.svg"
-        alt="Sepre Am"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Edge Extension</span
-      >
+  <article class="project-card">
+    <div class="project-card-header cat-extension">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/shield-icon.svg" alt="Sepre Am" />
+        </div>
+        <span class="chip chip-extension">Edge Extension</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="https://microsoftedge.microsoft.com/addons/detail/%D8%B3%D9%BE%D8%B1-%D8%A7%D9%85/ddoogffhmfekecojhnfofmglilbmfhka"
-        target="blank"
-        style="color: var(--text-bright); text-decoration: none"
-        >سپر ام (Sepre Am)</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      A security extension for Microsoft Edge browser. Protects your online
-      privacy and security.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="https://microsoftedge.microsoft.com/addons/detail/%D8%B3%D9%BE%D8%B1-%D8%A7%D9%85/ddoogffhmfekecojhnfofmglilbmfhka"
-        target="blank"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
+    <div class="project-card-body">
+      <h3><a href="https://microsoftedge.microsoft.com/addons/detail/%D8%B3%D9%BE%D8%B1-%D8%A7%D9%85/ddoogffhmfekecojhnfofmglilbmfhka" target="_blank">سپر ام (Sepre Am)</a></h3>
+      <p>A security extension for Microsoft Edge browser. Protects your online privacy and security.</p>
+      <div class="project-card-actions">
+        <a href="https://microsoftedge.microsoft.com/addons/detail/%D8%B3%D9%BE%D8%B1-%D8%A7%D9%85/ddoogffhmfekecojhnfofmglilbmfhka" target="_blank" class="btn btn-primary">View on Edge Store</a>
+      </div>
     </div>
   </article>
 
   <!-- MOVTI VPN Shield -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/shield-icon.svg"
-        alt="MOVTI VPN Shield"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Edge Extension</span
-      >
+  <article class="project-card">
+    <div class="project-card-header cat-extension">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/shield-icon.svg" alt="MOVTI VPN Shield" />
+        </div>
+        <span class="chip chip-extension">Edge Extension</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="#"
-        target="blank"
-        style="color: var(--text-bright); text-decoration: none"
-        >MOVTI VPN Shield</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      A fast and secure VPN tool for Microsoft Edge browser. Free and secure
-      internet access.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="#"
-        target="blank"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
+    <div class="project-card-body">
+      <h3><a href="https://microsoftedge.microsoft.com/addons/detail/movti-vpn-shield/pdcljggcjpmgolhbkfbjhnbmfmmkmpam" target="_blank">MOVTI VPN Shield</a></h3>
+      <p>A fast and secure VPN tool for Microsoft Edge browser. Free and secure internet access.</p>
+      <div class="project-card-actions">
+        <a href="https://microsoftedge.microsoft.com/addons/detail/movti-vpn-shield/pdcljggcjpmgolhbkfbjhnbmfmmkmpam" target="_blank" class="btn btn-primary">View on Edge Store</a>
+      </div>
     </div>
   </article>
 
   <!-- Smart Car Ad Monitoring System -->
-  <article class="card">
-    <div
-      style="
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        margin-bottom: 1rem;
-      "
-    >
-      <img
-        src="/assets/images/icons/brain.svg"
-        alt="Smart Car Ad Monitoring"
-        class="card-icon"
-        style="width: 32px; height: 32px"
-      />
-      <span
-        class="chip"
-        style="
-          background: rgba(126, 231, 135, 0.1);
-          color: var(--accent);
-          padding: 2px 10px;
-          border-radius: 20px;
-          font-size: 0.75rem;
-          font-weight: 700;
-        "
-        >Bale Bot</span
-      >
+  <article class="project-card">
+    <div class="project-card-header cat-bot">
+      <div class="project-card-top">
+        <div class="project-card-icon">
+          <img src="/assets/images/icons/brain.svg" alt="Smart Car Ad Monitoring" />
+        </div>
+        <span class="chip chip-bot">Bale Bot</span>
+      </div>
     </div>
-    <h3 style="margin-bottom: 0.5rem">
-      <a
-        href="{{ '/en/blog/divar-car-monitoring-bot/' | relative_url }}"
-        style="color: var(--text-bright); text-decoration: none"
-        >Smart Car Ad Monitoring on Divar</a
-      >
-    </h3>
-    <p style="color: var(--muted); font-size: 0.9rem; flex-grow: 1">
-      An intelligent bot for monitoring and notifying car ads on Divar using
-      advanced web scraping and Bale messenger. Real-time notifications with
-      images.
-    </p>
-    <div style="margin-top: 1.5rem; display: flex; gap: 0.5rem">
-      <a
-        href="{{ '/en/blog/divar-car-monitoring-bot/' | relative_url }}"
-        class="btn btn-primary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >View Project</a
-      >
-      <a
-        href="https://ble.ir/Divar_iranbot"
-        target="_blank"
-        class="btn btn-secondary btn-small"
-        style="padding: 0.4rem 0.8rem; font-size: 0.85rem"
-        >Bale Bot</a
-      >
+    <div class="project-card-body">
+      <h3><a href="{{ '/en/blog/divar-car-monitoring-bot/' | relative_url }}">Smart Car Ad Monitoring on Divar</a></h3>
+      <p>An intelligent bot for monitoring and notifying car ads on Divar using advanced web scraping and Bale messenger. Real-time notifications with images.</p>
+      <div class="project-card-actions">
+        <a href="{{ '/en/blog/divar-car-monitoring-bot/' | relative_url }}" class="btn btn-primary">View Project</a>
+        <a href="https://ble.ir/Divar_iranbot" target="_blank" class="btn btn-secondary">Bale Bot</a>
+      </div>
     </div>
   </article>
+
 </div>

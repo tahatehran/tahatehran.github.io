@@ -5,37 +5,130 @@ dir: ltr
 title: Contact Us
 ---
 
-<section class="contact-header hero">
-  <h1>{{ site.data.translations[page.lang].contact_us }}</h1>
-  <p>Get in touch with us. Our team is ready to answer your inquiries and explore collaborations.</p>
+<!-- Hero Section -->
+<section class="hero" style="background: linear-gradient(135deg, var(--bg) 0%, rgba(88,166,255,0.08) 50%, var(--bg) 100%); padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle at 70% 50%, rgba(88,166,255,0.06) 0%, transparent 60%); pointer-events: none;"></div>
+  <h1 style="font-size: 2.8rem; font-weight: 900; color: var(--text-bright); margin-bottom: 1rem; position: relative;">Get In Touch</h1>
+  <p style="font-size: 1.15rem; color: var(--muted); max-width: 600px; margin: 0 auto; line-height: 2; position: relative;">
+    We're here to answer your questions and explore collaboration opportunities. Reach out to us through any of the channels below.
+  </p>
 </section>
 
-<div class="contact-info">
-  <div class="card contact-card" data-copy="+1 (516) 898-9214">
-    <div class="contact-icon"><img src="/assets/images/icons/phone.svg" alt="Phone"></div>
-    <h3>{{ site.data.translations[page.lang].phone }}</h3>
-    <p dir="ltr" style="font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: 1px;">+1 (516) 898-9214</p>
-    <span class="copy-hint">Copy</span>
+<!-- Contact Cards -->
+<div style="max-width: var(--container-width); margin: 0 auto; padding: 3rem 1.5rem;">
+  <div class="card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+
+    <!-- Phone -->
+    <div class="card contact-card" data-copy="+1 (516) 898-9214">
+      <div class="contact-icon">
+        <img src="/assets/images/icons/phone.svg" alt="Phone" style="width: 40px; height: 40px;">
+      </div>
+      <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 0.5rem;">Phone</h3>
+      <p style="font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; margin-bottom: 0.5rem;" dir="ltr">+1 (516) 898-9214</p>
+      <span class="copy-hint" style="display: inline-block; padding: 0.3rem 1rem; border-radius: 20px; background: rgba(88,166,255,0.1); color: var(--primary); font-size: 0.85rem; cursor: pointer;">Copy</span>
+    </div>
+
+    <!-- Email -->
+    <div class="card contact-card" data-copy="info@movtigroup.me">
+      <div class="contact-icon">
+        <img src="/assets/images/icons/email.svg" alt="Email" style="width: 40px; height: 40px;">
+      </div>
+      <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 0.5rem;">Business Email</h3>
+      <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">info@movtigroup.me</p>
+      <span class="copy-hint" style="display: inline-block; padding: 0.3rem 1rem; border-radius: 20px; background: rgba(88,166,255,0.1); color: var(--primary); font-size: 0.85rem; cursor: pointer;">Copy</span>
+    </div>
+
+    <!-- Telegram -->
+    <div class="card contact-card" style="cursor: pointer;" onclick="window.open('https://t.me/movti_ai','_blank')">
+      <div class="contact-icon">
+        <img src="/assets/images/icons/telegram.svg" alt="Telegram" style="width: 40px; height: 40px;">
+      </div>
+      <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 0.5rem;">Telegram</h3>
+      <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">@movti_ai</p>
+      <span class="copy-hint" style="display: inline-block; padding: 0.3rem 1rem; border-radius: 20px; background: rgba(88,166,255,0.1); color: var(--primary); font-size: 0.85rem;">Visit Channel</span>
+    </div>
+
+    <!-- GitHub -->
+    <div class="card contact-card" style="cursor: pointer;" onclick="window.open('https://github.com/movtigroup','_blank')">
+      <div class="contact-icon">
+        <img src="/assets/images/icons/github.svg" alt="GitHub" style="width: 40px; height: 40px;">
+      </div>
+      <h3 style="font-size: 1.1rem; color: var(--muted); margin-bottom: 0.5rem;">GitHub</h3>
+      <p style="font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 0.5rem;">movtigroup</p>
+      <span class="copy-hint" style="display: inline-block; padding: 0.3rem 1rem; border-radius: 20px; background: rgba(88,166,255,0.1); color: var(--primary); font-size: 0.85rem;">View Projects</span>
+    </div>
+
   </div>
 
-  <div class="card contact-card" data-copy="info@movtigroup.me">
-    <div class="contact-icon"><img src="/assets/images/icons/email.svg" alt="Email"></div>
-    <h3>Business Email</h3>
-    <p style="font-size: 1.1rem; color: var(--primary); font-weight: 600;">info@movtigroup.me</p>
-    <span class="copy-hint">Copy</span>
+  <!-- Business Hours -->
+  <div style="max-width: 600px; margin: 0 auto 4rem; text-align: center;">
+    <h2 style="font-size: 1.6rem; color: var(--text-bright); margin-bottom: 2rem;">
+      <i class="fa-regular fa-clock" style="margin-right: 10px; color: var(--primary);"></i>
+      Business Hours
+    </h2>
+    <div class="card" style="padding: 2rem; border-radius: 16px;">
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid var(--border);">
+        <span style="color: var(--text);">Sunday - Wednesday</span>
+        <span style="color: var(--accent); font-weight: 700;" dir="ltr">9:00 AM - 6:00 PM</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0; border-bottom: 1px solid var(--border);">
+        <span style="color: var(--text);">Thursday</span>
+        <span style="color: var(--accent); font-weight: 700;" dir="ltr">9:00 AM - 2:00 PM</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 0;">
+        <span style="color: var(--text);">Friday</span>
+        <span style="color: var(--muted); font-weight: 700;">Closed</span>
+      </div>
+      <p style="color: var(--muted); font-size: 0.9rem; margin-top: 1.5rem; line-height: 1.8;">
+        <i class="fa-regular fa-circle-question" style="margin-right: 6px;"></i>
+        Messages sent outside of business hours will be responded to at the earliest opportunity.
+      </p>
+    </div>
   </div>
-</div>
 
-<div class="map-section" style="margin-top: 2rem;">
-  <h2 style="text-align: center; margin-bottom: 2.5rem;"><img src="/assets/images/icons/map.svg" alt="Location" style="width: 24px; height: 24px; object-fit: contain; vertical-align: middle; margin-left: 8px;"> {{ site.data.translations[page.lang].our_location }}</h2>
-  <div class="map-frame">
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; text-align: center; padding: 2rem;">
-       <img src="/assets/images/icons/map.svg" alt="Location" style="width: 64px; height: 64px; object-fit: contain; color: var(--primary); opacity: 0.8; margin-bottom: 2rem;">
-       <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">Movti Group</h3>
-       <p style="color: var(--muted); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px;">Click the button below to view our headquarters on Google Maps and get directions.</p>
-       <a href="https://share.google/NCtsk32MYQqSa1802" target="_blank" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1.1rem;">
-         <img src="/assets/images/icons/map.svg" alt="Map" style="width: 18px; height: 18px; object-fit: contain;"> {{ site.data.translations[page.lang].view_map }}
-       </a>
+  <!-- Map Section -->
+  <div class="map-section" style="margin-bottom: 4rem;">
+    <h2 style="text-align: center; margin-bottom: 2.5rem; font-size: 1.6rem; color: var(--text-bright);">
+      <i class="fa-solid fa-location-dot" style="margin-right: 10px; color: var(--primary);"></i>
+      {{ site.data.translations[page.lang].our_location }}
+    </h2>
+    <div class="map-frame" style="border-radius: 16px; overflow: hidden; border: 1px solid var(--border);">
+      <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 320px; text-align: center; padding: 2rem; background: linear-gradient(135deg, var(--surface) 0%, rgba(88,166,255,0.03) 100%);">
+        <i class="fa-solid fa-building" style="font-size: 3.5rem; color: var(--primary); opacity: 0.6; margin-bottom: 1.5rem;"></i>
+        <h3 style="font-size: 1.5rem; color: var(--text-bright); margin-bottom: 0.8rem;">Movti Group HQ</h3>
+        <p style="color: var(--muted); font-size: 1rem; margin-bottom: 2rem; max-width: 450px; line-height: 1.8;">
+          Click the button below to view our headquarters location on Google Maps and get directions.
+        </p>
+        <a href="https://share.google/NCtsk32MYQqSa1802" target="_blank" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-map-location-dot"></i>
+          {{ site.data.translations[page.lang].view_map }}
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Social Links -->
+  <div style="text-align: center; padding: 3rem 0; border-top: 1px solid var(--border);">
+    <h2 style="font-size: 1.5rem; color: var(--text-bright); margin-bottom: 2rem;">
+      Follow Us
+    </h2>
+    <div style="display: flex; justify-content: center; gap: 1.2rem; flex-wrap: wrap;">
+      <a href="https://github.com/movtigroup" target="_blank" class="btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.4rem; border-radius: 12px; background: var(--surface); color: var(--text); text-decoration: none; border: 1px solid var(--border); transition: all 0.3s ease;" onmouseover="this.style.borderColor='#6e5494'; this.style.color='#6e5494';" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text)';">
+        <img src="/assets/images/icons/github.svg" alt="GitHub" style="width: 20px; height: 20px; filter: brightness(0) invert(1) !important;">
+        GitHub
+      </a>
+      <a href="https://t.me/movti_ai" target="_blank" class="btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.4rem; border-radius: 12px; background: var(--surface); color: var(--text); text-decoration: none; border: 1px solid var(--border); transition: all 0.3s ease;" onmouseover="this.style.borderColor='#26A5E4'; this.style.color='#26A5E4';" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text)';">
+        <img src="/assets/images/icons/telegram.svg" alt="Telegram" style="width: 20px; height: 20px; filter: brightness(0) invert(1) !important;">
+        Telegram
+      </a>
+      <a href="https://linkedin.com/company/movtigroup" target="_blank" class="btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.4rem; border-radius: 12px; background: var(--surface); color: var(--text); text-decoration: none; border: 1px solid var(--border); transition: all 0.3s ease;" onmouseover="this.style.borderColor='#0077b5'; this.style.color='#0077b5';" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text)';">
+        <img src="/assets/images/icons/linkedin.svg" alt="LinkedIn" style="width: 20px; height: 20px; filter: brightness(0) invert(1) !important;">
+        LinkedIn
+      </a>
+      <a href="mailto:info@movtigroup.me" class="btn" style="display: inline-flex; align-items: center; gap: 8px; padding: 0.75rem 1.4rem; border-radius: 12px; background: var(--surface); color: var(--text); text-decoration: none; border: 1px solid var(--border); transition: all 0.3s ease;" onmouseover="this.style.borderColor='var(--primary)'; this.style.color='var(--primary)';" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text)';">
+        <img src="/assets/images/icons/email.svg" alt="Email" style="width: 20px; height: 20px; filter: brightness(0) invert(1) !important;">
+        Email
+      </a>
     </div>
   </div>
 </div>
