@@ -42,7 +42,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/pages.css' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/main.scss' | relative_url }}">
+    <!-- main.scss removed: SCSS partials (_variables, _animations, _thailand) do not exist -->
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ " /feed.xml" | relative_url }}">
 
     {% seo %}
@@ -705,53 +705,6 @@
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
-
-            /* ---- Mobile Menu ---- */
-            var toggleBtn = document.querySelector('.mobile-menu-toggle');
-            var overlay = document.querySelector('.mobile-menu-overlay');
-            var closeBtn = document.querySelector('.mobile-menu-close');
-
-            if (toggleBtn && overlay && closeBtn) {
-                function openMenu() {
-                    overlay.classList.add('active');
-                    toggleBtn.setAttribute('aria-expanded', 'true');
-                    document.body.style.overflow = 'hidden';
-                }
-                function closeMenu() {
-                    overlay.classList.remove('active');
-                    toggleBtn.setAttribute('aria-expanded', 'false');
-                    document.body.style.overflow = '';
-                }
-
-                toggleBtn.addEventListener('click', function () {
-                    if (overlay.classList.contains('active')) {
-                        closeMenu();
-                    } else {
-                        openMenu();
-                    }
-                });
-
-                closeBtn.addEventListener('click', closeMenu);
-
-                overlay.addEventListener('click', function (e) {
-                    if (e.target === overlay) {
-                        closeMenu();
-                    }
-                });
-
-                /* Close on Escape */
-                document.addEventListener('keydown', function (e) {
-                    if (e.key === 'Escape' && overlay.classList.contains('active')) {
-                        closeMenu();
-                    }
-                });
-
-                /* Close menu when a nav link is clicked */
-                var mobileNavLinks = overlay.querySelectorAll('.mobile-nav a');
-                mobileNavLinks.forEach(function (link) {
-                    link.addEventListener('click', closeMenu);
-                });
-            }
         })();
     </script>
 </body>

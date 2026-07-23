@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // ============================================
-    // Hamburger Menu Logic
+    // Mobile Menu Logic (single handler)
     // ============================================
     const toggle = document.querySelector('.mobile-menu-toggle');
     const close = document.querySelector('.mobile-menu-close');
@@ -9,16 +9,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (toggle && overlay) {
         toggle.addEventListener('click', () => {
-            overlay.classList.add('active');
-            body.classList.add('menu-open');
+            const isOpen = overlay.classList.contains('active');
+            if (isOpen) {
+                overlay.classList.remove('active');
+                body.classList.remove('menu-open');
+                body.style.overflow = '';
+                toggle.setAttribute('aria-expanded', 'false');
+            } else {
+                overlay.classList.add('active');
+                body.classList.add('menu-open');
+                body.style.overflow = 'hidden';
+                toggle.setAttribute('aria-expanded', 'true');
+            }
         });
 
         const closeMenu = () => {
             overlay.classList.remove('active');
             body.classList.remove('menu-open');
+            body.style.overflow = '';
+            if (toggle) toggle.setAttribute('aria-expanded', 'false');
         };
 
         if (close) close.addEventListener('click', closeMenu);
+
+        // Close on overlay background click
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeMenu();
+        });
 
         // Close menu on link click
         const navLinks = overlay.querySelectorAll('a');
@@ -26,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Close on escape
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeMenu();
+            if (e.key === 'Escape' && overlay.classList.contains('active')) closeMenu();
         });
     }
 
