@@ -20,15 +20,14 @@
   padding: 0;
 }
 
-html,
+html {
+  width: 100%;
+}
+
 body {
   overflow-x: hidden;
   width: 100%;
   -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-}
-
-body {
   font-family:
     "Vazirmatn",
     -apple-system,
@@ -2095,12 +2094,10 @@ img[src*="instagram"] {
 @media (max-width: 768px) {
   html {
     scroll-behavior: smooth;
-    overscroll-behavior-y: none;
   }
 
   body {
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none;
     overflow-x: hidden;
   }
 
@@ -2133,12 +2130,11 @@ img[src*="instagram"] {
 
 @media (max-width: 500px) {
   html {
-    overscroll-behavior-y: none;
+    scroll-behavior: smooth;
   }
 
   body {
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none;
   }
 
   .blog-post-card {
@@ -2173,7 +2169,6 @@ img[src*="instagram"] {
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: none;
   }
 
   .search-container input,
@@ -2191,26 +2186,23 @@ html {
   scroll-behavior: smooth;
 }
 
-/* GPU-accelerated scrolling for all elements */
+/* Smooth content rendering */
 .content,
 .blog-posts-container,
 .posts-grid,
 .search-results,
 .card-grid {
-  will-change: transform;
-  contain: layout style;
+  /* Removed will-change/contain to fix mobile scrolling */
 }
 
 /* Smooth scroll snap for blog cards on mobile */
 @media (max-width: 768px) {
   html {
     scroll-behavior: smooth;
-    overscroll-behavior-y: contain;
   }
 
   body {
     -webkit-overflow-scrolling: touch;
-    overscroll-behavior-y: contain;
     overflow-x: hidden;
     scroll-behavior: smooth;
   }
