@@ -6,3 +6,6 @@ _config.yml
 .junie
 .dirac-symbol-index
 .stakpak
+nul
+.stakpak-cache
+.stakpak-cache-*
