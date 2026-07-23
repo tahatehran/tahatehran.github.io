@@ -2,7 +2,7 @@
 layout: category
 title: "AI Coding"
 description: "کدنویسی با هوش مصنوعی، ابزارهای برنامه‌نویسی، Copilot"
-permalink: /blog/category/ai-coding/
+permalink: /en/blog/category/ai-coding/
 lang: en
 locale: en
 dir: ltr

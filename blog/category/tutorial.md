@@ -2,7 +2,7 @@
 layout: category
 title: "Tutorials"
 description: "آموزش‌های قدم به قدم، راهنمای عملی و مثال‌های کاربردی"
-permalink: /blog/category/tutorial/
+permalink: /en/blog/category/tutorial/
 lang: en
 locale: en
 dir: ltr

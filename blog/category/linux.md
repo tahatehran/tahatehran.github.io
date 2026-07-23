@@ -2,7 +2,7 @@
 layout: category
 title: "Linux"
 description: "سیستم عامل لینوکس، دستورات، مدیریت سرور، آموزش‌ها"
-permalink: /blog/category/linux/
+permalink: /en/blog/category/linux/
 lang: en
 locale: en
 dir: ltr

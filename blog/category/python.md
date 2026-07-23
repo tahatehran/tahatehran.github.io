@@ -2,7 +2,7 @@
 layout: category
 title: "Python"
 description: "برنامه‌نویسی پایتون، داده‌کاوی، FastAPI، کتابخانه‌ها"
-permalink: /blog/category/python/
+permalink: /en/blog/category/python/
 lang: en
 locale: en
 dir: ltr

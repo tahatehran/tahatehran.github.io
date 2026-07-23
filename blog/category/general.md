@@ -2,7 +2,7 @@
 layout: category
 title: "General"
 description: "مطالب عمومی در مورد فناوری، برنامه‌نویسی و هوش مصنوعی"
-permalink: /blog/category/general/
+permalink: /en/blog/category/general/
 lang: en
 locale: en
 dir: ltr

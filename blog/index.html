@@ -1,73 +1,462 @@
 ---
-layout: category
-title: "All Blog Posts"
-description: "All posts on MovtiGroup blog"
+layout: default
+lang: fa
+dir: rtl
+title: "بلاگ موتی‌گروپ"
+description: "بلاگ موتی‌گروپ - مقالات، آموزش‌ها و اخبار فناوری به زبان فارسی"
 permalink: /blog/
-lang: en
-locale: en
-dir: ltr
-category: all
 ---
 
-<div class="blog-header">
-  <h1>All Blog Posts</h1>
-  <p>{{ site.posts | size }} posts total</p>
+<!-- Structured Data Hint -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "بلاگ موتی‌گروپ",
+    "description": "مقالات، آموزش‌ها و اخبار فناوری به زبان فارسی",
+    "url": "{{ site.url }}{{ site.baseurl }}/blog/",
+    "inLanguage": "fa"
+  }
+</script>
+
+<!-- Hero Section -->
+<section
+  class="blog-header hero"
+  style="
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.08),
+      rgba(139, 92, 246, 0.08)
+    );
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+  "
+>
+  <h1
+    style="
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    "
+  >
+    بلاگ موتی‌گروپ
+  </h1>
+  <p
+    style="
+      font-size: 1.1rem;
+      color: var(--muted, #9ca3af);
+      max-width: 600px;
+      margin: 0 auto 0.5rem;
+    "
+  >
+    مقالات، آموزش‌ها و آخرین اخبار فناوری به زبان فارسی
+  </p>
+  <p style="font-size: 0.9rem; color: var(--muted, #9ca3af)">
+    {% assign fa_posts = site.posts | where: "lang", "fa" %} {{ fa_posts | size
+    }} مقاله فارسی
+  </p>
+</section>
+
+<!-- Search Box -->
+<div class="blog-search-container" style="margin-bottom: 1.5rem">
+  <div
+    class="search-box"
+    style="position: relative; max-width: 600px; margin: 0 auto"
+  >
+    <input
+      type="text"
+      id="blog-search"
+      placeholder="جستجوی مقالات..."
+      class="search-input"
+      style="
+        width: 100%;
+        padding: 0.8rem 3rem 0.8rem 1rem;
+        font-size: 1rem;
+        border-radius: 0.75rem;
+        border: 1px solid rgba(99, 102, 241, 0.3);
+        background: var(--card-bg, rgba(30, 30, 40, 0.8));
+        color: var(--text, #e2e8f0);
+        outline: none;
+        transition: border-color 0.3s;
+        direction: rtl;
+      "
+    />
+    <img
+      src="/assets/images/icons/search.svg"
+      alt="جستجو"
+      style="
+        position: absolute;
+        left: 1rem;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        opacity: 0.5;
+        object-fit: contain;
+      "
+    />
+  </div>
+  <p
+    id="search-result-count"
+    style="
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted, #9ca3af);
+      margin-top: 0.5rem;
+      min-height: 1.2rem;
+      transition: opacity 0.3s;
+    "
+  ></p>
 </div>
 
-<div class="blog-filters">
-  <button class="filter-btn active" data-filter="all">All</button>
-  {% assign all_categories = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
-  {% for cat in all_categories %}
-    {% if cat != '' %}
-      <button class="filter-btn" data-filter="{{ cat | strip }}">{{ cat | strip }}</button>
+<!-- Category Filters -->
+<div
+  class="blog-filters"
+  style="
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  "
+>
+  <button
+    class="filter-btn active"
+    data-filter="all"
+    style="
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      background: rgba(99, 102, 241, 0.15);
+      color: #a5b4fc;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    "
+  >
+    همه
+  </button>
+  {% assign fa_posts = site.posts | where: "lang", "fa" %} {% assign
+  all_categories = "" | split: "" %} {% for post in fa_posts %} {% for cat in
+  post.categories %} {% unless all_categories contains cat %} {% assign
+  all_categories = all_categories | push: cat %} {% endunless %} {% endfor %} {%
+  endfor %} {% assign sorted_categories = all_categories | sort %} {% for cat in
+  sorted_categories %} {% if cat != '' %}
+  <button
+    class="filter-btn"
+    data-filter="{{ cat | strip }}"
+    style="
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      background: transparent;
+      color: var(--muted, #9ca3af);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    "
+  >
+    {{ cat | strip }}
+  </button>
+  {% endif %} {% endfor %}
+</div>
+
+<!-- Post Cards Grid -->
+<div
+  class="card-grid blog-post-grid"
+  id="blog-posts-container"
+  style="
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  "
+>
+  {% assign fa_posts_sorted = site.posts | where: "lang", "fa" | sort: "date" |
+  reverse %} {% for post in fa_posts_sorted %}
+  <article
+    class="card blog-post-card"
+    data-title="{{ post.title | escape }}"
+    data-description="{{ post.description | escape }}"
+    data-categories="{{ post.categories | join: ' ' }}"
+    style="
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      background: var(--card-bg, rgba(30, 30, 40, 0.8));
+      border: 1px solid rgba(99, 102, 241, 0.1);
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+      cursor: default;
+    "
+  >
+    <!-- Card Icon -->
+    <div style="margin-bottom: 0.75rem">
+      {% assign first_cat = post.categories | first %} {% if first_cat ==
+      "docker" %}
+      <img
+        src="/assets/images/icons/docker.svg"
+        alt="Docker"
+        style="width: 32px; height: 32px; object-fit: contain"
+      />
+      {% elsif first_cat == "tutorial" %}
+      <img
+        src="/assets/images/icons/brain.svg"
+        alt="آموزش"
+        style="width: 32px; height: 32px; object-fit: contain"
+      />
+      {% elsif first_cat == "ai" %}
+      <img
+        src="/assets/images/icons/brain.svg"
+        alt="هوش مصنوعی"
+        style="width: 32px; height: 32px; object-fit: contain"
+      />
+      {% else %}
+      <img
+        src="/assets/images/icons/brain.svg"
+        alt="مقاله"
+        style="width: 32px; height: 32px; object-fit: contain"
+      />
+      {% endif %}
+    </div>
+
+    <!-- Title -->
+    <h3
+      style="
+        margin: 0 0 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        line-height: 1.5;
+      "
+    >
+      <a
+        href="{{ post.url | relative_url }}"
+        style="
+          color: var(--text-bright, #f1f5f9);
+          text-decoration: none;
+          transition: color 0.2s;
+        "
+        >{{ post.title }}</a
+      >
+    </h3>
+
+    <!-- Description -->
+    <p
+      style="
+        color: var(--muted, #9ca3af);
+        font-size: 0.9rem;
+        flex: 1;
+        line-height: 1.7;
+        margin: 0 0 1rem;
+      "
+    >
+      {{ post.description | strip_html | truncate: 150 }}
+    </p>
+
+    <!-- Categories -->
+    {% if post.categories.size > 0 %}
+    <div
+      style="
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+        margin-bottom: 0.75rem;
+      "
+    >
+      {% for cat in post.categories %}
+      <span
+        class="category-tag"
+        style="
+          padding: 0.2rem 0.6rem;
+          border-radius: 1rem;
+          font-size: 0.75rem;
+          font-weight: 600;
+          background: rgba(99, 102, 241, 0.12);
+          color: #a5b4fc;
+          border: 1px solid rgba(99, 102, 241, 0.2);
+        "
+        >{{ cat }}</span
+      >
+      {% endfor %}
+    </div>
     {% endif %}
+
+    <!-- Date Meta -->
+    <div
+      class="post-meta-info"
+      style="
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+        color: var(--muted, #9ca3af);
+      "
+    >
+      <img
+        src="/assets/images/icons/calendar.svg"
+        alt="تاریخ"
+        style="width: 16px; height: 16px; object-fit: contain; opacity: 0.6"
+      />
+      <time datetime="{{ post.date | date_to_xmlschema }}"
+        >{{ post.date | date: "%Y-%m-%d" }}</time
+      >
+    </div>
+
+    <!-- Read More -->
+    <div>
+      <a
+        href="{{ post.url | relative_url }}"
+        class="btn btn-primary btn-small"
+        style="
+          display: inline-block;
+          padding: 0.4rem 1rem;
+          font-size: 0.85rem;
+          border-radius: 0.5rem;
+          text-decoration: none;
+          background: linear-gradient(135deg, #6366f1, #8b5cf6);
+          color: #fff;
+          font-weight: 600;
+          transition:
+            transform 0.2s,
+            box-shadow 0.2s;
+        "
+        >بیشتر بخوانید</a
+      >
+    </div>
+  </article>
   {% endfor %}
 </div>
 
-<div class="blog-posts-container" id="blog-posts-container">
-  {% for post in site.posts %}
-    <article class="blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" data-categories="{{ post.categories | join: ' ' }}">
-      <div class="post-card-content">
-        <h2 class="post-card-title">
-          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-        </h2>
-        <p class="post-card-excerpt">{{ post.description | strip_html | truncate: 150 }}</p>
-        <div class="post-card-meta">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-          {% if post.categories %}
-            <span class="post-categories">
-              {% for cat in post.categories %}
-                <span class="category-tag">{{ cat }}</span>
-              {% endfor %}
-            </span>
-          {% endif %}
-        </div>
-      </div>
-    </article>
-  {% endfor %}
+<!-- No Results Message -->
+<div
+  id="no-results"
+  style="
+    display: none;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted, #9ca3af);
+  "
+>
+  <p style="font-size: 1.2rem; margin-bottom: 0.5rem">🔍</p>
+  <p style="font-size: 1rem">مقاله‌ای یافت نشد</p>
+  <p style="font-size: 0.85rem">
+    لطفاً عبارت جستجو یا دسته‌بندی دیگری را امتحان کنید.
+  </p>
 </div>
 
+<!-- JavaScript: Search + Category Filter (AND logic) -->
 <script>
-(function() {
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const posts = document.querySelectorAll('.blog-post-card');
-  
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', function() {
-      const filter = this.dataset.filter;
-      
-      filterBtns.forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      
-      posts.forEach(post => {
-        if (filter === 'all') {
-          post.style.display = '';
+  (function () {
+    const searchInput = document.getElementById("blog-search");
+    const filterBtns = document.querySelectorAll(".filter-btn");
+    const cards = document.querySelectorAll(".blog-post-card");
+    const noResults = document.getElementById("no-results");
+    const resultCount = document.getElementById("search-result-count");
+    let activeCategory = "all";
+
+    function normalizeText(text) {
+      return (text || "").toLowerCase().trim();
+    }
+
+    function applyFilters() {
+      const query = normalizeText(searchInput.value);
+      let visibleCount = 0;
+
+      cards.forEach(function (card) {
+        const title = normalizeText(card.dataset.title);
+        const description = normalizeText(card.dataset.description);
+        const categories = normalizeText(card.dataset.categories);
+
+        // Search filter: matches title OR description OR categories
+        let matchesSearch = true;
+        if (query) {
+          matchesSearch =
+            title.includes(query) ||
+            description.includes(query) ||
+            categories.includes(query);
+        }
+
+        // Category filter
+        let matchesCategory = true;
+        if (activeCategory !== "all") {
+          matchesCategory = categories.includes(activeCategory);
+        }
+
+        // AND logic: both must match
+        if (matchesSearch && matchesCategory) {
+          card.style.display = "";
+          card.style.opacity = "0";
+          card.style.transform = "translateY(10px)";
+          requestAnimationFrame(function () {
+            card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+            card.style.opacity = "1";
+            card.style.transform = "translateY(0)";
+          });
+          visibleCount++;
         } else {
-          const cats = post.dataset.categories || '';
-          post.style.display = cats.includes(filter) ? '' : 'none';
+          card.style.display = "none";
         }
       });
+
+      // Show/hide no results
+      noResults.style.display = visibleCount === 0 ? "block" : "none";
+
+      // Update result count
+      if (query || activeCategory !== "all") {
+        resultCount.textContent = visibleCount + " مقاله یافت شد";
+        resultCount.style.opacity = "1";
+      } else {
+        resultCount.textContent = "";
+        resultCount.style.opacity = "0";
+      }
+    }
+
+    // Search input handler (with debounce)
+    let searchTimeout;
+    searchInput.addEventListener("input", function () {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(applyFilters, 200);
     });
-  });
-})();
+
+    // Category filter buttons
+    filterBtns.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        filterBtns.forEach(function (b) {
+          b.classList.remove("active");
+          b.style.background = "transparent";
+          b.style.color = "var(--muted, #9ca3af)";
+        });
+        this.classList.add("active");
+        this.style.background = "rgba(99,102,241,0.15)";
+        this.style.color = "#a5b4fc";
+
+        activeCategory = this.dataset.filter;
+        applyFilters();
+      });
+    });
+
+    // Make card hover effects work
+    cards.forEach(function (card) {
+      card.addEventListener("mouseenter", function () {
+        this.style.transform = "translateY(-4px)";
+        this.style.boxShadow = "0 8px 30px rgba(99,102,241,0.15)";
+      });
+      card.addEventListener("mouseleave", function () {
+        this.style.transform = "translateY(0)";
+        this.style.boxShadow = "none";
+      });
+    });
+  })();
 </script>

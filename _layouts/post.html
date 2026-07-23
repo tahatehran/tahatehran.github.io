@@ -3,7 +3,38 @@ layout: default
 ---
 {% assign post_lang = page.lang | default: "fa" %}
 {% assign post_dir = page.dir | default: "rtl" %}
+{% assign post_categories = page.categories | default: "" %}
 {% assign related_posts = site.posts | where: "lang", post_lang | where_exp: "post", "post.url != page.url" %}
+
+<!-- JSON-LD Structured Data for Blog Post -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.description | default: page.excerpt | strip_html | truncate: 300 | jsonify }},
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "dateModified": "{{ page.date | date_to_xmlschema }}",
+  "author": {
+    "@type": "Organization",
+    "name": "MovtiGroup",
+    "url": "{{ site.url }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "MovtiGroup",
+    "url": "{{ site.url }}"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ page.url | absolute_url }}"
+  },
+  "url": "{{ page.url | absolute_url }}",
+  "inLanguage": "{{ post_lang }}"{% if page.image %},
+  "image": "{{ page.image | absolute_url }}"{% endif %}{% if post_categories != "" %},
+  "keywords": {{ post_categories | join: ", " | jsonify }}{% endif %}
+}
+</script>
 
 <article class="post" lang="{{ post_lang }}" dir="{{ post_dir }}">
   <header class="post-header">
@@ -12,6 +43,17 @@ layout: default
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%Y-%m-%d" }}</time>
       {% if page.author %} <span aria-hidden="true">•</span> {{ page.author }}{% endif %}
     </div>
+    {% if post_categories != "" %}
+    <div class="post-categories" style="margin-top: 0.75rem;">
+      {% for cat in post_categories %}
+        {% if post_lang == "en" %}
+          <a href="{{ '/en/blog/category/' | append: cat | append: '/' | relative_url }}" class="category-tag">{{ cat }}</a>
+        {% else %}
+          <a href="{{ '/blog/category/' | append: cat | append: '/' | relative_url }}" class="category-tag">{{ cat }}</a>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
   </header>
 
   <div class="post-content card">
@@ -21,7 +63,7 @@ layout: default
   {% if related_posts.size > 0 %}
     <section class="related-posts" aria-labelledby="related-posts-title">
       {% if post_lang == "en" %}
-        <h2 id="related-posts-title">Related posts</h2>
+        <h2 id="related-posts-title">Related Posts</h2>
       {% else %}
         <h2 id="related-posts-title">مطالب مرتبط</h2>
       {% endif %}
@@ -32,7 +74,14 @@ layout: default
             <h3>
               <a href="{{ related.url | relative_url }}">{{ related.title }}</a>
             </h3>
-            <p>{{ related.excerpt | strip_html | normalize_whitespace | truncate: 120 }}</p>
+            <p>{{ related.description | strip_html | normalize_whitespace | truncate: 120 }}</p>
+            {% if related.categories %}
+            <div class="post-card-meta" style="margin-top: 0.5rem;">
+              {% for cat in related.categories limit: 3 %}
+                <span class="category-tag">{{ cat }}</span>
+              {% endfor %}
+            </div>
+            {% endif %}
           </article>
         {% endfor %}
       </div>
@@ -42,11 +91,11 @@ layout: default
   <div class="post-footer">
     {% if post_lang == "en" %}
       <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-secondary">
-        <img src="/assets/images/icons/arrow-left.svg" alt="" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-left: 6px;" onerror="this.style.display='none'"> Back to blog
+        ← Back to blog
       </a>
     {% else %}
       <a href="{{ '/blog/' | relative_url }}" class="btn btn-secondary">
-        <img src="/assets/images/icons/arrow-right.svg" alt="" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-right: 6px;" onerror="this.style.display='none'"> بازگشت به بلاگ
+        بازگشت به بلاگ ←
       </a>
     {% endif %}
   </div>

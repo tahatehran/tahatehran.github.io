@@ -2,7 +2,7 @@
 layout: category
 title: "Comparisons"
 description: "مقایسه ابزارها، پلتفرم‌ها و فناوری‌های مختلف"
-permalink: /blog/category/comparison/
+permalink: /en/blog/category/comparison/
 lang: en
 locale: en
 dir: ltr

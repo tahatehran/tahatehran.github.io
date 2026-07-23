@@ -2,7 +2,7 @@
 layout: category
 title: "OpenClaw"
 description: "مطالب مربوط به OpenClaw، مقایسه‌ها، راهنمای استفاده و مدیریت"
-permalink: /blog/category/openclaw/
+permalink: /en/blog/category/openclaw/
 lang: en
 locale: en
 dir: ltr

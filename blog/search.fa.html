@@ -1,97 +1,383 @@
 ---
 layout: default
-title: "جستجو در بلاگ -MovtiGroup"
+title: "جستجو در بلاگ - موتی‌گروپ"
 permalink: /fa/blog/search/
 lang: fa
 locale: fa
 dir: rtl
 ---
 
-<div class="blog-header">
-  <h1>جستجو در بلاگ</h1>
-  <p>جستجو در میان {{ site.posts | size }} پست</p>
+<!-- SEO Meta Tags -->
+<meta name="description" content="جستجوی تمام مقالات فارسی بلاگ موتی‌گروپ. مقالاتی درباره عامل‌های هوش مصنوعی، ابزارهای متن‌باز، داکر، پایتون و بیشتر.">
+<meta name="keywords" content="جستجو, بلاگ, موتی‌گروپ, عامل هوش مصنوعی, متن‌باز, داکر, پایتون, آموزش, مقایسه">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="جستجو در بلاگ - موتی‌گروپ">
+<meta property="og:description" content="جستجوی تمام مقالات فارسی بلاگ موتی‌گروپ.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="جستجو در بلاگ - موتی‌گروپ">
+<meta name="twitter:description" content="جستجوی تمام مقالات فارسی بلاگ موتی‌گروپ.">
+
+<style>
+  .search-page-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding: 3rem 1rem 2rem;
+  }
+  .search-page-header h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--text-bright);
+  }
+  .search-page-header p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+  }
+  .search-input-wrapper {
+    position: relative;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  .search-input-wrapper .search-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted);
+    pointer-events: none;
+    font-size: 1.2rem;
+  }
+  .search-input-wrapper input {
+    width: 100%;
+    padding: 1rem 2.8rem 1rem 3rem;
+    border-radius: 14px;
+    border: 2px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1.1rem;
+    transition: border-color 0.25s, box-shadow 0.25s;
+    box-sizing: border-box;
+    text-align: right;
+  }
+  .search-input-wrapper input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+  }
+  .search-input-wrapper input::placeholder {
+    color: var(--muted);
+  }
+  .search-clear-btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: 6px;
+    display: none;
+    transition: color 0.2s;
+  }
+  .search-clear-btn:hover {
+    color: var(--text-bright);
+  }
+  .search-results-area {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .search-results {
+    margin-top: 1rem;
+  }
+  .search-info {
+    color: var(--muted);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+  .search-result-card {
+    margin-bottom: 1rem;
+    animation: fadeInUp 0.3s ease both;
+  }
+  .search-result-card:nth-child(2) { animation-delay: 0.05s; }
+  .search-result-card:nth-child(3) { animation-delay: 0.1s; }
+  .search-result-card:nth-child(4) { animation-delay: 0.15s; }
+  .search-result-card:nth-child(5) { animation-delay: 0.2s; }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .search-loading {
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+  }
+  .search-loading .spinner {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    border: 3px solid var(--border);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    margin-bottom: 0.75rem;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  .search-no-results {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+  }
+  .search-no-results h3 {
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .search-no-results p {
+    font-size: 0.95rem;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  .search-highlight {
+    background: rgba(255, 200, 0, 0.3);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 2px;
+  }
+  .search-result-count {
+    display: inline-block;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.8rem;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .search-result-count strong {
+    color: var(--primary);
+  }
+  .post-card-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .post-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.5rem;
+  }
+</style>
+
+<div class="search-page-header">
+  <h1>🔍 جستجو در بلاگ</h1>
+  <p>جستجو در میان تمام مقالات فارسی موتی‌گروپ</p>
+  <div class="search-input-wrapper">
+    <span class="search-icon" aria-hidden="true">🔍</span>
+    <input 
+      type="search" 
+      id="blog-search" 
+      placeholder="جستجو در مقالات..." 
+      autocomplete="off"
+      aria-label="جستجو در مقالات بلاگ"
+      dir="rtl"
+    >
+    <button class="search-clear-btn" id="search-clear" aria-label="پاک کردن جستجو" title="پاک کردن (Esc)">✕</button>
+  </div>
 </div>
 
-<div class="search-container">
-  <input 
-    type="search" 
-    id="blog-search" 
-    placeholder="جستجو..." 
-    autocomplete="off"
-    aria-label="جستجو در بلاگ"
-  >
+<div class="search-results-area">
   <div id="search-results" class="search-results">
-    <div class="search-info">برای جستجو تایپ کنید...</div>
+    <div class="search-loading" id="search-loading">
+      <div class="spinner"></div>
+      <div>در حال بارگذاری...</div>
+    </div>
   </div>
 </div>
 
 <script>
 (function() {
-  const searchInput = document.getElementById('blog-search');
-  const resultsContainer = document.getElementById('search-results');
-  
-  const posts = [];
-  
-  fetch('/blog/search-data.json')
-    .then(r => r.json())
-    .then(data => {
-      window.searchPosts = data.posts || [];
-      renderSearchResults(window.searchPosts);
-    })
-    .catch(() => {
-      resultsContainer.innerHTML = '<div class="search-info">در حال بارگذاری...</div>';
-    });
-  
-  function renderSearchResults(postsToShow) {
-    if (!postsToShow.length) {
-      resultsContainer.innerHTML = '<div class="search-info">نتیجه‌ای یافت نشد</div>';
-      return;
+  var searchInput = document.getElementById('blog-search');
+  var clearBtn = document.getElementById('search-clear');
+  var resultsContainer = document.getElementById('search-results');
+  var allPosts = [];
+  var debounceTimer = null;
+
+  // Persian/Arabic number mapping
+  var persianDigits = '\u06F0\u06F1\u06F2\u06F3\u06F4\u06F5\u06F6\u06F7\u06F8\u06F9';
+  var arabicDigits = '\u0660\u0661\u0662\u0663\u0664\u0665\u0666\u0667\u0668\u0669';
+
+  function normalizeNumbers(str) {
+    // Convert Persian digits (۰-۹) and Arabic digits (٠-٩) to ASCII
+    var result = str;
+    for (var i = 0; i < 10; i++) {
+      result = result.split(persianDigits[i]).join(String(i));
+      result = result.split(arabicDigits[i]).join(String(i));
     }
-    
-    const html = postsToShow.map(post => `
-      <article class="blog-post-card search-result-card" data-title="${escapeHtml(post.title)}" data-description="${escapeHtml(post.description || '')}">
-        <div class="post-card-content">
-          <h2 class="post-card-title">
-            <a href="${post.url}">${escapeHtml(post.title)}</a>
-          </h2>
-          <p class="post-card-excerpt">${escapeHtml(post.description || '')}</p>
-          <div class="post-card-meta">
-            ${post.categories ? post.categories.map(c => `<span class="category-tag">${escapeHtml(c)}</span>`).join('') : ''}
-          </div>
-        </div>
-      </article>
-    `).join('');
-    
-    const infoText = document.documentElement.dir === 'rtl' 
-      ? `${postsToShow.length} نتیجه`
-      : `${postsToShow.length} results`;
-    resultsContainer.innerHTML = `<div class="search-info">${infoText}</div>` + html;
+    return result;
   }
-  
+
+  function normalizeText(text) {
+    if (!text) return '';
+    return normalizeNumbers(text.toLowerCase().trim());
+  }
+
   function escapeHtml(text) {
-    const div = document.createElement('div');
+    if (!text) return '';
+    var div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
   }
-  
-  if (searchInput) {
-    searchInput.addEventListener('input', function() {
-      const query = this.value.toLowerCase().trim();
-      
-      if (!query) {
-        renderSearchResults(window.searchPosts || []);
-        return;
-      }
-      
-      const filtered = (window.searchPosts || []).filter(post => {
-        const title = (post.title || '').toLowerCase();
-        const desc = (post.description || '').toLowerCase();
-        const cats = (post.categories || []).join(' ').toLowerCase();
-        return title.includes(query) || desc.includes(query) || cats.includes(query);
+
+  function highlightText(text, query) {
+    if (!text || !query) return escapeHtml(text);
+    var escaped = escapeHtml(text);
+    var words = query.toLowerCase().split(/\s+/).filter(function(w) { return w.length > 1; });
+    if (words.length === 0) return escaped;
+    var pattern = words.map(function(w) {
+      return w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }).join('|');
+    var regex = new RegExp('(' + pattern + ')', 'gi');
+    return escaped.replace(regex, '<span class="search-highlight">$1</span>');
+  }
+
+  function filterPosts(query) {
+    if (!query) return allPosts;
+    var words = query.toLowerCase().split(/\s+/).filter(function(w) { return w.length > 0; });
+    if (words.length === 0) return allPosts;
+
+    return allPosts.filter(function(post) {
+      var title = normalizeText(post.title || '');
+      var desc = normalizeText(post.description || '');
+      var cats = normalizeText((post.categories || []).join(' '));
+      var combined = title + ' ' + desc + ' ' + cats;
+      return words.some(function(word) {
+        return combined.indexOf(word) !== -1;
       });
-      
-      renderSearchResults(filtered);
     });
   }
+
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    try {
+      var d = new Date(dateStr);
+      return d.toLocaleDateString('fa-IR', { year: 'numeric', month: 'short', day: 'numeric' });
+    } catch(e) {
+      return dateStr;
+    }
+  }
+
+  function renderResults(postsToShow, query) {
+    if (postsToShow.length === 0 && query) {
+      resultsContainer.innerHTML = 
+        '<div class="search-no-results">' +
+          '<h3>نتیجه‌ای یافت نشد</h3>' +
+          '<p>مقاله‌ای با عبارت «<strong>' + escapeHtml(query) + '</strong>» یافت نشد. کلمات کلیدی دیگری امتحان کنید.</p>' +
+        '</div>';
+      return;
+    }
+
+    var html = '';
+    if (query) {
+      html += '<div class="search-result-count"><strong>' + postsToShow.length + '</strong> مقاله یافت شد</div>';
+    }
+
+    html += postsToShow.map(function(post) {
+      var title = post.title || 'بدون عنوان';
+      var desc = post.description || '';
+      var displayTitle = query ? highlightText(title, query) : escapeHtml(title);
+      var displayDesc = query ? highlightText(desc, query) : escapeHtml(desc);
+      var cats = (post.categories || []).map(function(c) {
+        return '<span class="category-tag">' + escapeHtml(c) + '</span>';
+      }).join(' ');
+      var dateHtml = post.date ? '<span class="post-card-date">📅 ' + formatDate(post.date) + '</span>' : '';
+      
+      return '<article class="blog-post-card search-result-card">' +
+        '<div class="post-card-content">' +
+          '<h2 class="post-card-title"><a href="' + escapeHtml(post.url) + '">' + displayTitle + '</a></h2>' +
+          '<p class="post-card-excerpt">' + displayDesc + '</p>' +
+          '<div class="post-card-meta">' + cats + dateHtml + '</div>' +
+          '<div class="post-card-link"><a href="' + escapeHtml(post.url) + '" class="btn btn-primary btn-small">بیشتر بخوانید ←</a></div>' +
+        '</div>' +
+      '</article>';
+    }).join('');
+
+    resultsContainer.innerHTML = html;
+  }
+
+  function showInitial() {
+    resultsContainer.innerHTML = 
+      '<div class="search-info" style="text-align:center; padding: 2rem 1rem; color: var(--muted);">' +
+        'برای جستجو در مقالات فارسی بلاگ تایپ کنید...' +
+      '</div>';
+  }
+
+  // Fetch and initialize
+  fetch('/blog/search-data.json')
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      // Filter to Persian posts only
+      allPosts = (data.posts || []).filter(function(post) {
+        return post.lang === 'fa';
+      });
+      showInitial();
+    })
+    .catch(function() {
+      resultsContainer.innerHTML = 
+        '<div class="search-no-results">' +
+          '<h3>⚠️ بارگذاری فهرست جستجو ممکن نبود</h3>' +
+          '<p>لطفاً صفحه را مجدداً بارگذاری کنید.</p>' +
+        '</div>';
+    });
+
+  // Search input handler with debounce
+  searchInput.addEventListener('input', function() {
+    var query = this.value.trim();
+    
+    clearBtn.style.display = query ? 'block' : 'none';
+
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() {
+      if (!query) {
+        showInitial();
+        return;
+      }
+      var filtered = filterPosts(query);
+      renderResults(filtered, query);
+    }, 300);
+  });
+
+  // Clear button
+  clearBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    searchInput.focus();
+    clearBtn.style.display = 'none';
+    showInitial();
+  });
+
+  // Keyboard navigation: Escape to clear
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      clearBtn.style.display = 'none';
+      showInitial();
+    }
+  });
+
+  // Focus search input on page load
+  searchInput.focus();
 })();
 </script>

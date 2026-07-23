@@ -2,7 +2,7 @@
 layout: category
 title: "Kilo AI"
 description: "ابزارهای هوش مصنوعی Kilo، مدل‌های کدنویسی، benchmark"
-permalink: /blog/category/kilo-ai/
+permalink: /en/blog/category/kilo-ai/
 lang: en
 locale: en
 dir: ltr

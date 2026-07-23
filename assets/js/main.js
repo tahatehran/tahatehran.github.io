@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ============================================
     // Hamburger Menu Logic
+    // ============================================
     const toggle = document.querySelector('.mobile-menu-toggle');
     const close = document.querySelector('.mobile-menu-close');
     const overlay = document.querySelector('.mobile-menu-overlay');
@@ -28,7 +30,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ============================================
+    // Sticky Header Shadow on Scroll
+    // ============================================
+    const header = document.querySelector('.site-header');
+    if (header) {
+        let lastScroll = 0;
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            lastScroll = currentScroll;
+        }, { passive: true });
+    }
+
+    // ============================================
     // Code Copy Logic
+    // ============================================
     const codeBlocks = document.querySelectorAll('pre');
     codeBlocks.forEach((block) => {
         if (block.querySelector('.copy-btn')) return;
@@ -68,11 +89,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function showStatus(btn, success) {
         const original = btn.innerHTML;
+        const isRTL = document.documentElement.dir === 'rtl';
         if (success) {
-            btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+            btn.innerHTML = isRTL ? '<i class="fas fa-check"></i> کپی شد!' : '<i class="fas fa-check"></i> Copied!';
             btn.classList.add('copied');
         } else {
-            btn.innerHTML = '<i class="fas fa-times"></i> Error';
+            btn.innerHTML = isRTL ? '<i class="fas fa-times"></i> خطا' : '<i class="fas fa-times"></i> Error';
         }
         setTimeout(() => {
             btn.innerHTML = original;
@@ -80,7 +102,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 2000);
     }
 
+    // ============================================
     // Contact Card Copy Functionality
+    // ============================================
     const contactCards = document.querySelectorAll('.contact-card[data-copy]');
 
     contactCards.forEach(card => {
@@ -121,27 +145,225 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Failed to copy:', err);
             }
         });
-    }
+    });
 
-    // Blog Search Functionality
+    // ============================================
+    // Blog Search (on blog index pages)
+    // ============================================
     const searchInput = document.getElementById('blog-search');
     const postsContainer = document.getElementById('blog-posts-container');
 
     if (searchInput && postsContainer) {
+        let searchTimeout;
+
         searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const posts = postsContainer.querySelectorAll('.blog-post-card');
+            clearTimeout(searchTimeout);
+            searchTimeout = setTimeout(() => {
+                const searchTerm = this.value.toLowerCase().trim();
+                const posts = postsContainer.querySelectorAll('.blog-post-card');
+                let visibleCount = 0;
 
-            posts.forEach(post => {
-                const title = post.getAttribute('data-title').toLowerCase();
-                const description = post.getAttribute('data-description').toLowerCase();
+                posts.forEach(post => {
+                    const title = (post.getAttribute('data-title') || '').toLowerCase();
+                    const description = (post.getAttribute('data-description') || '').toLowerCase();
+                    const categories = (post.getAttribute('data-categories') || '').toLowerCase();
 
-                if (title.includes(searchTerm) || description.includes(searchTerm)) {
-                    post.style.display = '';
-                } else {
-                    post.style.display = 'none';
+                    if (!searchTerm || title.includes(searchTerm) || description.includes(searchTerm) || categories.includes(searchTerm)) {
+                        post.style.display = '';
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                        visibleCount++;
+                    } else {
+                        post.style.opacity = '0';
+                        post.style.transform = 'translateY(10px)';
+                        setTimeout(() => {
+                            if (post.style.opacity === '0') {
+                                post.style.display = 'none';
+                            }
+                        }, 200);
+                    }
+                });
+
+                // Update result count if counter exists
+                const counter = document.getElementById('results-count');
+                if (counter) {
+                    if (searchTerm) {
+                        const isRTL = document.documentElement.dir === 'rtl';
+                        counter.textContent = isRTL
+                            ? `${visibleCount} نتیجه یافت شد`
+                            : `${visibleCount} results found`;
+                        counter.style.display = 'block';
+                    } else {
+                        counter.style.display = 'none';
+                    }
+                }
+            }, 200);
+        });
+
+        // Escape to clear search
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                searchInput.value = '';
+                searchInput.dispatchEvent(new Event('input'));
+                searchInput.blur();
+            }
+        });
+    }
+
+    // ============================================
+    // Category Filter Buttons
+    // ============================================
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.dataset.filter;
+                const container = this.closest('.blog-filters');
+                const postsSection = container ? container.nextElementSibling : null;
+                const posts = postsSection
+                    ? postsSection.querySelectorAll('.blog-post-card')
+                    : document.querySelectorAll('.blog-post-card');
+
+                // Update active state
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+
+                let visibleCount = 0;
+                posts.forEach(post => {
+                    if (filter === 'all') {
+                        post.style.display = '';
+                        post.style.opacity = '1';
+                        post.style.transform = 'translateY(0)';
+                        visibleCount++;
+                    } else {
+                        const cats = (post.dataset.categories || '').toLowerCase();
+                        if (cats.includes(filter.toLowerCase())) {
+                            post.style.display = '';
+                            post.style.opacity = '1';
+                            post.style.transform = 'translateY(0)';
+                            visibleCount++;
+                        } else {
+                            post.style.opacity = '0';
+                            post.style.transform = 'translateY(10px)';
+                            setTimeout(() => {
+                                if (post.style.opacity === '0') {
+                                    post.style.display = 'none';
+                                }
+                            }, 200);
+                        }
+                    }
+                });
+
+                // Update result count
+                const counter = document.getElementById('results-count');
+                if (counter) {
+                    const isRTL = document.documentElement.dir === 'rtl';
+                    counter.textContent = isRTL
+                        ? `${visibleCount} مقاله`
+                        : `${visibleCount} posts`;
+                    counter.style.display = 'block';
                 }
             });
         });
     }
+
+    // ============================================
+    // Smooth Scroll to Top Button
+    // ============================================
+    const scrollToTop = document.createElement('button');
+    scrollToTop.className = 'scroll-to-top';
+    scrollToTop.innerHTML = '↑';
+    scrollToTop.setAttribute('aria-label', 'Scroll to top');
+    scrollToTop.style.cssText = `
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px var(--primary-glow);
+    `;
+
+    // RTL: position on left
+    if (document.documentElement.dir === 'rtl') {
+        scrollToTop.style.right = 'auto';
+        scrollToTop.style.left = '2rem';
+    }
+
+    document.body.appendChild(scrollToTop);
+
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 400) {
+            scrollToTop.style.opacity = '1';
+            scrollToTop.style.visibility = 'visible';
+        } else {
+            scrollToTop.style.opacity = '0';
+            scrollToTop.style.visibility = 'hidden';
+        }
+    }, { passive: true });
+
+    scrollToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Touch device: hide on touch start
+    scrollToTop.addEventListener('touchstart', () => {
+        scrollToTop.style.transform = 'scale(0.9)';
+    }, { passive: true });
+
+    scrollToTop.addEventListener('touchend', () => {
+        scrollToTop.style.transform = 'scale(1)';
+    }, { passive: true });
+
+    // ============================================
+    // Intersection Observer for Scroll Animations
+    // ============================================
+    if ('IntersectionObserver' in window) {
+        const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+        if (revealElements.length > 0) {
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        }
+    }
+
+    // ============================================
+    // Lazy Loading for Images
+    // ============================================
+    if ('loading' in HTMLImageElement.prototype) {
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        images.forEach(img => {
+            if (img.dataset.src) {
+                img.src = img.dataset.src;
+            }
+        });
+    }
+
+    // ============================================
+    // Performance: Passive Event Listeners
+    // ============================================
+    // Ensure scroll and touch events are passive for better mobile performance
+    // (Already handled by { passive: true } in scroll listeners above)
 });

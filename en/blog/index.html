@@ -3,63 +3,467 @@ layout: default
 lang: en
 dir: ltr
 title: Blog
-pagination:
-  enabled: true
-  collection: posts
-  per_page: 6
-  filter:
-    field: lang
-    value: en
-  sort_field: date
-  sort_reverse: true
+description: "Explore MovtiGroup's latest tutorials, tips, and news about software development, AI agents, Docker, Python, and more."
 ---
 
-<section class="blog-header hero">
-  <h1>MovtiGroup Blog</h1>
-  <p>Latest tutorials, tips and news about our projects.</p>
+<!-- SEO Extra Meta -->
+<meta name="robots" content="index, follow">
+<meta name="author" content="MovtiGroup">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MovtiGroup Blog - Tutorials, Tips & News">
+<meta property="og:description" content="Explore the latest tutorials, developer tips, and tech news from MovtiGroup. Guides on AI, Docker, Python, DevOps, and more.">
+<meta property="og:url" content="{{ '/en/blog/' | absolute_url }}">
+<meta property="og:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="MovtiGroup">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MovtiGroup Blog - Tutorials, Tips & News">
+<meta name="twitter:description" content="Explore the latest tutorials, developer tips, and tech news from MovtiGroup.">
+<meta name="twitter:image" content="{{ '/assets/images/og-image.png' | absolute_url }}">
+
+<!-- Hero Section -->
+<section class="blog-header hero" style="text-align: center; padding: 4rem 1.5rem 2.5rem; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at center top, rgba(88,166,255,0.12) 0%, transparent 60%); pointer-events: none;"></div>
+  <h1 style="font-size: 2.8rem; font-weight: 800; margin-bottom: 0.75rem; position: relative;">
+    <i class="fas fa-pen-nib" style="font-size: 2rem; margin-right: 0.5rem; color: var(--primary); opacity: 0.8;"></i>
+    Movti<span style="color: var(--primary);">Group</span> Blog
+  </h1>
+  <p style="color: var(--muted); font-size: 1.15rem; max-width: 600px; margin: 0 auto; line-height: 1.7; position: relative;">
+    Tutorials, tips, and the latest news from our team. Dive into guides on
+    AI agents, Docker, Python, DevOps, and more.
+  </p>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1.25rem; position: relative; flex-wrap: wrap;">
+    <span style="display: flex; align-items: center; gap: 0.4rem; color: var(--muted); font-size: 0.9rem;">
+      <i class="fas fa-file-alt" style="color: var(--primary);"></i>
+      <span id="total-post-count">
+        {% assign en_posts = site.posts | where: "lang", "en" %}
+        {{ en_posts.size }} Articles
+      </span>
+    </span>
+    <span style="display: flex; align-items: center; gap: 0.4rem; color: var(--muted); font-size: 0.9rem;">
+      <i class="fas fa-calendar-alt" style="color: var(--accent);"></i>
+      Updated {{ site.time | date: "%B %d, %Y" }}
+    </span>
+  </div>
 </section>
 
-<div class="blog-search-container">
-  <div class="search-box">
-    <input type="text" id="blog-search" placeholder="Search articles..." class="search-input">
-    <img src="/assets/images/icons/search.svg" alt="Search" class="search-icon">
+<!-- Search Box -->
+<div class="blog-search-container" style="max-width: 550px; margin: 0 auto 1.5rem;">
+  <div class="search-box" style="position: relative;">
+    <input
+      type="text"
+      id="blog-search"
+      placeholder="Search articles by title, description, or category..."
+      class="search-input"
+      autocomplete="off"
+      style="width: 100%; padding: 0.85rem 1.2rem 0.85rem 2.8rem; font-size: 1rem; border-radius: 12px;"
+    >
+    <img src="/assets/images/icons/search.svg" alt="Search" class="search-icon" style="width: 18px; height: 18px; left: 1rem; right: auto;">
+    <button id="search-clear" aria-label="Clear search" style="position: absolute; right: 0.75rem; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--muted); cursor: pointer; font-size: 1.1rem; display: none; padding: 4px 8px; transition: color 0.2s;">
+      <i class="fas fa-times-circle"></i>
+    </button>
   </div>
+  <!-- Results count -->
+  <div id="search-results-count" style="text-align: center; color: var(--muted); font-size: 0.85rem; margin-top: 0.75rem; min-height: 1.3em; transition: opacity 0.3s ease;"></div>
 </div>
 
-{% assign localized_posts = paginator.posts | default: site.posts %}
+<!-- Category Filters -->
+<div class="blog-filters" id="blog-filters" style="justify-content: center; max-width: 900px; margin: 0 auto 2rem;">
+  <button class="filter-btn active" data-category="all" onclick="filterByCategory('all', this)">
+    <i class="fas fa-th-large" style="margin-right: 4px; font-size: 0.8em;"></i> All
+  </button>
 
-<div class="card-grid blog-post-grid" id="blog-posts-container" style="grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;">
-  {% for post in localized_posts %}
-    <article class="card blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" style="display: flex; flex-direction: column;">
-      <div class="post-icon"><img src="/assets/images/icons/brain.svg" alt="AI" style="width: 32px; height: 32px; object-fit: contain;"></div>
-      <h3><a href="{{ post.url | relative_url }}" style="color: var(--text-bright); text-decoration: none;">{{ post.title }}</a></h3>
-      <p style="color: var(--muted); font-size: 0.9rem; flex: 1;">{{ post.description | strip_html | truncate: 120 }}</p>
-      <div class="post-meta-info">
-        <img src="/assets/images/icons/calendar.svg" alt="Date" style="width: 16px; height: 16px; object-fit: contain; vertical-align: middle; margin-left: 4px;">
-        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-      </div>
-      <div style="margin-top: 1rem;">
-        <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Read More</a>
-      </div>
-    </article>
+  <!-- Dynamically extract unique categories from EN posts -->
+  {% assign all_categories = "" | split: "" %}
+  {% for post in en_posts %}
+    {% for cat in post.categories %}
+      {% unless all_categories contains cat %}
+        {% assign all_categories = all_categories | push: cat %}
+      {% endunless %}
+    {% endfor %}
+  {% endfor %}
+  {% assign sorted_categories = all_categories | sort %}
+
+  {% for cat in sorted_categories %}
+    <button class="filter-btn" data-category="{{ cat }}" onclick="filterByCategory('{{ cat }}', this)">
+      {% case cat %}
+        {% when "ai-agents" %}<i class="fas fa-robot" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "docker" %}<i class="fab fa-docker" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "python" %}<i class="fab fa-python" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "security" %}<i class="fas fa-shield-alt" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "tutorial" %}<i class="fas fa-graduation-cap" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "devops" %}<i class="fas fa-cogs" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "databases" %}<i class="fas fa-database" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "api" %}<i class="fas fa-plug" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "javascript" %}<i class="fab fa-js-square" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "linux" %}<i class="fab fa-linux" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "openclaw" %}<i class="fas fa-claw" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% when "comparison" %}<i class="fas fa-balance-scale" style="margin-right: 4px; font-size: 0.8em;"></i>
+        {% else %}<i class="fas fa-tag" style="margin-right: 4px; font-size: 0.8em;"></i>
+      {% endcase %}
+      {{ cat }}
+    </button>
   {% endfor %}
 </div>
 
-{% if paginator.total_pages > 1 %}
-<div class="pagination" style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
-    {% for page_num in (1..paginator.total_pages) %}
-      {% if page_num == paginator.page %}
-        <span class="btn btn-primary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</span>
-      {% else %}
-        {% if page_num == 1 %}
-          <a href="{{ '/en/' | relative_url }}" class="btn btn-secondary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</a>
-        {% else %}
-          <a href="{{ site.baseurl }}/en/page{{ page_num }}/" class="btn btn-secondary" style="min-width: 40px; padding: 0.5rem 0.8rem; font-size: 0.85rem;">{{ page_num }}</a>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
-  </div>
-  <span class="page-number" style="display: flex; align-items: center; font-weight: 700; font-size: 0.9rem;">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+<!-- Blog Post Grid -->
+<div class="card-grid blog-post-grid" id="blog-posts-container" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem;">
+
+  {% for post in en_posts %}
+    {% assign post_categories = post.categories | join: " " %}
+    <article
+      class="card blog-post-card"
+      data-title="{{ post.title | escape }}"
+      data-description="{{ post.description | escape }}"
+      data-categories="{{ post_categories | escape }}"
+      data-date="{{ post.date | date: '%Y%m%d' }}"
+      data-index="{{ forloop.index }}"
+      style="display: flex; flex-direction: column; opacity: 1; transition: opacity 0.35s ease, transform 0.35s ease;"
+    >
+      <div class="post-card-content">
+        <!-- Category tags -->
+        <div class="post-card-meta" style="margin-bottom: 0.75rem; flex-wrap: wrap;">
+          {% for cat in post.categories %}
+            <span class="category-tag">{{ cat }}</span>
+          {% endfor %}
+        </div>
+
+        <!-- Title -->
+        <h3 class="post-card-title">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h3>
+
+        <!-- Description / Excerpt -->
+        <p class="post-card-excerpt">{{ post.description | strip_html | truncate: 140 }}</p>
+
+        <!-- Meta: date + author -->
+        <div class="post-card-meta" style="margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border);">
+          <span style="display: flex; align-items: center; gap: 0.35rem; color: var(--muted); font-size: 0.85rem;">
+            <i class="fas fa-calendar-alt" style="font-size: 0.8em;"></i>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time>
+          </span>
+          <span style="display: flex; align-items: center; gap: 0.35rem; color: var(--muted); font-size: 0.85rem;">
+            <i class="fas fa-user" style="font-size: 0.8em;"></i>
+            {{ post.author | default: "MovtiGroup" }}
+          </span>
+        </div>
+
+        <!-- Read More Button -->
+        <div style="margin-top: 1rem;">
+          <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small" style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; font-size: 0.85rem; border-radius: 8px;">
+            Read More <i class="fas fa-arrow-right" style="font-size: 0.75em;"></i>
+          </a>
+        </div>
+      </div>
+    </article>
+  {% endfor %}
+
 </div>
-{% endif %}
+
+<!-- No Results Message -->
+<div id="no-results" style="display: none; text-align: center; padding: 4rem 1rem;">
+  <i class="fas fa-search" style="font-size: 3rem; color: var(--border); margin-bottom: 1rem;"></i>
+  <h3 style="color: var(--muted); font-size: 1.2rem; margin-bottom: 0.5rem;">No articles found</h3>
+  <p style="color: var(--muted); font-size: 0.95rem;">Try adjusting your search terms or clearing the category filter.</p>
+  <button class="btn btn-primary" onclick="resetFilters()" style="margin-top: 1rem; padding: 0.5rem 1.2rem; border-radius: 8px;">
+    <i class="fas fa-redo" style="margin-right: 4px;"></i> Reset Filters
+  </button>
+</div>
+
+<!-- Load More Button -->
+<div id="load-more-container" style="text-align: center; margin-top: 2.5rem; padding-bottom: 2rem;">
+  <button id="load-more-btn" class="btn btn-primary" onclick="loadMorePosts()" style="padding: 0.65rem 2rem; font-size: 1rem; border-radius: 10px; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s ease;">
+    <i class="fas fa-plus-circle"></i> Load More Articles
+  </button>
+  <p id="load-more-info" style="color: var(--muted); font-size: 0.85rem; margin-top: 0.75rem;"></p>
+</div>
+
+<!-- Back to Top -->
+<div style="text-align: center; margin-bottom: 2rem;">
+  <a href="#" id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;" style="color: var(--muted); font-size: 0.85rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s;">
+    <i class="fas fa-chevron-up"></i> Back to Top
+  </a>
+</div>
+
+<!-- Inline Styles for Animations & Responsive -->
+<style>
+  /* Smooth card visibility transitions */
+  .blog-post-card.hidden {
+    display: none !important;
+  }
+  .blog-post-card.fade-out {
+    opacity: 0 !important;
+    transform: scale(0.96) !important;
+  }
+  .blog-post-card.fade-in {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+  }
+
+  /* Highlight matched text */
+  mark {
+    background: rgba(88, 166, 255, 0.25);
+    color: var(--text-bright);
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+
+  /* Search clear button hover */
+  #search-clear:hover {
+    color: var(--primary) !important;
+  }
+
+  /* Load more button hover */
+  #load-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px var(--primary-glow);
+  }
+
+  /* Back to top hover */
+  #back-to-top:hover {
+    color: var(--primary) !important;
+  }
+
+  /* Category tag subtle animation */
+  .category-tag {
+    cursor: default;
+    transition: all 0.2s ease;
+  }
+
+  /* Filter buttons scroll on mobile */
+  @media (max-width: 768px) {
+    .blog-filters {
+      flex-wrap: nowrap !important;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 0.5rem;
+      justify-content: flex-start !important;
+    }
+    .filter-btn {
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .blog-header.hero h1 {
+      font-size: 2rem !important;
+    }
+    #blog-posts-container {
+      grid-template-columns: 1fr !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .blog-header.hero {
+      padding: 2.5rem 1rem 1.5rem !important;
+    }
+    .blog-header.hero h1 {
+      font-size: 1.6rem !important;
+    }
+    .blog-header.hero p {
+      font-size: 0.95rem !important;
+    }
+  }
+</style>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- Configuration ---
+  const POSTS_PER_PAGE = 9;
+  const DEBOUNCE_DELAY = 250;
+
+  // --- State ---
+  let currentPage = 1;
+  let activeCategory = 'all';
+  let searchQuery = '';
+  let allCards = [];
+  let filteredCards = [];
+
+  // --- Initialization ---
+  document.addEventListener('DOMContentLoaded', function() {
+    allCards = Array.from(document.querySelectorAll('#blog-posts-container .blog-post-card'));
+    filteredCards = [...allCards];
+
+    // Setup search with debounce
+    const searchInput = document.getElementById('blog-search');
+    const clearBtn = document.getElementById('search-clear');
+
+    let debounceTimer;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function() {
+        searchQuery = searchInput.value.trim().toLowerCase();
+        clearBtn.style.display = searchQuery.length > 0 ? 'block' : 'none';
+        applyFilters();
+      }, DEBOUNCE_DELAY);
+    });
+
+    clearBtn.addEventListener('click', function() {
+      searchInput.value = '';
+      searchQuery = '';
+      clearBtn.style.display = 'none';
+      applyFilters();
+      searchInput.focus();
+    });
+
+    // Keyboard shortcut: Escape to clear search
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        searchQuery = '';
+        clearBtn.style.display = 'none';
+        applyFilters();
+      }
+    });
+
+    // Initial render
+    applyFilters();
+  });
+
+  // --- Category Filter (global) ---
+  window.filterByCategory = function(category, btnElement) {
+    activeCategory = category;
+
+    // Update active state on buttons
+    document.querySelectorAll('#blog-filters .filter-btn').forEach(function(btn) {
+      btn.classList.remove('active');
+    });
+    btnElement.classList.add('active');
+
+    currentPage = 1;
+    applyFilters();
+  };
+
+  // --- Reset Filters (global) ---
+  window.resetFilters = function() {
+    activeCategory = 'all';
+    searchQuery = '';
+    currentPage = 1;
+    document.getElementById('blog-search').value = '';
+    document.getElementById('search-clear').style.display = 'none';
+    document.querySelectorAll('#blog-filters .filter-btn').forEach(function(btn) {
+      btn.classList.remove('active');
+      if (btn.getAttribute('data-category') === 'all') {
+        btn.classList.add('active');
+      }
+    });
+    applyFilters();
+  };
+
+  // --- Load More (global) ---
+  window.loadMorePosts = function() {
+    currentPage++;
+    renderCards(true);
+  };
+
+  // --- Core Filter Logic ---
+  function applyFilters() {
+    filteredCards = allCards.filter(function(card) {
+      // Search match
+      if (searchQuery) {
+        var title = (card.getAttribute('data-title') || '').toLowerCase();
+        var desc = (card.getAttribute('data-description') || '').toLowerCase();
+        var cats = (card.getAttribute('data-categories') || '').toLowerCase();
+        var matchSearch = title.indexOf(searchQuery) !== -1 ||
+                          desc.indexOf(searchQuery) !== -1 ||
+                          cats.indexOf(searchQuery) !== -1;
+        if (!matchSearch) return false;
+      }
+
+      // Category match
+      if (activeCategory !== 'all') {
+        var cardCats = (card.getAttribute('data-categories') || '').split(' ');
+        if (cardCats.indexOf(activeCategory) === -1) return false;
+      }
+
+      return true;
+    });
+
+    currentPage = 1;
+    renderCards(false);
+  }
+
+  // --- Render Cards with Pagination ---
+  function renderCards(appendMode) {
+    var container = document.getElementById('blog-posts-container');
+    var noResults = document.getElementById('no-results');
+    var loadMoreContainer = document.getElementById('load-more-container');
+    var resultsCount = document.getElementById('search-results-count');
+    var totalVisible = currentPage * POSTS_PER_PAGE;
+
+    // If not appending, hide all cards first
+    if (!appendMode) {
+      allCards.forEach(function(card) {
+        card.style.display = 'none';
+        card.classList.remove('fade-in', 'fade-out');
+      });
+    }
+
+    // Determine which cards to show
+    var cardsToShow = filteredCards.slice(0, totalVisible);
+    var hasMore = filteredCards.length > totalVisible;
+
+    // Show relevant cards with staggered fade-in
+    if (!appendMode) {
+      cardsToShow.forEach(function(card, index) {
+        card.style.display = 'flex';
+        card.classList.remove('fade-out');
+        card.classList.add('fade-in');
+        card.style.transitionDelay = (Math.min(index, 15) * 40) + 'ms';
+        // Reset delay after animation
+        setTimeout(function() {
+          card.style.transitionDelay = '0ms';
+        }, 800);
+      });
+    } else {
+      // For append mode, show only the new cards
+      var startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+      filteredCards.slice(startIndex, totalVisible).forEach(function(card, index) {
+        card.style.display = 'flex';
+        card.classList.remove('fade-out');
+        card.classList.add('fade-in');
+        card.style.transitionDelay = (index * 50) + 'ms';
+        setTimeout(function() {
+          card.style.transitionDelay = '0ms';
+        }, 800);
+      });
+    }
+
+    // No results
+    if (filteredCards.length === 0) {
+      noResults.style.display = 'block';
+      loadMoreContainer.style.display = 'none';
+    } else {
+      noResults.style.display = 'none';
+      loadMoreContainer.style.display = 'block';
+    }
+
+    // Load more button
+    var loadMoreBtn = document.getElementById('load-more-btn');
+    var loadMoreInfo = document.getElementById('load-more-info');
+    if (hasMore) {
+      loadMoreBtn.style.display = 'inline-flex';
+      var remaining = filteredCards.length - totalVisible;
+      loadMoreInfo.textContent = 'Showing ' + cardsToShow.length + ' of ' + filteredCards.length + ' articles (' + remaining + ' remaining)';
+    } else {
+      loadMoreBtn.style.display = 'none';
+      loadMoreInfo.textContent = filteredCards.length > 0 ? 'Showing all ' + filteredCards.length + ' articles' : '';
+    }
+
+    // Results count
+    if (searchQuery || activeCategory !== 'all') {
+      var filterLabel = '';
+      if (searchQuery) filterLabel += '"' + searchQuery + '"';
+      if (activeCategory !== 'all') {
+        filterLabel += (filterLabel ? ' in ' : '') + activeCategory;
+      }
+      resultsCount.textContent = filteredCards.length + ' article' + (filteredCards.length !== 1 ? 's' : '') + ' found' + (filterLabel ? ' for ' + filterLabel : '');
+      resultsCount.style.opacity = '1';
+    } else {
+      resultsCount.textContent = '';
+      resultsCount.style.opacity = '0';
+    }
+  }
+
+})();
+</script>

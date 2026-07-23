@@ -2,7 +2,7 @@
 layout: category
 title: "Docker & DevOps"
 description: "راهنمای نصب و استفاده از Docker، کانتینر، CI/CD و DevOps"
-permalink: /blog/category/docker/
+permalink: /en/blog/category/docker/
 lang: en
 locale: en
 dir: ltr

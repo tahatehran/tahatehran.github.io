@@ -2,7 +2,7 @@
 layout: category
 title: "Security"
 description: "امنیت سایبری، تست نفوذ، حریم خصوصی، حفاظت از داده‌ها"
-permalink: /blog/category/security/
+permalink: /en/blog/category/security/
 lang: en
 locale: en
 dir: ltr

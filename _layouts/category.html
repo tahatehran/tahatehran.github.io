@@ -1,41 +1,44 @@
 ---
 layout: default
-title: "{{ page.title }} - MovtiGroup"
-permalink: /blog/category/{{ page.category }}/
-lang: en
-locale: en
-dir: ltr
 ---
 
-<div class="blog-header">
+{% assign cat_lang = page.lang | default: 'fa' %}
+{% assign cat_category = page.category %}
+
+<div class="category-header" dir="{{ page.dir | default: 'rtl' }}">
   <h1>{{ page.title }}</h1>
   <p>{{ page.description }}</p>
 </div>
 
-<div class="category-posts-container" id="category-posts-container" data-category="{{ page.category }}">
-  {% assign filtered = site.posts | where_exp: "post", "post.categories contains page.category" %}
+<div class="category-posts-container" id="category-posts-container" data-category="{{ cat_category }}" data-lang="{{ cat_lang }}">
+  {% assign filtered = site.posts | where_exp: "post", "post.categories contains cat_category" | where: "lang", cat_lang %}
   {% if filtered.size == 0 %}
-    <p>No posts found in this category.</p>
+    <p>{% if cat_lang == 'fa' %}پستی در این دسته‌بندی یافت نشد.{% else %}No posts found in this category.{% endif %}</p>
   {% else %}
-    {% for post in filtered %}
-      <article class="blog-post-card" data-title="{{ post.title | escape }}" data-description="{{ post.description | escape }}" data-categories="{{ post.categories | join: ' ' }}">
-        <div class="post-card-content">
-          <h2 class="post-card-title">
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-          </h2>
-          <p class="post-card-excerpt">{{ post.description | strip_html | truncate: 150 }}</p>
-          <div class="post-card-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
-            {% if post.categories %}
-              <span class="post-categories">
-                {% for cat in post.categories %}
-                  <span class="category-tag">{{ cat }}</span>
-                {% endfor %}
-              </span>
+    <p class="category-count">{% if cat_lang == 'fa' %}تعداد پست‌ها: {{ filtered.size }}{% else %}Posts: {{ filtered.size }}{% endif %}</p>
+    <div class="posts-grid">
+      {% for post in filtered %}
+        <article class="blog-post-card" dir="{{ page.dir | default: 'rtl' }}">
+          <div class="post-card-content">
+            <h2 class="post-card-title">
+              <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </h2>
+            {% if post.description %}
+              <p class="post-card-excerpt">{{ post.description | strip_html | truncate: 150 }}</p>
             {% endif %}
+            <div class="post-card-meta">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+              {% if post.categories.size > 0 %}
+                <span class="post-categories">
+                  {% for cat in post.categories %}
+                    <span class="category-tag">{{ cat }}</span>
+                  {% endfor %}
+                </span>
+              {% endif %}
+            </div>
           </div>
-        </div>
-      </article>
-    {% endfor %}
+        </article>
+      {% endfor %}
+    </div>
   {% endif %}
 </div>

@@ -2,7 +2,7 @@
 layout: category
 title: "AI Agents"
 description: "عوامل هوش مصنوعی، autonomous agents، دستیارهای هوشمند"
-permalink: /blog/category/ai-agents/
+permalink: /en/blog/category/ai-agents/
 lang: en
 locale: en
 dir: ltr
