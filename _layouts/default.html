@@ -81,7 +81,6 @@
             position: relative;
             width: 48px;
             height: 48px;
-            display: flex;
             align-items: center;
             justify-content: center;
             background: rgba(88, 166, 255, 0.08);
@@ -216,12 +215,11 @@
             color: var(--text, #c9d1d9);
             text-decoration: none;
             transition: all 0.25s ease;
-            border-left: 3px solid transparent;
+            border: none;
             gap: 10px;
         }
         [dir="rtl"] .mobile-nav ul li a {
-            border-left: none;
-            border-right: 3px solid transparent;
+            border: none;
         }
         .mobile-nav ul li a:hover {
             background: rgba(88, 166, 255, 0.06);
@@ -231,13 +229,13 @@
         .mobile-nav ul li a[aria-current="page"] {
             background: rgba(88, 166, 255, 0.1);
             color: var(--primary, #58a6ff);
-            border-left-color: var(--primary, #58a6ff);
+            border-left: 3px solid var(--primary, #58a6ff);
             font-weight: 600;
         }
         [dir="rtl"] .mobile-nav ul li a.active,
         [dir="rtl"] .mobile-nav ul li a[aria-current="page"] {
-            border-left-color: transparent;
-            border-right-color: var(--primary, #58a6ff);
+            border-left: none;
+            border-right: 3px solid var(--primary, #58a6ff);
         }
 
         .mobile-menu-footer {

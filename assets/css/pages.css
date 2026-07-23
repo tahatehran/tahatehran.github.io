@@ -1799,9 +1799,18 @@
     color: #fff;
     border-color: #0077b5;
   }
+  .member-social .social-link.github {
+    color: #c9d1d9;
+  }
+  .member-social .social-link.github:hover {
+    background: #6e5494;
+    color: #fff;
+    border-color: #6e5494;
+    box-shadow: 0 2px 8px rgba(110, 84, 148, 0.3);
+  }
   .member-social .social-link img {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
   }
 
@@ -2038,9 +2047,18 @@
     color: #fff;
     border-color: #0077b5;
   }
+  .member-social .social-link.github {
+    color: #c9d1d9;
+  }
+  .member-social .social-link.github:hover {
+    background: #6e5494;
+    color: #fff;
+    border-color: #6e5494;
+    box-shadow: 0 2px 8px rgba(110, 84, 148, 0.3);
+  }
   .member-social .social-link img {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     object-fit: contain;
   }
 
