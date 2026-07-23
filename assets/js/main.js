@@ -7,14 +7,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.querySelector('.mobile-menu-overlay');
     const body = document.body;
 
+    function closeMenu() {
+        if (overlay) overlay.classList.remove('active');
+        if (body) body.classList.remove('menu-open');
+        body.style.overflow = '';
+        body.style.position = '';
+        body.style.width = '';
+        body.style.height = '';
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+        document.documentElement.style.overflowY = 'auto';
+        document.body.style.overflowY = 'auto';
+        window.scrollTo(0, window.scrollY);
+    }
+
     if (toggle && overlay) {
         toggle.addEventListener('click', () => {
             const isOpen = overlay.classList.contains('active');
             if (isOpen) {
-                overlay.classList.remove('active');
-                body.classList.remove('menu-open');
-                body.style.overflow = '';
-                toggle.setAttribute('aria-expanded', 'false');
+                closeMenu();
             } else {
                 overlay.classList.add('active');
                 body.classList.add('menu-open');
@@ -22,43 +32,33 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggle.setAttribute('aria-expanded', 'true');
             }
         });
-
-        const closeMenu = () => {
-            overlay.classList.remove('active');
-            body.classList.remove('menu-open');
-            body.style.overflow = '';
-            body.style.position = '';
-            body.style.width = '';
-            body.style.height = '';
-            if (toggle) toggle.setAttribute('aria-expanded', 'false');
-            // Force scroll restoration on iOS/Android
-            document.documentElement.style.overflowY = 'auto';
-            document.body.style.overflowY = 'auto';
-            window.scrollTo(0, window.scrollY);
-        };
-    };
+    }
 
     if (close) close.addEventListener('click', closeMenu);
 
     // Close on overlay background click
-    overlay.addEventListener('click', (e) => {
-        if (e.target === overlay) closeMenu();
-    });
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeMenu();
+        });
+    }
 
     // Close menu on link click
-    const navLinks = overlay.querySelectorAll('a');
-    navLinks.forEach(link => link.addEventListener('click', closeMenu));
+    if (overlay) {
+        const navLinks = overlay.querySelectorAll('a');
+        navLinks.forEach(link => link.addEventListener('click', closeMenu));
+    }
 
     // Close on escape
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) closeMenu();
+        if (e.key === 'Escape' && overlay && overlay.classList.contains('active')) closeMenu();
     });
-}
+});
 
-    // ============================================
-    // Sticky Header Shadow on Scroll
-    // ============================================
-    const header = document.querySelector('.site-header');
+// ============================================
+// Sticky Header Shadow on Scroll
+// ============================================
+const header = document.querySelector('.site-header');
 if (header) {
     let lastScroll = 0;
     window.addEventListener('scroll', () => {
@@ -242,7 +242,7 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 if (filterBtns.length > 0) {
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function () {
-            const filter = this.dataset.filter;
+            const filter = this.dataset.filter || this.dataset.category || '';
             const container = this.closest('.blog-filters');
             const postsSection = container ? container.nextElementSibling : null;
             const posts = postsSection
@@ -262,7 +262,7 @@ if (filterBtns.length > 0) {
                     visibleCount++;
                 } else {
                     const cats = (post.dataset.categories || '').toLowerCase();
-                    if (cats.includes(filter.toLowerCase())) {
+                    if (cats.includes(String(filter).toLowerCase())) {
                         post.style.display = '';
                         post.style.opacity = '1';
                         post.style.transform = 'translateY(0)';
@@ -391,4 +391,3 @@ if ('loading' in HTMLImageElement.prototype) {
     // ============================================
     // Ensure scroll and touch events are passive for better mobile performance
     // (Already handled by { passive: true } in scroll listeners above)
-});

@@ -7,33 +7,41 @@
    Mobile Scrolling Fix
    Ensures touch scrolling works on all devices
    ============================================ */
-@supports (-webkit-touch-callout: none) {
-  html,
-  body {
-    -webkit-overflow-scrolling: touch !important;
-    overflow-y: auto !important;
-  }
-}
 html {
-  overflow-y: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 body {
-  overflow-x: clip;
+  overflow-x: visible;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   min-height: 100vh;
+  touch-action: auto;
+}
+
+/* iOS specific: ensure vertical scroll works */
+@supports (-webkit-touch-callout: none) {
+  html {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  body {
+    overflow-x: visible;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-y;
+  }
 }
 
 /* Mobile/tablet: ensure body scroll is never blocked */
 @media (max-width: 768px) {
   html {
-    overflow-y: auto !important;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch !important;
   }
   body {
+    overflow-x: visible;
     overflow-y: auto !important;
-    overflow-x: clip !important;
     -webkit-overflow-scrolling: touch !important;
     touch-action: pan-y;
     min-height: 100vh;
@@ -52,32 +60,32 @@ body {
 }
 @media (max-width: 425px) {
   body {
+    overflow-x: visible;
     overflow-y: auto !important;
-    overflow-x: clip !important;
     -webkit-overflow-scrolling: touch !important;
     touch-action: pan-y;
   }
 }
 @media (max-width: 375px) {
   body {
+    overflow-x: visible;
     overflow-y: auto !important;
-    overflow-x: clip !important;
     -webkit-overflow-scrolling: touch !important;
     touch-action: pan-y;
   }
 }
 @media (max-width: 320px) {
   body {
+    overflow-x: visible;
     overflow-y: auto !important;
-    overflow-x: clip !important;
     -webkit-overflow-scrolling: touch !important;
     touch-action: pan-y;
   }
 }
 @media (min-width: 769px) and (max-width: 1024px) {
   body {
+    overflow-x: visible;
     overflow-y: auto !important;
-    overflow-x: clip !important;
     -webkit-overflow-scrolling: touch !important;
     touch-action: pan-y;
   }

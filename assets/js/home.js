@@ -1,19 +1,24 @@
 // Homepage slider, animations, and counters
 
-// === From index.html ===
-(function() {
+// === From index.html (Persian) ===
 (function () {
   /* ── Hero Slider ────────────────────────────────────────── */
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-dot');
-  const pauseBtn = document.getElementById('heroPauseBtn');
-  const pauseIcon = document.getElementById('heroPauseIcon');
-  let current = 0;
-  let interval = null;
-  let paused = false;
-  const INTERVAL_MS = 5000;
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-dot');
+  var pauseBtn = document.getElementById('heroPauseBtn');
+  var pauseIcon = document.getElementById('heroPauseIcon');
+  var slider = document.getElementById('heroSlider');
+
+  // Only run if this page has the Persian slider elements
+  if (slides.length === 0 || !slider) return;
+
+  var current = 0;
+  var interval = null;
+  var paused = false;
+  var INTERVAL_MS = 5000;
 
   function goTo(idx) {
+    if (!slides[current] || !dots[current]) return;
     slides[current].classList.remove('active');
     dots[current].classList.remove('active');
     current = (idx + slides.length) % slides.length;
@@ -38,16 +43,17 @@
     });
   });
 
-  pauseBtn.addEventListener('click', function () {
-    paused = !paused;
-    pauseIcon.className = paused ? 'fas fa-play' : 'fas fa-pause';
-    if (paused) { stopAuto(); } else { startAuto(); }
-  });
+  if (pauseBtn) {
+    pauseBtn.addEventListener('click', function () {
+      paused = !paused;
+      if (pauseIcon) pauseIcon.className = paused ? 'fas fa-play' : 'fas fa-pause';
+      if (paused) { stopAuto(); } else { startAuto(); }
+    });
+  }
 
   /* Touch swipe support */
   var touchStartX = 0;
   var touchEndX = 0;
-  var slider = document.getElementById('heroSlider');
   slider.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
   slider.addEventListener('touchend', function (e) {
     touchEndX = e.changedTouches[0].screenX;
@@ -118,23 +124,27 @@
   // Initial check
   setTimeout(checkReveal, 100);
 })();
-})();
 
-// === From en/index.html ===
-(function() {
-(function() {
+// === From en/index.html (English) ===
+(function () {
   'use strict';
 
   /* ---- Hero Slider ---- */
-  const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.hero-slider__dot');
-  let currentSlide = 0;
-  let autoSlideTimer = null;
-  let touchStartX = 0;
-  let touchEndX = 0;
-  const SLIDE_INTERVAL = 5000;
+  var slides = document.querySelectorAll('.hero-slide');
+  var dots = document.querySelectorAll('.hero-slider__dot');
+  var sliderEl = document.querySelector('.hero-slider');
+
+  // Only run if this page has the English slider elements
+  if (slides.length === 0 || !sliderEl || dots.length === 0) return;
+
+  var currentSlide = 0;
+  var autoSlideTimer = null;
+  var touchStartX = 0;
+  var touchEndX = 0;
+  var SLIDE_INTERVAL = 5000;
 
   function goToSlide(index) {
+    if (!slides[currentSlide] || !dots[currentSlide]) return;
     slides[currentSlide].classList.remove('active');
     dots[currentSlide].classList.remove('active');
     currentSlide = (index + slides.length) % slides.length;
@@ -159,20 +169,19 @@
   }
 
   // Dot click navigation
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
+  dots.forEach(function (dot) {
+    dot.addEventListener('click', function () {
       goToSlide(parseInt(this.dataset.index));
       startAutoSlide();
     });
   });
 
   // Touch swipe support
-  var sliderEl = document.querySelector('.hero-slider');
-  sliderEl.addEventListener('touchstart', function(e) {
+  sliderEl.addEventListener('touchstart', function (e) {
     touchStartX = e.changedTouches[0].screenX;
   }, { passive: true });
 
-  sliderEl.addEventListener('touchend', function(e) {
+  sliderEl.addEventListener('touchend', function (e) {
     touchEndX = e.changedTouches[0].screenX;
     var diff = touchStartX - touchEndX;
     if (Math.abs(diff) > 50) {
@@ -191,7 +200,7 @@
 
   // Keyboard navigation
   sliderEl.setAttribute('tabindex', '0');
-  sliderEl.addEventListener('keydown', function(e) {
+  sliderEl.addEventListener('keydown', function (e) {
     if (e.key === 'ArrowRight') { nextSlide(); startAutoSlide(); }
     if (e.key === 'ArrowLeft') { goToSlide(currentSlide - 1); startAutoSlide(); }
   });
@@ -205,7 +214,7 @@
     if (countersAnimated) return;
     countersAnimated = true;
     var statNumbers = document.querySelectorAll('.stat-number[data-target]');
-    statNumbers.forEach(function(el) {
+    statNumbers.forEach(function (el) {
       var target = parseInt(el.dataset.target);
       var suffix = el.dataset.suffix || '';
       var duration = 1500;
@@ -233,7 +242,7 @@
 
   function checkReveal() {
     var windowHeight = window.innerHeight;
-    revealElements.forEach(function(el) {
+    revealElements.forEach(function (el) {
       var rect = el.getBoundingClientRect();
       var revealPoint = windowHeight * 0.88;
       if (rect.top < revealPoint && rect.bottom > 0) {
@@ -253,9 +262,9 @@
 
   // Throttled scroll handler
   var scrollTimeout = null;
-  window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function () {
     if (!scrollTimeout) {
-      scrollTimeout = setTimeout(function() {
+      scrollTimeout = setTimeout(function () {
         checkReveal();
         scrollTimeout = null;
       }, 16);
@@ -264,5 +273,4 @@
 
   // Initial check on load
   checkReveal();
-})();
 })();
