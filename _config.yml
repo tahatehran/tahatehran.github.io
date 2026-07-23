@@ -1,11 +1,14 @@
 title: MovtiGroup
+# Show future posts
+future: true
+
 email: info@movtigroup.me
 description: >-
   Landing page رسمی MovtiGroup روی GitHub Pages.
 baseurl: ""
 url: "https://movtigroup.me"
 twitter_username: movtigroup
-github_username:  movtigroup
+github_username: movtigroup
 
 # Build settings
 # theme: jekyll-theme-cayman
@@ -17,14 +20,12 @@ plugins:
 
 # Multilingual defaults
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "posts"
     values:
       layout: "post"
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "default"
@@ -41,7 +42,7 @@ collections:
 pagination:
   enabled: true
   per_page: 12
-  permalink: '/page/:num/'
-  title: ':title - page :num'
-  sort_field: 'date'
+  permalink: "/page/:num/"
+  title: ":title - page :num"
+  sort_field: "date"
   sort_reverse: true
