@@ -269,3 +269,22 @@ When creating a new post, follow ALL of these steps:
 - 2026-07-23: Updated \_config.yml for multilingual defaults
 - 2026-07-23: Expanded to 126 total posts (69 EN, 57 FA)
 - 2026-07-23: Added 20 category pages with descriptions
+
+## File Organization
+
+### CSS Files
+- \`assets/css/styles.css\` — Global styles (layout, components, animations, responsive)
+- \`assets/css/pages.css\` — Page-specific styles (homepage slider, project cards, team cards, search)
+- \`assets/css/main.scss\` — SCSS entry point
+- \`_sass/\` — SCSS partials (_variables, _animations, _thailand)
+
+### JavaScript Files
+- \`assets/js/main.js\` — Global JS (menu, code copy, scroll-to-top, contact copy)
+- \`assets/js/home.js\` — Homepage slider, counters, scroll effects
+- \`assets/js/blog-filter.js\` — Blog page category filtering
+- \`assets/js/search.js\` — Blog search functionality
+
+### Documentation
+- \`write-post-blog.md\` — Step-by-step guide for creating new blog posts
+- \`README.md\` — Project overview and features
+- \`agent.md\` — This file (structure guide)

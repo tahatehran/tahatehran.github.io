@@ -245,3 +245,16 @@ This repository is a static site published via **GitHub Pages**.
 این پروژه متعلق به **MovtiGroup** است.
 
 This project is owned by **MovtiGroup**.
+
+## File Organization / ساختار فایل‌ها
+
+| File | Purpose |
+|------|---------|
+| \`assets/css/styles.css\` | Global styles |
+| \`assets/css/pages.css\` | Page-specific styles |
+| \`assets/js/main.js\` | Global JavaScript |
+| \`assets/js/home.js\` | Homepage slider & animations |
+| \`assets/js/blog-filter.js\` | Blog category filtering |
+| \`assets/js/search.js\` | Blog search |
+| \`write-post-blog.md\` | Blog post writing guide |
+| \`scripts/generate_search_data.py\` | Regenerate search index |
