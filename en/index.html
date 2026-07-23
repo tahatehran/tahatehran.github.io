@@ -5,139 +5,1009 @@ dir: ltr
 title: Home
 ---
 
-<section class="hero">
-  <h1>
-    Welcome to
-    <span class="highlight" style="color: var(--primary)">MovtiGroup</span>
-  </h1>
-  <p>
-    Leading the way in innovative software solutions and specialized open-source
-    tools for developers.
-  </p>
-  <div class="hero-actions">
-    <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-primary"
-      ><i class="fas fa-newspaper"></i> Read Blog</a
-    >
-    <a href="{{ '/en/projects/' | relative_url }}" class="btn btn-secondary"
-      ><i class="fas fa-layer-group"></i> View Projects</a
-    >
+<!-- ============================================
+     INLINE CSS: Hero Slider, Animations, Motion
+     ============================================ -->
+<style>
+  /* ---- Hero Slider ---- */
+  .hero-slider {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    overflow: hidden;
+    background: var(--bg);
+  }
+  .hero-slider__track {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.9s ease, visibility 0.9s ease;
+    z-index: 1;
+    padding: 2rem 1.5rem;
+  }
+  .hero-slide.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+  }
+  .hero-slide__inner {
+    max-width: 700px;
+    text-align: center;
+  }
+  .hero-slide__badge {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    background: rgba(88, 166, 255, 0.12);
+    color: var(--primary);
+    border: 1px solid rgba(88, 166, 255, 0.25);
+  }
+  .hero-slide:nth-child(2) .hero-slide__badge {
+    background: rgba(126, 231, 135, 0.12);
+    color: var(--accent);
+    border-color: rgba(126, 231, 135, 0.25);
+  }
+  .hero-slide:nth-child(3) .hero-slide__badge {
+    background: rgba(210, 153, 34, 0.12);
+    color: #d29922;
+    border-color: rgba(210, 153, 34, 0.25);
+  }
+  .hero-slide h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--text-bright);
+  }
+  .hero-slide h1 .highlight {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-slide p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 auto 1.8rem;
+    line-height: 1.7;
+  }
+  .hero-slide__actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  /* Background glow per slide */
+  .hero-slide::before {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.12;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .hero-slide:nth-child(1)::before { background: var(--primary); top: -150px; left: 50%; transform: translateX(-50%); }
+  .hero-slide:nth-child(2)::before { background: var(--accent); top: -150px; left: 50%; transform: translateX(-50%); }
+  .hero-slide:nth-child(3)::before { background: #d29922; top: -150px; left: 50%; transform: translateX(-50%); }
+  .hero-slide__inner { position: relative; z-index: 1; }
+
+  /* Dots */
+  .hero-slider__dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1.5rem;
+    position: relative;
+    z-index: 5;
+  }
+  .hero-slider__dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 2px solid var(--muted);
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+  .hero-slider__dot.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 10px var(--primary-glow);
+    transform: scale(1.2);
+  }
+
+  /* ---- Stats Section ---- */
+  .stats-section {
+    padding: 4rem 1.5rem 3rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    text-align: center;
+  }
+  .stat-item {
+    padding: 1.8rem 1rem;
+    border-radius: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .stat-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+  .stat-number {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: var(--primary);
+    display: block;
+    line-height: 1.2;
+  }
+  .stat-item:nth-child(2) .stat-number { color: var(--accent); }
+  .stat-item:nth-child(3) .stat-number { color: #f0883e; }
+  .stat-item:nth-child(4) .stat-number { color: #d2a8ff; }
+  .stat-item:nth-child(5) .stat-number { color: #d29922; }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  /* ---- Features Section ---- */
+  .features-section {
+    padding: 4rem 1.5rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .section-header h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+  }
+  .section-header p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 550px;
+    margin: 0 auto;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2rem 1.8rem;
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+  .feature-card:hover::before { opacity: 1; }
+  .feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    border-color: var(--primary);
+  }
+  .feature-card__icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    margin-bottom: 1.2rem;
+    background: rgba(88, 166, 255, 0.1);
+    transition: background 0.3s ease;
+  }
+  .feature-card:nth-child(2) .feature-card__icon { background: rgba(126, 231, 135, 0.1); }
+  .feature-card:nth-child(3) .feature-card__icon { background: rgba(210, 168, 255, 0.1); }
+  .feature-card:hover .feature-card__icon { background: rgba(88, 166, 255, 0.2); }
+  .feature-card:nth-child(2):hover .feature-card__icon { background: rgba(126, 231, 135, 0.2); }
+  .feature-card:nth-child(3):hover .feature-card__icon { background: rgba(210, 168, 255, 0.2); }
+  .feature-card__icon img { width: 30px; height: 30px; }
+  .feature-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.7rem;
+  }
+  .feature-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  /* ---- Latest Posts ---- */
+  .posts-section {
+    padding: 4rem 1.5rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
+  }
+  .post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    border-color: var(--primary);
+  }
+  .post-card__category {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 0.8rem;
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(88, 166, 255, 0.2);
+    align-self: flex-start;
+  }
+  .post-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+  .post-card__desc {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .post-card__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+  .post-card__date {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .post-card__link {
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+  }
+  .post-card__link:hover { color: var(--accent); }
+
+  /* ---- Brands Section ---- */
+  .brands-section {
+    padding: 4rem 1.5rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+  .brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .brand-enhanced {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .brand-enhanced::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 18px;
+    padding: 2px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .brand-enhanced:hover::before { opacity: 1; }
+  .brand-enhanced:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  }
+  .brand-enhanced__logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.2rem;
+    display: block;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px var(--primary-glow);
+    position: relative;
+    z-index: 2;
+  }
+  .brand-enhanced:nth-child(2) .brand-enhanced__logo {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(126, 231, 135, 0.3);
+  }
+  .brand-enhanced h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.4rem;
+    position: relative;
+    z-index: 2;
+  }
+  .brand-enhanced__tagline {
+    color: var(--primary);
+    font-size: 0.9rem;
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+  }
+  .brand-enhanced:nth-child(2) .brand-enhanced__tagline { color: var(--accent); }
+
+  /* ---- Collaborations Preview ---- */
+  .collabs-section {
+    padding: 4rem 1.5rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+  }
+  .collabs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.8rem;
+  }
+  .collab-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  .collab-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+    border-color: var(--accent);
+  }
+  .collab-card__icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(126, 231, 135, 0.1);
+    margin-bottom: 1rem;
+  }
+  .collab-card:nth-child(2) .collab-card__icon { background: rgba(88, 166, 255, 0.1); }
+  .collab-card:nth-child(3) .collab-card__icon { background: rgba(210, 168, 255, 0.1); }
+  .collab-card__icon img { width: 26px; height: 26px; }
+  .collab-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+  }
+  .collab-card p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  .collab-card__tag {
+    display: inline-block;
+    margin-top: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    background: rgba(126, 231, 135, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(126, 231, 135, 0.2);
+  }
+  .collab-card:nth-child(2) .collab-card__tag {
+    background: rgba(88, 166, 255, 0.1);
+    color: var(--primary);
+    border-color: rgba(88, 166, 255, 0.2);
+  }
+  .collab-card:nth-child(3) .collab-card__tag {
+    background: rgba(210, 168, 255, 0.1);
+    color: #d2a8ff;
+    border-color: rgba(210, 168, 255, 0.2);
+  }
+
+  /* ---- CTA Section ---- */
+  .cta-section {
+    padding: 5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: var(--primary);
+    filter: blur(180px);
+    opacity: 0.06;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  .cta-section h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    color: var(--text-bright);
+    margin-bottom: 0.8rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-section p {
+    color: var(--muted);
+    font-size: 1rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ---- Scroll Reveal Animations ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-left.revealed {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal-scale.revealed {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Stagger children */
+  .stagger-children .reveal:nth-child(1) { transition-delay: 0s; }
+  .stagger-children .reveal:nth-child(2) { transition-delay: 0.1s; }
+  .stagger-children .reveal:nth-child(3) { transition-delay: 0.2s; }
+  .stagger-children .reveal:nth-child(4) { transition-delay: 0.3s; }
+  .stagger-children .reveal:nth-child(5) { transition-delay: 0.4s; }
+
+  /* Float animation */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+
+  /* Divider */
+  .section-divider {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  .section-divider hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border), transparent);
+  }
+
+  /* ---- Responsive ---- */
+  @media (max-width: 768px) {
+    .hero-slider { min-height: 440px; }
+    .hero-slider__track { min-height: 440px; }
+    .hero-slide { min-height: 440px; }
+    .hero-slide h1 { font-size: 1.7rem; }
+    .stats-grid { grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; }
+    .features-grid { grid-template-columns: 1fr; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .collabs-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .hero-slider { min-height: 400px; }
+    .hero-slider__track { min-height: 400px; }
+    .hero-slide { min-height: 400px; padding: 1.5rem 1rem; }
+    .hero-slide h1 { font-size: 1.5rem; }
+    .stat-item { padding: 1.2rem 0.8rem; }
+    .stat-number { font-size: 1.6rem; }
+  }
+</style>
+
+<!-- ============================================
+     HERO SLIDER
+     ============================================ -->
+<section class="hero-slider" aria-label="Hero Slider">
+  <div class="hero-slider__track">
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__badge">Innovation & Open Source</span>
+        <h1>Welcome to <span class="highlight">MovtiGroup</span></h1>
+        <p>Leading the way in innovative software solutions and specialized open-source tools for developers worldwide.</p>
+        <div class="hero-slide__actions">
+          <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-primary">
+            <i class="fas fa-newspaper"></i> Read Blog
+          </a>
+          <a href="{{ '/en/projects/' | relative_url }}" class="btn btn-secondary">
+            <i class="fas fa-layer-group"></i> View Projects
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__badge">131+ Technical Articles</span>
+        <h1>Technical <span class="highlight">Blog</span></h1>
+        <p>In-depth articles on AI, DevOps, security, and software engineering. Bilingual content in English and Farsi for a global audience.</p>
+        <div class="hero-slide__actions">
+          <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-primary">
+            <i class="fas fa-newspaper"></i> Explore Articles
+          </a>
+          <a href="{{ '/fa/blog/' | relative_url }}" class="btn btn-secondary">
+            مقالات فارسی
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="hero-slide__inner">
+        <span class="hero-slide__badge">Built for Developers</span>
+        <h1>Open Source <span class="highlight">Projects</span></h1>
+        <p>Powerful tools and frameworks built with passion. From AI coding agents to infrastructure solutions — all open source.</p>
+        <div class="hero-slide__actions">
+          <a href="{{ '/en/projects/' | relative_url }}" class="btn btn-primary">
+            <i class="fas fa-layer-group"></i> Browse Projects
+          </a>
+          <a href="{{ '/en/collaborations/' | relative_url }}" class="btn btn-secondary">
+            <i class="fas fa-users"></i> Collaborations
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Dot Indicators -->
+  <div class="hero-slider__dots">
+    <button class="hero-slider__dot active" aria-label="Slide 1" data-index="0"></button>
+    <button class="hero-slider__dot" aria-label="Slide 2" data-index="1"></button>
+    <button class="hero-slider__dot" aria-label="Slide 3" data-index="2"></button>
   </div>
 </section>
 
-<section class="features">
-  <div class="card-grid">
-    <div class="card">
-      <div class="icon-wrapper">
-        <img src="/assets/images/icons/rocket-icon.svg" alt="Speed & Stability" class="card-icon">
+<!-- ============================================
+     STATS COUNTER SECTION
+     ============================================ -->
+<section class="stats-section">
+  <div class="stats-grid stagger-children">
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="131" data-suffix="+">0</span>
+      <span class="stat-label">Total Posts</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="74" data-suffix="">0</span>
+      <span class="stat-label">English Posts</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="57" data-suffix="">0</span>
+      <span class="stat-label">Farsi Posts</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="20" data-suffix="+">0</span>
+      <span class="stat-label">Categories</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="stat-number" data-target="5" data-suffix="+">0</span>
+      <span class="stat-label">Collaborations</span>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================
+     FEATURES SECTION
+     ============================================ -->
+<section class="features-section">
+  <div class="section-header reveal">
+    <h2>Why MovtiGroup?</h2>
+    <p>We craft tools with a focus on quality, security, and developer experience.</p>
+  </div>
+  <div class="features-grid stagger-children">
+    <div class="feature-card reveal">
+      <div class="feature-card__icon">
+        <img src="{{ '/assets/images/icons/rocket-icon.svg' | relative_url }}" alt="Speed & Stability">
       </div>
       <h3>Speed & Stability</h3>
-      <p>
-        All our tools are designed with a focus on high performance and
-        reliability in production environments. From deep optimization to scalable architecture, we build tools that perform with exceptional speed and stability.
-      </p>
+      <p>All our tools are designed with a focus on high performance and reliability in production environments. From deep optimization to scalable architecture, we build tools that perform with exceptional speed and stability.</p>
     </div>
-    <div class="card">
-      <div class="icon-wrapper">
-        <img src="/assets/images/icons/shield-icon.svg" alt="Security & Trust" class="card-icon">
+    <div class="feature-card reveal">
+      <div class="feature-card__icon">
+        <img src="{{ '/assets/images/icons/shield-icon.svg' | relative_url }}" alt="Security & Trust">
       </div>
       <h3>Security & Trust</h3>
-      <p>
-        Adherence to high security standards in coding and providing trustworthy
-        open-source products. Transparency in code and security in implementation are our pillars of trust.
-      </p>
+      <p>Adherence to high security standards in coding and providing trustworthy open-source products. Transparency in code and security in implementation are our pillars of trust.</p>
     </div>
-    <div class="card">
-      <div class="icon-wrapper">
-        <img src="/assets/images/icons/support-icon.svg" alt="Active Support" class="card-icon">
+    <div class="feature-card reveal">
+      <div class="feature-card__icon">
+        <img src="{{ '/assets/images/icons/support-icon.svg' | relative_url }}" alt="Active Support">
       </div>
       <h3>Active Support</h3>
-      <p>
-        We are here to ensure you have the best experience using MovtiGroup
-        products. Our support team is ready to assist you at any time.
-      </p>
+      <p>We are here to ensure you have the best experience using MovtiGroup products. Our support team is ready to assist you at any time.</p>
     </div>
   </div>
 </section>
 
-<section class="brands-section" style="padding: 3rem 0; text-align: center">
-  <h2
-    style="
-      font-size: clamp(1.3rem, 4vw, 1.8rem);
-      color: var(--text-bright);
-      margin-bottom: 0.8rem;
-    "
-  >
-    Our Brands
-  </h2>
-  <p style="color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem">
-    Exclusive products and projects by MovtiGroup
-  </p>
-  <div
-    class="card-grid"
-    style="
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 700px;
-      margin: 0 auto;
-    "
-  >
-    <div class="card brand-card" style="text-align: center; padding: 2rem">
+<div class="section-divider"><hr></div>
+
+<!-- ============================================
+     LATEST POSTS SECTION
+     ============================================ -->
+<section class="posts-section">
+  <div class="section-header reveal">
+    <h2>Latest Articles</h2>
+    <p>Our most recent insights on technology, AI, and software engineering.</p>
+  </div>
+  <div class="posts-grid stagger-children">
+    {% assign en_posts = site.posts | where: "lang", "en" %}
+    {% for post in en_posts limit:3 %}
+    <article class="post-card reveal">
+      {% if post.categories and post.categories.size > 0 %}
+      <span class="post-card__category">{{ post.categories.first }}</span>
+      {% endif %}
+      <h3>{{ post.title }}</h3>
+      <p class="post-card__desc">{{ post.description | strip_html | truncatewords: 30 }}</p>
+      <div class="post-card__footer">
+        <span class="post-card__date">
+          <i class="far fa-calendar-alt"></i> {{ post.date | date: "%b %d, %Y" }}
+        </span>
+        <a href="{{ post.url | relative_url }}" class="post-card__link">Read More →</a>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+  <div style="text-align:center; margin-top:2rem;" class="reveal">
+    <a href="{{ '/en/blog/' | relative_url }}" class="btn btn-primary">
+      <i class="fas fa-newspaper"></i> View All Articles
+    </a>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================
+     BRANDS SECTION
+     ============================================ -->
+<section class="brands-section">
+  <div class="section-header reveal">
+    <h2>Our Brands</h2>
+    <p>Exclusive products and projects by MovtiGroup</p>
+  </div>
+  <div class="brands-grid">
+    <div class="brand-enhanced reveal-scale">
       <img
-        src="/assets/images/team/armigram.jpg"
+        src="{{ '/assets/images/team/armigram.jpg' | relative_url }}"
         alt="ArmiGram Logo"
-        class="animate-float"
-        style="
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          object-fit: cover;
-          margin: 0 auto 1.2rem;
-          border: 3px solid var(--primary);
-          box-shadow: 0 0 20px var(--primary-glow);
-        "
-      />
-      <h3
-        style="
-          font-size: 1.4rem;
-          color: var(--text-bright);
-          margin-bottom: 0.5rem;
-        "
+        class="brand-enhanced__logo animate-float"
       >
-        ArmiGram
-      </h3>
-      <p
-        style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.3rem"
-      >
-        Visual Social Network
-      </p>
+      <h3>ArmiGram</h3>
+      <p class="brand-enhanced__tagline">Visual Social Network</p>
     </div>
-    <div class="card brand-card" style="text-align: center; padding: 2rem">
+    <div class="brand-enhanced reveal-scale" style="animation-delay: 0.15s;">
       <img
-        src="/assets/images/team/animeti.jpg"
+        src="{{ '/assets/images/team/animeti.jpg' | relative_url }}"
         alt="AnimeTi Logo"
-        class="animate-float"
-        style="
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          object-fit: cover;
-          margin: 0 auto 1.2rem;
-          border: 3px solid var(--accent);
-          box-shadow: 0 0 20px rgba(126, 231, 135, 0.3);
-        "
-      />
-      <h3
-        style="
-          font-size: 1.4rem;
-          color: var(--text-bright);
-          margin-bottom: 0.5rem;
-        "
+        class="brand-enhanced__logo animate-float"
+        style="animation-delay: 0.5s;"
       >
-        AnimeTi
-      </h3>
-      <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0.3rem">
-        Anime & Entertainment Platform
-      </p>
+      <h3>AnimeTi</h3>
+      <p class="brand-enhanced__tagline">Anime & Entertainment Platform</p>
     </div>
   </div>
 </section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================
+     COLLABORATIONS PREVIEW
+     ============================================ -->
+<section class="collabs-section">
+  <div class="section-header reveal">
+    <h2>Key Collaborations</h2>
+    <p>We partner with leading open-source projects and teams.</p>
+  </div>
+  <div class="collabs-grid stagger-children">
+    <div class="collab-card reveal">
+      <div class="collab-card__icon">
+        <img src="{{ '/assets/images/icons/brain.svg' | relative_url }}" alt="Dirac.run">
+      </div>
+      <h3>Dirac.run</h3>
+      <p>Advanced AI agent platform for automated task execution, research, and multi-step problem solving.</p>
+      <span class="collab-card__tag">AI Agent</span>
+    </div>
+    <div class="collab-card reveal">
+      <div class="collab-card__icon">
+        <img src="{{ '/assets/images/icons/rocket-icon.svg' | relative_url }}" alt="Kilo Code">
+      </div>
+      <h3>Kilo Code</h3>
+      <p>Open-source AI coding assistant with model routing, benchmarking, and autonomous coding capabilities.</p>
+      <span class="collab-card__tag">AI Coding</span>
+    </div>
+    <div class="collab-card reveal">
+      <div class="collab-card__icon">
+        <img src="{{ '/assets/images/icons/open-source.svg' | relative_url }}" alt="Hermes Agent">
+      </div>
+      <h3>Hermes Agent</h3>
+      <p>Self-hosted AI agent framework with deep integration for developers and teams seeking full control.</p>
+      <span class="collab-card__tag">Open Source</span>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top:2rem;" class="reveal">
+    <a href="{{ '/en/collaborations/' | relative_url }}" class="btn btn-secondary">
+      <i class="fas fa-users"></i> View All Collaborations
+    </a>
+  </div>
+</section>
+
+<div class="section-divider"><hr></div>
+
+<!-- ============================================
+     CTA SECTION
+     ============================================ -->
+<section class="cta-section">
+  <h2 class="reveal">Join the MovtiGroup Community</h2>
+  <p class="reveal">Explore our projects, read our articles, and become part of an innovative open-source community.</p>
+  <div class="cta-actions reveal">
+    <a href="https://github.com/tahatehran" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      <img src="{{ '/assets/images/icons/github.svg' | relative_url }}" alt="" style="width:18px; height:18px; vertical-align:middle; margin-right:6px;"> GitHub
+    </a>
+    <a href="{{ '/en/contact/' | relative_url }}" class="btn btn-secondary">
+      <i class="fas fa-envelope"></i> Get in Touch
+    </a>
+  </div>
+</section>
+
+<!-- ============================================
+     JAVASCRIPT: Slider, Counters, Scroll Effects
+     ============================================ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ---- Hero Slider ---- */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-slider__dot');
+  let currentSlide = 0;
+  let autoSlideTimer = null;
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const SLIDE_INTERVAL = 5000;
+
+  function goToSlide(index) {
+    slides[currentSlide].classList.remove('active');
+    dots[currentSlide].classList.remove('active');
+    currentSlide = (index + slides.length) % slides.length;
+    slides[currentSlide].classList.add('active');
+    dots[currentSlide].classList.add('active');
+  }
+
+  function nextSlide() {
+    goToSlide(currentSlide + 1);
+  }
+
+  function startAutoSlide() {
+    stopAutoSlide();
+    autoSlideTimer = setInterval(nextSlide, SLIDE_INTERVAL);
+  }
+
+  function stopAutoSlide() {
+    if (autoSlideTimer) {
+      clearInterval(autoSlideTimer);
+      autoSlideTimer = null;
+    }
+  }
+
+  // Dot click navigation
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      goToSlide(parseInt(this.dataset.index));
+      startAutoSlide();
+    });
+  });
+
+  // Touch swipe support
+  var sliderEl = document.querySelector('.hero-slider');
+  sliderEl.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  sliderEl.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    var diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        goToSlide(currentSlide - 1);
+      }
+      startAutoSlide();
+    }
+  }, { passive: true });
+
+  // Pause on hover
+  sliderEl.addEventListener('mouseenter', stopAutoSlide);
+  sliderEl.addEventListener('mouseleave', startAutoSlide);
+
+  // Keyboard navigation
+  sliderEl.setAttribute('tabindex', '0');
+  sliderEl.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') { nextSlide(); startAutoSlide(); }
+    if (e.key === 'ArrowLeft') { goToSlide(currentSlide - 1); startAutoSlide(); }
+  });
+
+  startAutoSlide();
+
+  /* ---- Stats Counter Animation ---- */
+  var countersAnimated = false;
+
+  function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+    var statNumbers = document.querySelectorAll('.stat-number[data-target]');
+    statNumbers.forEach(function(el) {
+      var target = parseInt(el.dataset.target);
+      var suffix = el.dataset.suffix || '';
+      var duration = 1500;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        // Ease out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var current = Math.floor(eased * target);
+        el.textContent = current + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(step);
+        } else {
+          el.textContent = target + suffix;
+        }
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ---- Scroll Reveal & Counter Trigger ---- */
+  var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+
+  function checkReveal() {
+    var windowHeight = window.innerHeight;
+    revealElements.forEach(function(el) {
+      var rect = el.getBoundingClientRect();
+      var revealPoint = windowHeight * 0.88;
+      if (rect.top < revealPoint && rect.bottom > 0) {
+        el.classList.add('revealed');
+      }
+    });
+
+    // Check if stats section is in view
+    var statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+      var rect = statsSection.getBoundingClientRect();
+      if (rect.top < windowHeight * 0.85 && rect.bottom > 0) {
+        animateCounters();
+      }
+    }
+  }
+
+  // Throttled scroll handler
+  var scrollTimeout = null;
+  window.addEventListener('scroll', function() {
+    if (!scrollTimeout) {
+      scrollTimeout = setTimeout(function() {
+        checkReveal();
+        scrollTimeout = null;
+      }, 16);
+    }
+  }, { passive: true });
+
+  // Initial check on load
+  checkReveal();
+})();
+</script>

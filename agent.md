@@ -4,9 +4,30 @@ This file documents the canonical structure of the MovtiGroup blog. Do not lose 
 
 ## Current Counts
 
-- **Total posts: 126** (69 English + 57 Persian)
-- English posts: `_posts/*.en.md` → 69 files
+- **Total posts: 131** (74 English + 57 Persian)
+- English posts: `_posts/*.en.md` → 74 files
 - Persian posts: `_posts/*.fa.md` → 57 files
+
+## Homepage Structure
+
+The homepage (`index.html` for FA, `en/index.html` for EN) contains the following sections in order:
+
+| Section                     | ID / Class          | Description                                                                       |
+| --------------------------- | ------------------- | --------------------------------------------------------------------------------- |
+| 🎠 **Hero Slider**          | `.hero-slider`      | Auto-rotating image/content slider (5 slides, 5-second interval, CSS transitions) |
+| 🔢 **Stats Counters**       | `.stats-section`    | Animated number counters for posts (131), categories (21), languages (2)          |
+| ✨ **Features Grid**        | `.features-section` | Grid of feature cards with scroll-reveal animation                                |
+| 📰 **Latest Posts**         | `.latest-posts`     | 6 most recent blog posts displayed as clickable cards                             |
+| 🏢 **Brands/Partners**      | `.brands-section`   | Partner and technology logo showcase                                              |
+| 🤝 **Collaborations**       | `.collabs-section`  | Featured collaborations with dirac.run and kilo code                              |
+| 📞 **CTA (Call to Action)** | `.cta-section`      | Final call-to-action with contact information and links                           |
+
+### Key Homepage Behaviors
+
+- **Slider auto-rotation:** 5-second interval, pauses on hover, manual navigation dots
+- **Animated counters:** Count up from 0 to target value when scrolled into view (IntersectionObserver)
+- **Scroll-reveal:** Elements fade in and slide up when entering viewport (CSS `@keyframes` + JS triggers)
+- **Latest posts:** Dynamically rendered from the 6 most recent posts in `_posts/`
 
 ## Post Locations
 
@@ -16,6 +37,7 @@ This file documents the canonical structure of the MovtiGroup blog. Do not lose 
 Every post lives in the `_posts/` directory. There are no subdirectories for posts.
 
 **IMPORTANT:** All posts use language-specific extensions:
+
 - English: `*.en.md`
 - Persian: `*.fa.md`
 
@@ -95,28 +117,29 @@ Each category has two pages:
 
 Use ONLY these categories. Do not invent new ones without updating this file and creating the category pages.
 
-| Category        | Title           | Description                                                  |
-| --------------- | --------------- | ------------------------------------------------------------ |
-| `ai-agents`     | AI Agents       | عوامل هوش مصنوعی، autonomous agents، دستیارهای هوشمند        |
-| `api`           | API             | رابط‌های برنامه‌نویسی، REST، GraphQL                         |
-| `docker`        | Docker & DevOps | راهنمای نصب و استفاده از Docker، کانتینر، CI/CD و DevOps     |
-| `tutorial`      | Tutorials       | آموزش‌های قدم به قدم، راهنمای عملی و مثال‌های کاربردی        |
-| `general`       | General         | مطالب عمومی در مورد فناوری، برنامه‌نویسی و هوش مصنوعی        |
-| `python`        | Python          | برنامه‌نویسی پایتون، داده‌کاوی، FastAPI، کتابخانه‌ها         |
-| `security`      | Security        | امنیت سایبری، تست نفوذ، حریم خصوصی، حفاظت از داده‌ها         |
-| `databases`     | Databases       | دیتابیس‌ها، PostgreSQL، MySQL، SQL vs NoSQL                  |
-| `openclaw`      | OpenClaw        | مطالب مربوط به OpenClaw، مقایسه‌ها، راهنمای استفاده و مدیریت |
-| `comparison`    | Comparisons     | مقایسه ابزارها، پلتفرم‌ها و فناوری‌های مختلف                 |
-| `linux`         | Linux           | سیستم عامل لینوکس، دستورات، مدیریت سرور، آموزش‌ها            |
-| `devops`        | DevOps          | عملیات توسعه و زیرساخت، CI/CD، مانیتورینگ                    |
-| `kilo-ai`       | Kilo AI         | ابزارهای هوش مصنوعی Kilo، مدل‌های کدنویسی، benchmark         |
-| `ai-coding`     | AI Coding       | کدنویسی با هوش مصنوعی، ابزارهای برنامه‌نویسی، Copilot        |
-| `gateway`       | Gateway         | دروازه‌های AI، پروکسی، load balancing                        |
-| `ai-tools`      | AI Tools        | ابزارها و پلتفرم‌های هوش مصنوعی                              |
-| `model-routing` | Model Routing   | مسیریابی مدل‌ها، انتخاب مدل بر اساس وظیفه                    |
-| `free-models`   | Free Models     | مدل‌های رایگان و open-source هوش مصنوعی                      |
-| `benchmarks`    | Benchmarks      | معیارسنجی و مقایسه عملکرد مدل‌ها و ابزارها                   |
-| `javascript`    | JavaScript      | برنامه‌نویسی جاوااسکریپت، فریم‌ورک‌ها، Node.js               |
+| Category         | Title           | Description                                                  |
+| ---------------- | --------------- | ------------------------------------------------------------ |
+| `ai-agents`      | AI Agents       | عوامل هوش مصنوعی، autonomous agents، دستیارهای هوشمند        |
+| `api`            | API             | رابط‌های برنامه‌نویسی، REST، GraphQL                         |
+| `docker`         | Docker & DevOps | راهنمای نصب و استفاده از Docker، کانتینر، CI/CD و DevOps     |
+| `tutorial`       | Tutorials       | آموزش‌های قدم به قدم، راهنمای عملی و مثال‌های کاربردی        |
+| `general`        | General         | مطالب عمومی در مورد فناوری، برنامه‌نویسی و هوش مصنوعی        |
+| `python`         | Python          | برنامه‌نویسی پایتون، داده‌کاوی، FastAPI، کتابخانه‌ها         |
+| `security`       | Security        | امنیت سایبری، تست نفوذ، حریم خصوصی، حفاظت از داده‌ها         |
+| `databases`      | Databases       | دیتابیس‌ها، PostgreSQL، MySQL، SQL vs NoSQL                  |
+| `openclaw`       | OpenClaw        | مطالب مربوط به OpenClaw، مقایسه‌ها، راهنمای استفاده و مدیریت |
+| `comparison`     | Comparisons     | مقایسه ابزارها، پلتفرم‌ها و فناوری‌های مختلف                 |
+| `linux`          | Linux           | سیستم عامل لینوکس، دستورات، مدیریت سرور، آموزش‌ها            |
+| `devops`         | DevOps          | عملیات توسعه و زیرساخت، CI/CD، مانیتورینگ                    |
+| `kilo-ai`        | Kilo AI         | ابزارهای هوش مصنوعی Kilo، مدل‌های کدنویسی، benchmark         |
+| `ai-coding`      | AI Coding       | کدنویسی با هوش مصنوعی، ابزارهای برنامه‌نویسی، Copilot        |
+| `gateway`        | Gateway         | دروازه‌های AI، پروکسی، load balancing                        |
+| `ai-tools`       | AI Tools        | ابزارها و پلتفرم‌های هوش مصنوعی                              |
+| `model-routing`  | Model Routing   | مسیریابی مدل‌ها، انتخاب مدل بر اساس وظیفه                    |
+| `free-models`    | Free Models     | مدل‌های رایگان و open-source هوش مصنوعی                      |
+| `benchmarks`     | Benchmarks      | معیارسنجی و مقایسه عملکرد مدل‌ها و ابزارها                   |
+| `javascript`     | JavaScript      | برنامه‌نویسی جاوااسکریپت، فریم‌ورک‌ها، Node.js               |
+| `telegram-drive` | Telegram Drive  | قابلیت‌های تلگرام درایو، ذخیره‌سازی ابری، مدیریت فایل        |
 
 ### Adding a New Category
 
@@ -127,9 +150,27 @@ To add a new category, create FOUR files:
 3. Add the category to this file's table
 4. Add it to `blog/search-data.json` entries that use it
 
+## Telegram Drive Posts
+
+There are 5 Telegram Drive posts covering features and usage of Telegram Drive:
+
+- **Category:** `telegram-drive`
+- **Languages:** English and/or Persian
+- **Topics:** Cloud storage features, file management, sharing capabilities, integration tips, and comparison with other cloud services
+- All Telegram Drive posts are tagged with the `telegram-drive` category
+
+## Collaborations
+
+The blog features posts created in collaboration with:
+
+- **dirac.run** — Posts about dirac.run tools and platform
+- **Kilo Code** — Posts about Kilo AI coding assistant, models, and benchmarks
+
+These collaborations are highlighted on the homepage in the collaborations section.
+
 ## Search Data Structure
 
-The search index lives at `blog/search-data.json` and contains all 126 posts. Each entry has:
+The search index lives at `blog/search-data.json` and contains all 131 posts. Each entry has:
 
 ```json
 {
@@ -164,7 +205,9 @@ blog/
     ├── api.md              # (if exists)
     ├── docker.md           # /en/blog/category/docker/ (EN)
     ├── docker.fa.md        # /blog/category/docker/ (FA)
-    └── ... (20 categories × 2 languages)
+    ├── telegram-drive.md   # /en/blog/category/telegram-drive/ (EN)
+    ├── telegram-drive.fa.md# /blog/category/telegram-drive/ (FA)
+    └── ... (21 categories × 2 languages)
 ```
 
 ```
@@ -211,6 +254,14 @@ When creating a new post, follow ALL of these steps:
 
 ## Recent Changes
 
+- 2026-07-23: Added homepage hero slider with auto-rotation
+- 2026-07-23: Added animated stats counters to homepage
+- 2026-07-23: Added scroll-reveal animations for homepage elements
+- 2026-07-23: Added latest posts preview section on homepage
+- 2026-07-23: Added 5 Telegram Drive blog posts
+- 2026-07-23: Added dirac.run and kilo code collaboration highlights
+- 2026-07-23: Added `telegram-drive` category (21st category)
+- 2026-07-23: Updated counts to 131 total (74 EN, 57 FA)
 - 2026-07-23: Added 12 new Kilo AI posts (6 EN, 6 FA)
 - 2026-07-23: Added 20 AI agent business posts (EN only)
 - 2026-07-23: Fixed permalink format for English posts

@@ -11,27 +11,49 @@ Official landing page for **MovtiGroup** — a bilingual static site (Persian / 
 
 ## ویژگی‌ها / Features
 
-| Feature                                             | Description                                                                                |
-| --------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| 🌐 **پشتیبانی دوزبانه / Bilingual**                 | نسخه فارسی (RTL) و انگلیسی (LTR) / Persian (RTL) and English (LTR)                         |
-| 📝 **بلاگ فنی / Technical Blog**                    | **۱۲۶ مقاله** — ۶۹ مقاله انگلیسی و ۵۷ مقاله فارسی / **126 posts** — 69 English, 57 Persian |
-| 🔍 **جستجوی دوزبانه / Bilingual Search**            | جستجو با تطابق فازی در هر دو زبان / Fuzzy matching search across both languages            |
-| 🏷️ **فیلتر بر اساس دسته‌بندی / Category Filtering** | ۲۰ دسته‌بندی فعال با صفحات اختصاصی / 20 active categories with dedicated pages             |
-| 🔍 **بهینه‌سازی SEO / SEO Optimized**               | JSON-LD, Open Graph, Twitter Cards, sitemap.xml, robots.txt                                |
-| 🎨 **طراحی ریسپانسیو / Responsive Design**          | SCSS, smooth scrolling, touch-friendly mobile UI                                           |
-| 👥 **صفحه تیم / Team Page**                         | معرفی اعضای تیم MovtiGroup / Meet the MovtiGroup team                                      |
-| 🚀 **صفحه پروژه‌ها / Projects Page**                | نمایش پروژه‌های فعال / Showcase of active projects                                         |
-| 📞 **صفحه تماس / Contact Page**                     | فرم ارتباطی با اطلاعات تماس / Contact form with contact info                               |
-| 📄 **پیجینیشن / Pagination**                        | صفحه‌بندی خودکار مقالات بلاگ (۱۲ پست در صفحه) / Auto-paginated blog (12 posts per page)    |
+| Feature                                             | Description                                                                                               |
+| --------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| 🎠 **Hero Slider / اسلایدر اصلی**                   | Auto-rotating hero slider with smooth transitions on homepage / اسلایدر اصلی با چرخش خودکار               |
+| 🔢 **Animated Stats / آمار متحرک**                  | Animated counters for posts, categories, and languages / شمارنده‌های متحرک برای مقالات و دسته‌بندی‌ها     |
+| ✨ **Scroll-Reveal Animations / انیمیشن اسکرول**    | Elements animate into view on scroll for engaging UX / انیمیشن عناصر هنگام اسکرول برای تجربه کاربری بهتر  |
+| 📰 **Latest Posts Preview / پیش‌نمایش مقالات**      | Latest blog posts displayed on homepage / پیش‌نمایش آخرین مقالات بلاگ در صفحه اصلی                        |
+| 🌐 **پشتیبانی دوزبانه / Bilingual**                 | نسخه فارسی (RTL) و انگلیسی (LTR) / Persian (RTL) and English (LTR)                                        |
+| 📝 **بلاگ فنی / Technical Blog**                    | **۱۳۱ مقاله** — ۷۴ مقاله انگلیسی و ۵۷ مقاله فارسی / **131 posts** — 74 English, 57 Persian                |
+| 🔍 **جستجوی دوزبانه / Bilingual Search**            | جستجو با تطابق فازی در هر دو زبان / Fuzzy matching search across both languages                           |
+| 🏷️ **فیلتر بر اساس دسته‌بندی / Category Filtering** | ۲۱ دسته‌بندی فعال با صفحات اختصاصی / 21 active categories with dedicated pages                            |
+| 🔍 **بهینه‌سازی SEO / SEO Optimized**               | JSON-LD, Open Graph, Twitter Cards, sitemap.xml, robots.txt                                               |
+| 🎨 **طراحی ریسپانسیو / Responsive Design**          | SCSS, smooth scrolling, touch-friendly mobile UI                                                          |
+| 👥 **صفحه تیم / Team Page**                         | معرفی اعضای تیم MovtiGroup / Meet the MovtiGroup team                                                     |
+| 🚀 **صفحه پروژه‌ها / Projects Page**                | نمایش پروژه‌های فعال / Showcase of active projects                                                        |
+| 📞 **صفحه تماس / Contact Page**                     | فرم ارتباطی با اطلاعات تماس / Contact form with contact info                                              |
+| 📄 **پیجینیشن / Pagination**                        | صفحه‌بندی خودکار مقالات بلاگ (۱۲ پست در صفحه) / Auto-paginated blog (12 posts per page)                   |
+| 🤝 **همکاری‌ها / Collaborations**                   | Blog posts featuring dirac.run and kilo code collaborations / مقالات بلاگ با همکاری dirac.run و kilo code |
+| 📱 **Telegram Drive Posts / پست‌های تلگرام درایو**  | 5 specialized posts on Telegram Drive features and usage / ۵ مقاله تخصصی درباره قابلیت‌های تلگرام درایو   |
+
+---
+
+## ساختار صفحه اصلی / Homepage Structure
+
+صفحه اصلی شامل بخش‌های زیر است / The homepage includes the following sections:
+
+| Section                     | Description                                                          |
+| --------------------------- | -------------------------------------------------------------------- |
+| 🎠 **Hero Slider**          | Auto-rotating slider showcasing key features (5 slides, 5s interval) |
+| 🔢 **Stats Counters**       | Animated counters: total posts (131), categories (21), languages (2) |
+| ✨ **Features Grid**        | Scroll-reveal grid highlighting main site capabilities               |
+| 📰 **Latest Posts**         | Preview of the 6 most recent blog posts with cards                   |
+| 🏢 **Brands/Partners**      | Partner and technology logos section                                 |
+| 🤝 **Collaborations**       | Featured collaborations with dirac.run and kilo code                 |
+| 📞 **CTA (Call to Action)** | Final call-to-action section with contact links                      |
 
 ---
 
 ## ساختار پروژه / Project Structure
 
 ```
-├── index.html                  # صفحه اصلی (فارسی) / Homepage (Persian)
+├── index.html                  # صفحه اصلی (فارسی) — حاوی اسلایدر، آمار، ویژگی‌ها، مقالات اخیر
 ├── en/                         # نسخه انگلیسی / English version
-│   ├── index.html
+│   ├── index.html              # Homepage (EN) — حاوی اسلایدر، آمار، ویژگی‌ها، مقالات اخیر
 │   ├── blog/index.html         # Blog listing (EN)
 │   ├── teams/index.html
 │   ├── projects/index.html
@@ -40,8 +62,8 @@ Official landing page for **MovtiGroup** — a bilingual static site (Persian / 
 │   ├── index.html              # All posts listing (EN)
 │   ├── search.html             # Search page (EN)
 │   ├── search.fa.html          # Search page (FA)
-│   ├── search-data.json        # Search index (all posts, 126 entries)
-│   └── category/               # Category pages (20 categories × 2 languages)
+│   ├── search-data.json        # Search index (all posts, 131 entries)
+│   └── category/               # Category pages (21 categories × 2 languages)
 │       ├── ai-agents.md        # /en/blog/category/ai-agents/
 │       ├── ai-agents.fa.md     # /blog/category/ai-agents/
 │       ├── docker.md
@@ -50,7 +72,7 @@ Official landing page for **MovtiGroup** — a bilingual static site (Persian / 
 ├── teams/                      # صفحه تیم / Team page
 ├── projects/                   # صفحه پروژه‌ها / Projects page
 ├── contact/                    # صفحه تماس / Contact page
-├── _posts/                     # مقالات بلاگ (126 posts: 69 EN + 57 FA)
+├── _posts/                     # مقالات بلاگ (131 posts: 74 EN + 57 FA)
 │   ├── *.en.md                 # English posts
 │   └── *.md                    # Persian posts (no .en. extension)
 ├── _layouts/                   # قالب‌های Jekyll / Jekyll layouts
@@ -81,30 +103,41 @@ Official landing page for **MovtiGroup** — a bilingual static site (Persian / 
 
 ## دسته‌بندی‌های بلاگ / Blog Categories
 
-مقالات بلاگ در ۲۰ دسته‌بندی منتشر شده‌اند:
+مقالات بلاگ در ۲۱ دسته‌بندی منتشر شده‌اند:
 
-| Category        | Title           | Description                                                  |
-| --------------- | --------------- | ------------------------------------------------------------ |
-| `ai-agents`     | AI Agents       | عوامل هوش مصنوعی، autonomous agents، دستیارهای هوشمند        |
-| `api`           | API             | رابط‌های برنامه‌نویسی، REST، GraphQL                         |
-| `docker`        | Docker & DevOps | راهنمای نصب و استفاده از Docker، کانتینر، CI/CD و DevOps     |
-| `tutorial`      | Tutorials       | آموزش‌های قدم به قدم، راهنمای عملی و مثال‌های کاربردی        |
-| `general`       | General         | مطالب عمومی در مورد فناوری، برنامه‌نویسی و هوش مصنوعی        |
-| `python`        | Python          | برنامه‌نویسی پایتون، داده‌کاوی، FastAPI، کتابخانه‌ها         |
-| `security`      | Security        | امنیت سایبری، تست نفوذ، حریم خصوصی، حفاظت از داده‌ها         |
-| `databases`     | Databases       | دیتابیس‌ها، PostgreSQL، MySQL، SQL vs NoSQL                  |
-| `openclaw`      | OpenClaw        | مطالب مربوط به OpenClaw، مقایسه‌ها، راهنمای استفاده و مدیریت |
-| `comparison`    | Comparisons     | مقایسه ابزارها، پلتفرم‌ها و فناوری‌های مختلف                 |
-| `linux`         | Linux           | سیستم عامل لینوکس، دستورات، مدیریت سرور، آموزش‌ها            |
-| `devops`        | DevOps          | عملیات توسعه و زیرساخت، CI/CD، مانیتورینگ                    |
-| `kilo-ai`       | Kilo AI         | ابزارهای هوش مصنوعی Kilo، مدل‌های کدنویسی، benchmark         |
-| `ai-coding`     | AI Coding       | کدنویسی با هوش مصنوعی، ابزارهای برنامه‌نویسی، Copilot        |
-| `gateway`       | Gateway         | دروازه‌های AI، پروکسی، load balancing                        |
-| `ai-tools`      | AI Tools        | ابزارها و پلتفرم‌های هوش مصنوعی                              |
-| `model-routing` | Model Routing   | مسیریابی مدل‌ها، انتخاب مدل بر اساس وظیفه                    |
-| `free-models`   | Free Models     | مدل‌های رایگان و open-source هوش مصنوعی                      |
-| `benchmarks`    | Benchmarks      | معیارسنجی و مقایسه عملکرد مدل‌ها و ابزارها                   |
-| `javascript`    | JavaScript      | برنامه‌نویسی جاوااسکریپت، فریم‌ورک‌ها، Node.js               |
+| Category         | Title           | Description                                                  |
+| ---------------- | --------------- | ------------------------------------------------------------ |
+| `ai-agents`      | AI Agents       | عوامل هوش مصنوعی، autonomous agents، دستیارهای هوشمند        |
+| `api`            | API             | رابط‌های برنامه‌نویسی، REST، GraphQL                         |
+| `docker`         | Docker & DevOps | راهنمای نصب و استفاده از Docker، کانتینر، CI/CD و DevOps     |
+| `tutorial`       | Tutorials       | آموزش‌های قدم به قدم، راهنمای عملی و مثال‌های کاربردی        |
+| `general`        | General         | مطالب عمومی در مورد فناوری، برنامه‌نویسی و هوش مصنوعی        |
+| `python`         | Python          | برنامه‌نویسی پایتون، داده‌کاوی، FastAPI، کتابخانه‌ها         |
+| `security`       | Security        | امنیت سایبری، تست نفوذ، حریم خصوصی، حفاظت از داده‌ها         |
+| `databases`      | Databases       | دیتابیس‌ها، PostgreSQL، MySQL، SQL vs NoSQL                  |
+| `openclaw`       | OpenClaw        | مطالب مربوط به OpenClaw، مقایسه‌ها، راهنمای استفاده و مدیریت |
+| `comparison`     | Comparisons     | مقایسه ابزارها، پلتفرم‌ها و فناوری‌های مختلف                 |
+| `linux`          | Linux           | سیستم عامل لینوکس، دستورات، مدیریت سرور، آموزش‌ها            |
+| `devops`         | DevOps          | عملیات توسعه و زیرساخت، CI/CD، مانیتورینگ                    |
+| `kilo-ai`        | Kilo AI         | ابزارهای هوش مصنوعی Kilo، مدل‌های کدنویسی، benchmark         |
+| `ai-coding`      | AI Coding       | کدنویسی با هوش مصنوعی، ابزارهای برنامه‌نویسی، Copilot        |
+| `gateway`        | Gateway         | دروازه‌های AI، پروکسی، load balancing                        |
+| `ai-tools`       | AI Tools        | ابزارها و پلتفرم‌های هوش مصنوعی                              |
+| `model-routing`  | Model Routing   | مسیریابی مدل‌ها، انتخاب مدل بر اساس وظیفه                    |
+| `free-models`    | Free Models     | مدل‌های رایگان و open-source هوش مصنوعی                      |
+| `benchmarks`     | Benchmarks      | معیارسنجی و مقایسه عملکرد مدل‌ها و ابزارها                   |
+| `javascript`     | JavaScript      | برنامه‌نویسی جاوااسکریپت، فریم‌ورک‌ها، Node.js               |
+| `telegram-drive` | Telegram Drive  | قابلیت‌های تلگرام درایو، ذخیره‌سازی ابری، مدیریت فایل        |
+
+---
+
+## همکاری‌ها / Collaborations
+
+این سایت شامل مقالات بلاگ با همکاری زیر است / This site features blog posts in collaboration with:
+
+- **dirac.run** — مقالات تخصصی درباره ابزارها و پلتفرم‌های dirac.run
+- **Kilo Code** — مقالات درباره ابزار هوش مصنوعی Kilo، مدل‌های کدنویسی و مقایسه‌ها
+- **Telegram Drive** — ۵ مقاله تخصصی درباره قابلیت‌های تلگرام درایو
 
 ---
 
@@ -119,7 +152,7 @@ Official landing page for **MovtiGroup** — a bilingual static site (Persian / 
 
 - **EN:** `/blog/search/` — `/blog/search.html`
 - **FA:** `/fa/blog/search/` — `blog/search.fa.html`
-- **Data:** `blog/search-data.json` — JSON index of all 126 posts with title, url, description, lang, categories, date, excerpt
+- **Data:** `blog/search-data.json` — JSON index of all 131 posts with title, url, description, lang, categories, date, excerpt
 - جستجو شامل عنوان، توضیحات و دسته‌بندی‌ها می‌شود با تطبیق فازی / Search covers title, description, and categories with fuzzy matching
 
 ### دسته‌بندی‌ها / Categories

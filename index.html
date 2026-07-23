@@ -3,63 +3,574 @@ layout: default
 lang: fa
 dir: rtl
 title: صفحه اصلی
+description: "موتی‌گروپ، پیشرو در ارائه راهکارهای نوین نرم‌افزاری و ابزارهای تخصصی متن‌باز برای توسعه‌دهندگان."
 ---
 
-<section class="hero">
-    <h1>به <span class="highlight" style="color: var(--primary);">موتی‌گروپ</span> خوش آمدید</h1>
-    <p>پیشرو در ارائه راهکارهای نوین نرم‌افزاری و ابزارهای تخصصی متن‌باز برای توسعه‌دهندگان.</p>
-    <div class="hero-actions">
-        <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary"><i class="fas fa-newspaper"></i> ورود به
-            بلاگ</a>
-        <a href="{{ '/projects/' | relative_url }}" class="btn btn-secondary"><i class="fas fa-layer-group"></i> مشاهده
-            پروژه‌ها</a>
+<!-- ======================== INLINE STYLES ======================== -->
+<style>
+/* ── Hero Slider ─────────────────────────────────────────────── */
+.hero-slider { position: relative; width: 100%; overflow: hidden; border-radius: 20px; margin-bottom: 3rem; background: var(--surface); border: 1px solid var(--border); }
+.hero-slides { position: relative; width: 100%; min-height: 420px; }
+.hero-slide { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 3rem 2rem; opacity: 0; visibility: hidden; transition: opacity 0.8s ease, visibility 0.8s ease, transform 0.8s ease; transform: scale(0.97); z-index: 0; }
+.hero-slide.active { opacity: 1; visibility: visible; transform: scale(1); z-index: 1; }
+.hero-slide-bg { position: absolute; inset: 0; z-index: 0; border-radius: 20px; }
+.hero-slide:nth-child(1) .hero-slide-bg { background: linear-gradient(135deg, #0d1117 0%, #1a1040 35%, #2d1b69 65%, #0d1117 100%); }
+.hero-slide:nth-child(2) .hero-slide-bg { background: linear-gradient(135deg, #0d1117 0%, #0c2d48 35%, #145374 65%, #0d1117 100%); }
+.hero-slide:nth-child(3) .hero-slide-bg { background: linear-gradient(135deg, #0d1117 0%, #1a2332 35%, #2d4a3e 65%, #0d1117 100%); }
+.hero-slide-content { position: relative; z-index: 1; max-width: 680px; }
+.hero-slide-icon { width: 64px; height: 64px; margin: 0 auto 1.5rem; border-radius: 16px; display: flex; align-items: center; justify-content: center; background: rgba(88, 166, 255, 0.1); border: 1px solid rgba(88, 166, 255, 0.2); }
+.hero-slide:nth-child(2) .hero-slide-icon { background: rgba(56, 189, 248, 0.1); border-color: rgba(56, 189, 248, 0.2); }
+.hero-slide:nth-child(3) .hero-slide-icon { background: rgba(126, 231, 135, 0.1); border-color: rgba(126, 231, 135, 0.2); }
+.hero-slide-icon img { width: 32px; height: 32px; }
+.hero-slide h2 { font-size: clamp(1.5rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 1rem; line-height: 1.4; }
+.hero-slide:nth-child(1) h2 { background: linear-gradient(135deg, #58a6ff, #a78bfa); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-slide:nth-child(2) h2 { background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-slide:nth-child(3) h2 { background: linear-gradient(135deg, #7ee787, #58a6ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-slide p { color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.8rem; }
+.hero-slide .btn { font-weight: 700; padding: 0.7rem 1.8rem; border-radius: 12px; font-size: 1rem; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; }
+.hero-slide:nth-child(1) .btn-primary { background: linear-gradient(135deg, #58a6ff, #a78bfa); color: #0d1117; }
+.hero-slide:nth-child(2) .btn-primary { background: linear-gradient(135deg, #38bdf8, #818cf8); color: #0d1117; }
+.hero-slide:nth-child(3) .btn-primary { background: linear-gradient(135deg, #7ee787, #58a6ff); color: #0d1117; }
+
+/* Dot Navigation */
+.hero-dots { position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.6rem; z-index: 10; }
+.hero-dot { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.3); cursor: pointer; transition: all 0.3s; padding: 0; }
+.hero-dot.active { background: var(--primary); border-color: var(--primary); transform: scale(1.3); box-shadow: 0 0 12px var(--primary-glow); }
+.hero-dot:hover { background: rgba(255,255,255,0.5); }
+
+/* Pause button */
+.hero-pause { position: absolute; top: 1rem; left: 1rem; z-index: 10; background: rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); width: 36px; height: 36px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: all 0.2s; }
+.hero-pause:hover { background: rgba(0,0,0,0.6); color: #fff; }
+
+/* ── Stats Counter ───────────────────────────────────────────── */
+.stats-section { margin-bottom: 3.5rem; }
+.stats-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1.5rem; }
+.stat-card { text-align: center; padding: 1.8rem 0.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; transition: all 0.3s; position: relative; overflow: hidden; }
+.stat-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(88, 166, 255, 0.05), rgba(126, 231, 135, 0.05)); opacity: 0; transition: opacity 0.3s; }
+.stat-card:hover::before { opacity: 1; }
+.stat-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(88, 166, 255, 0.12); }
+.stat-number { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.2; position: relative; z-index: 1; }
+.stat-suffix { font-size: 0.6em; }
+.stat-label { color: var(--muted); font-size: 0.85rem; margin-top: 0.4rem; font-weight: 600; position: relative; z-index: 1; }
+
+/* ── Features Section ────────────────────────────────────────── */
+.features-section { margin-bottom: 3.5rem; }
+.section-header { text-align: center; margin-bottom: 2.5rem; }
+.section-header h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 800; color: var(--text-bright); margin-bottom: 0.5rem; }
+.section-header p { color: var(--muted); font-size: 1rem; }
+.feature-card { position: relative; overflow: hidden; padding: 0; }
+.feature-card-header { padding: 1.5rem 1.5rem 0.8rem; position: relative; }
+.feature-card:nth-child(1) .feature-card-header { background: linear-gradient(135deg, rgba(248, 113, 113, 0.08), rgba(251, 146, 60, 0.04)); border-bottom: 1px solid rgba(248, 113, 113, 0.1); }
+.feature-card:nth-child(2) .feature-card-header { background: linear-gradient(135deg, rgba(88, 166, 255, 0.08), rgba(167, 139, 250, 0.04)); border-bottom: 1px solid rgba(88, 166, 255, 0.1); }
+.feature-card:nth-child(3) .feature-card-header { background: linear-gradient(135deg, rgba(126, 231, 135, 0.08), rgba(56, 189, 248, 0.04)); border-bottom: 1px solid rgba(126, 231, 135, 0.1); }
+.feature-icon-wrap { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+.feature-card:nth-child(1) .feature-icon-wrap { background: linear-gradient(135deg, #ef4444, #f97316); }
+.feature-card:nth-child(2) .feature-icon-wrap { background: linear-gradient(135deg, #3b82f6, #8b5cf6); }
+.feature-card:nth-child(3) .feature-icon-wrap { background: linear-gradient(135deg, #22c55e, #0ea5e9); }
+.feature-icon-wrap img { width: 26px; height: 26px; filter: brightness(0) invert(1); }
+.feature-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--text-bright); margin: 0; }
+.feature-card-body { padding: 1rem 1.5rem 1.5rem; }
+.feature-card-body p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; margin: 0; }
+.feature-card { transition: all 0.35s ease; }
+.feature-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+
+/* ── Latest Posts ────────────────────────────────────────────── */
+.latest-posts-section { margin-bottom: 3.5rem; }
+.post-card { position: relative; overflow: hidden; transition: all 0.35s ease; }
+.post-card-top { padding: 0.4rem 1.5rem 0; display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
+.post-chip { display: inline-block; background: rgba(88, 166, 255, 0.1); color: var(--primary); padding: 0.2rem 0.7rem; border-radius: 20px; font-size: 0.72rem; font-weight: 700; border: 1px solid rgba(88, 166, 255, 0.15); }
+.post-card h3 { padding: 0 1.5rem; font-size: 1.05rem; font-weight: 700; color: var(--text-bright); line-height: 1.5; margin-bottom: 0.5rem; }
+.post-card h3 a { color: var(--text-bright); text-decoration: none; transition: color 0.2s; }
+.post-card h3 a:hover { color: var(--primary); }
+.post-card-desc { padding: 0 1.5rem; color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.post-card-footer { padding: 0.8rem 1.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.post-date { color: var(--muted); font-size: 0.8rem; display: flex; align-items: center; gap: 0.3rem; }
+.post-card-footer .btn-small { padding: 0.35rem 0.9rem; font-size: 0.78rem; border-radius: 8px; text-decoration: none; transition: all 0.2s; }
+.post-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.latest-posts-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; }
+.latest-posts-header h2 { font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 800; color: var(--text-bright); }
+.latest-posts-header a { color: var(--primary); text-decoration: none; font-weight: 700; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 0.3rem; transition: color 0.2s; }
+.latest-posts-header a:hover { color: var(--accent); }
+
+/* ── Brands Section ──────────────────────────────────────────── */
+.brands-section { margin-bottom: 3.5rem; }
+.brand-card-improved { position: relative; text-align: center; padding: 2rem 1.5rem; overflow: hidden; transition: all 0.35s ease; }
+.brand-card-improved::before { content: ''; position: absolute; inset: -1px; border-radius: 16px; padding: 1px; background: linear-gradient(135deg, rgba(88, 166, 255, 0.2), rgba(126, 231, 135, 0.2), rgba(167, 139, 250, 0.2)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.35s; pointer-events: none; }
+.brand-card-improved:hover::before { opacity: 1; }
+.brand-card-improved:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.brand-avatar { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; display: block; transition: all 0.5s ease; }
+.brand-card:nth-child(1) .brand-avatar { border: 3px solid var(--primary); box-shadow: 0 0 25px var(--primary-glow); }
+.brand-card:nth-child(2) .brand-avatar { border: 3px solid var(--accent); box-shadow: 0 0 25px rgba(126, 231, 135, 0.3); }
+.brand-card-improved:hover .brand-avatar { transform: scale(1.08); }
+
+/* ── Collaborations Preview ──────────────────────────────────── */
+.collab-section { margin-bottom: 3.5rem; }
+.collab-card { position: relative; overflow: hidden; padding: 0; transition: all 0.35s ease; }
+.collab-card-header { padding: 1.2rem 1.5rem; display: flex; align-items: center; gap: 1rem; border-bottom: 1px solid var(--border); }
+.collab-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.collab-card:nth-child(1) .collab-icon { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+.collab-card:nth-child(2) .collab-icon { background: linear-gradient(135deg, #0ea5e9, #38bdf8); }
+.collab-card:nth-child(3) .collab-icon { background: linear-gradient(135deg, #22c55e, #4ade80); }
+.collab-icon svg { width: 22px; height: 22px; stroke: white; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.collab-card-info h3 { margin: 0; font-size: 1.1rem; font-weight: 700; color: var(--text-bright); }
+.collab-card-info span { font-size: 0.75rem; color: var(--muted); }
+.collab-card-body { padding: 1.2rem 1.5rem; }
+.collab-card-body p { color: var(--muted); font-size: 0.88rem; line-height: 1.7; margin: 0; }
+.collab-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(0,0,0,0.3); }
+.collab-card-header .btn-small { margin-right: auto; margin-left: 0; }
+
+/* ── CTA Section ─────────────────────────────────────────────── */
+.cta-section { margin-bottom: 2rem; }
+.cta-box { position: relative; overflow: hidden; border-radius: 20px; padding: 3.5rem 2rem; text-align: center; background: linear-gradient(135deg, rgba(88, 166, 255, 0.08) 0%, rgba(126, 231, 135, 0.08) 100%); border: 1px solid rgba(88, 166, 255, 0.15); }
+.cta-box::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle at 30% 30%, rgba(88, 166, 255, 0.06) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(126, 231, 135, 0.06) 0%, transparent 50%); animation: ctaPulse 8s ease-in-out infinite; pointer-events: none; }
+@keyframes ctaPulse { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(-3%, -3%); } }
+.cta-box h2 { font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 800; margin-bottom: 1rem; background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; position: relative; z-index: 1; }
+.cta-box p { color: var(--muted); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto; position: relative; z-index: 1; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+.cta-actions .btn { padding: 0.75rem 2rem; border-radius: 12px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem; transition: all 0.3s; font-size: 1rem; }
+.cta-actions .btn-primary { background: linear-gradient(135deg, var(--primary), #a78bfa); color: #0d1117; }
+.cta-actions .btn-primary:hover { box-shadow: 0 8px 30px var(--primary-glow); transform: translateY(-2px); }
+.cta-actions .btn-secondary { background: var(--surface); color: var(--text-bright); border: 1px solid var(--border); }
+.cta-actions .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+/* ── Scroll Reveal ───────────────────────────────────────────── */
+.reveal-section { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-section.revealed { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .stats-grid { grid-template-columns: repeat(3, 1fr); }
+  .hero-slides { min-height: 380px; }
+}
+@media (max-width: 640px) {
+  .hero-slides { min-height: 400px; }
+  .hero-slide { padding: 2.5rem 1.2rem; }
+  .hero-slide-icon { width: 52px; height: 52px; }
+  .hero-slide-icon img { width: 26px; height: 26px; }
+  .hero-slide p { font-size: 0.95rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .stat-card { padding: 1.2rem 0.4rem; }
+  .stat-number { font-size: 1.5rem; }
+  .card-grid { grid-template-columns: 1fr !important; }
+  .collab-card-header { flex-wrap: wrap; }
+  .latest-posts-header { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+  .cta-box { padding: 2.5rem 1.2rem; }
+  .cta-actions { flex-direction: column; align-items: center; }
+  .cta-actions .btn { width: 100%; max-width: 280px; justify-content: center; }
+  .brand-card:nth-child(1), .brand-card:nth-child(2) { min-width: 100%; }
+}
+
+/* ── Float animation ─────────────────────────────────────────── */
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-float-delay { animation: float 3s ease-in-out infinite 0.5s; }
+
+/* ── Particle background for hero ────────────────────────────── */
+.hero-slider .particles { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; border-radius: 20px; }
+.hero-slider .particle { position: absolute; width: 3px; height: 3px; background: rgba(88, 166, 255, 0.3); border-radius: 50%; animation: particleFloat 12s linear infinite; }
+.hero-slider .particle:nth-child(2) { left: 20%; animation-delay: -2s; animation-duration: 15s; background: rgba(126, 231, 135, 0.2); }
+.hero-slider .particle:nth-child(3) { left: 40%; animation-delay: -4s; animation-duration: 10s; background: rgba(167, 139, 250, 0.25); }
+.hero-slider .particle:nth-child(4) { left: 60%; animation-delay: -6s; animation-duration: 18s; }
+.hero-slider .particle:nth-child(5) { left: 80%; animation-delay: -1s; animation-duration: 13s; background: rgba(126, 231, 135, 0.2); }
+.hero-slider .particle:nth-child(6) { left: 10%; animation-delay: -8s; animation-duration: 16s; background: rgba(167, 139, 250, 0.2); }
+@keyframes particleFloat {
+  0% { transform: translateY(100%) translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+}
+</style>
+
+<!-- ======================== HERO SLIDER ======================== -->
+<section class="hero-slider reveal-section" id="heroSlider">
+  <!-- Particles -->
+  <div class="particles">
+    <div class="particle" style="left:5%"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
+  <!-- Pause/Play Button -->
+  <button class="hero-pause" id="heroPauseBtn" aria-label="توقف / پخش اسلایدر">
+    <i class="fas fa-pause" id="heroPauseIcon"></i>
+  </button>
+
+  <!-- Slides -->
+  <div class="hero-slides">
+    <!-- Slide 1 -->
+    <div class="hero-slide active">
+      <div class="hero-slide-bg"></div>
+      <div class="hero-slide-content">
+        <div class="hero-slide-icon">
+          <img src="/assets/images/icons/brain.svg" alt="نوآوری" />
+        </div>
+        <h2>به موتی‌گروپ خوش آمدید</h2>
+        <p>پیشرو در ارائه راهکارهای نوین نرم‌افزاری و ابزارهای تخصصی متن‌باز. ما با نوآوری و تعهد به جامعه توسعه‌دهندگان، آینده‌ای بهتر می‌سازیم.</p>
+        <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">
+          <i class="fas fa-newspaper"></i> ورود به بلاگ
+        </a>
+      </div>
     </div>
+
+    <!-- Slide 2 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg"></div>
+      <div class="hero-slide-content">
+        <div class="hero-slide-icon">
+          <img src="/assets/images/icons/blog.svg" alt="بلاگ فنی" />
+        </div>
+        <h2>بلاگ فنی تخصصی</h2>
+        <p>بیش از ۱۳۱ مقاله تخصصی در حوزه‌های هوش مصنوعی، DevOps، امنیت و توسعه نرم‌افزار. دانش خود را با جامعه به اشتراک بگذارید.</p>
+        <a href="{{ '/blog/' | relative_url }}" class="btn btn-primary">
+          <i class="fas fa-newspaper"></i> مشاهده مقالات
+        </a>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="hero-slide">
+      <div class="hero-slide-bg"></div>
+      <div class="hero-slide-content">
+        <div class="hero-slide-icon">
+          <img src="/assets/images/icons/open-source.svg" alt="پروژه‌های متن‌باز" />
+        </div>
+        <h2>پروژه‌های متن‌باز</h2>
+        <p>ابزارهای کاربردی و رایگان برای توسعه‌دهندگان. از دستیار هوش مصنوعی تا پلتفرم‌های استنتاج، همه متن‌باز و قابل مشارکت.</p>
+        <a href="{{ '/projects/' | relative_url }}" class="btn btn-primary">
+          <i class="fas fa-layer-group"></i> مشاهده پروژه‌ها
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dot Indicators -->
+  <div class="hero-dots">
+    <button class="hero-dot active" data-slide="0" aria-label="اسلاید ۱"></button>
+    <button class="hero-dot" data-slide="1" aria-label="اسلاید ۲"></button>
+    <button class="hero-dot" data-slide="2" aria-label="اسلاید ۳"></button>
+  </div>
 </section>
 
-<section class="features">
-    <div class="card-grid">
-        <div class="card">
-            <div class="icon-wrapper">
-                <img src="/assets/images/icons/rocket-icon.svg" alt="سرعت و پایداری" class="card-icon">
-            </div>
-            <h3>سرعت و پایداری</h3>
-            <p>تمامی ابزارهای ما با تمرکز بر کارایی بالا و پایداری در محیط‌های عملیاتی طراحی شده‌اند. از بهینه‌سازی عمیق تا معماری مقیاس‌پذیر، ما برای شما ساختیمه‌ایم که با سرعت و پایداری برجسته عمل کند.</p>
-        </div>
-        <div class="card">
-            <div class="icon-wrapper">
-                <img src="/assets/images/icons/shield-icon.svg" alt="امنیت و اعتماد" class="card-icon">
-            </div>
-            <h3>امنیت و اعتماد</h3>
-            <p>پایبندی به استانداردهای امنیتی در کدنویسی و ارائه محصولات متن‌باز قابل اعتماد. شفافیت در کد و امنیت در پیاده‌سازی، ستیغ‌های دوام ماست.</p>
-        </div>
-        <div class="card">
-            <div class="icon-wrapper">
-                <img src="/assets/images/icons/support-icon.svg" alt="پشتیبانی فعال" class="card-icon">
-            </div>
-            <h3>پشتیبانی فعال</h3>
-            <p>ما در کنار شما هستیم تا بهترین تجربه استفاده از محصولات موتی‌گروپ را داشته باشید. تیم پشتیبانی ما آماده کمک به شما در هر زمان است.</p>
-        </div>
+<!-- ======================== STATS COUNTER ======================== -->
+<section class="stats-section reveal-section">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number" data-target="131" data-suffix="+">۰</div>
+      <div class="stat-label">مقاله منتشر شده</div>
     </div>
+    <div class="stat-card">
+      <div class="stat-number" data-target="74" data-suffix="">۰</div>
+      <div class="stat-label">مقاله انگلیسی</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-target="57" data-suffix="">۰</div>
+      <div class="stat-label">مقاله فارسی</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-target="20" data-suffix="+">۰</div>
+      <div class="stat-label">دسته‌بندی</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number" data-target="5" data-suffix="+">۰</div>
+      <div class="stat-label">همکاری فعال</div>
+    </div>
+  </div>
 </section>
 
-<section class="brands-section" style="padding: 3rem 0; text-align: center;">
-    <h2 style="font-size: clamp(1.3rem, 4vw, 1.8rem); color: var(--text-bright); margin-bottom: 0.8rem;">برندهای ما</h2>
-    <p style="color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem;">محصولات و پروژه‌های اختصاصی موتی‌گروپ</p>
-    <div class="card-grid"
-        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 700px; margin: 0 auto;">
-        <div class="card brand-card" style="text-align: center; padding: 2rem;">
-            <img src="/assets/images/team/armigram.jpg" alt="لوگوی آرمی‌گرم" class="animate-float"
-                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; border: 3px solid var(--primary); box-shadow: 0 0 20px var(--primary-glow);">
-            <h3 style="font-size: 1.4rem; color: var(--text-bright); margin-bottom: 0.5rem;">ArmiGram</h3>
-            <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.3rem;">شبکه اجتماعی تصویری</p>
-            <p style="color: var(--muted); font-size: 0.85rem;">Visual Social Network</p>
+<!-- ======================== FEATURES ======================== -->
+<section class="features-section reveal-section">
+  <div class="section-header">
+    <h2>چرا موتی‌گروپ؟</h2>
+    <p>ابزارهایی ساخته شده با دقت، برای توسعه‌دهندگان حرفه‌ای</p>
+  </div>
+  <div class="card-grid">
+    <div class="card feature-card">
+      <div class="feature-card-header">
+        <div class="feature-icon-wrap">
+          <img src="/assets/images/icons/rocket-icon.svg" alt="سرعت و پایداری" />
         </div>
-        <div class="card brand-card" style="text-align: center; padding: 2rem;">
-            <img src="/assets/images/team/animeti.jpg" alt="لوگوی آنیمیتی" class="animate-float"
-                style="width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 1.2rem; border: 3px solid var(--accent); box-shadow: 0 0 20px rgba(126, 231, 135, 0.3);">
-            <h3 style="font-size: 1.4rem; color: var(--text-bright); margin-bottom: 0.5rem;">AnimeTi</h3>
-            <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0.3rem;">پلتفرم انیمه و سرگرمی</p>
-            <p style="color: var(--muted); font-size: 0.85rem;">Anime & Entertainment Platform</p>
-        </div>
+        <h3>سرعت و پایداری</h3>
+      </div>
+      <div class="feature-card-body">
+        <p>تمامی ابزارهای ما با تمرکز بر کارایی بالا و پایداری در محیط‌های عملیاتی طراحی شده‌اند. از بهینه‌سازی عمیق تا معماری مقیاس‌پذیر، ما برای شما ساخته‌هایی ساخته‌ایم که با سرعت و پایداری برجسته عمل کند.</p>
+      </div>
     </div>
+    <div class="card feature-card">
+      <div class="feature-card-header">
+        <div class="feature-icon-wrap">
+          <img src="/assets/images/icons/shield-icon.svg" alt="امنیت و اعتماد" />
+        </div>
+        <h3>امنیت و اعتماد</h3>
+      </div>
+      <div class="feature-card-body">
+        <p>پایبندی به استانداردهای امنیتی در کدنویسی و ارائه محصولات متن‌باز قابل اعتماد. شفافیت در کد و امنیت در پیاده‌سازی، پایه‌های دوام ماست.</p>
+      </div>
+    </div>
+    <div class="card feature-card">
+      <div class="feature-card-header">
+        <div class="feature-icon-wrap">
+          <img src="/assets/images/icons/support-icon.svg" alt="پشتیبانی فعال" />
+        </div>
+        <h3>پشتیبانی فعال</h3>
+      </div>
+      <div class="feature-card-body">
+        <p>ما در کنار شما هستیم تا بهترین تجربه استفاده از محصولات موتی‌گروپ را داشته باشید. تیم پشتیبانی ما آماده کمک به شما در هر زمان است.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ======================== LATEST POSTS ======================== -->
+<section class="latest-posts-section reveal-section">
+  <div class="latest-posts-header">
+    <h2><i class="fas fa-newspaper" style="margin-left: 0.5rem; font-size: 0.9em; opacity: 0.7;"></i> آخرین مقالات فارسی</h2>
+    <a href="{{ '/blog/' | relative_url }}">مشاهده همه مقالات <i class="fas fa-arrow-left" style="font-size: 0.8em;"></i></a>
+  </div>
+  <div class="card-grid">
+    {% assign fa_posts = site.posts | where: "lang", "fa" | slice: 0, 3 %}
+    {% for post in fa_posts %}
+    <div class="card post-card">
+      <div class="post-card-top">
+        <span class="post-chip">فارسی</span>
+        {% if post.category %}<span class="post-chip" style="background: rgba(126,231,135,0.1); color: var(--accent); border-color: rgba(126,231,135,0.15);">{{ post.category }}</span>{% endif %}
+      </div>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+      <div class="post-card-desc">{{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}</div>
+      <div class="post-card-footer">
+        <span class="post-date"><i class="fas fa-calendar" style="font-size: 0.7em;"></i> {{ post.date | date: "%Y/%m/%d" }}</span>
+        <a href="{{ post.url | relative_url }}" class="btn btn-primary btn-small">ادامه مطلب</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- ======================== BRANDS ======================== -->
+<section class="brands-section reveal-section">
+  <div class="section-header">
+    <h2>برندهای ما</h2>
+    <p>محصولات و پروژه‌های اختصاصی موتی‌گروپ</p>
+  </div>
+  <div class="card-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 700px; margin: 0 auto;">
+    <div class="card brand-card brand-card-improved">
+      <img src="/assets/images/team/armigram.jpg" alt="لوگوی آرمی‌گرم" class="brand-avatar animate-float" />
+      <h3 style="font-size: 1.4rem; color: var(--text-bright); margin-bottom: 0.4rem;">ArmiGram</h3>
+      <p style="color: var(--primary); font-size: 0.9rem; margin-bottom: 0.3rem;">شبکه اجتماعی تصویری</p>
+      <p style="color: var(--muted); font-size: 0.85rem;">Visual Social Network</p>
+    </div>
+    <div class="card brand-card brand-card-improved">
+      <img src="/assets/images/team/animeti.jpg" alt="لوگوی آنیمیتی" class="brand-avatar animate-float-delay" />
+      <h3 style="font-size: 1.4rem; color: var(--text-bright); margin-bottom: 0.4rem;">AnimeTi</h3>
+      <p style="color: var(--accent); font-size: 0.9rem; margin-bottom: 0.3rem;">پلتفرم انیمه و سرگرمی</p>
+      <p style="color: var(--muted); font-size: 0.85rem;">Anime & Entertainment Platform</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== COLLABORATIONS ======================== -->
+<section class="collab-section reveal-section">
+  <div class="section-header">
+    <h2>همکاری‌های کلیدی</h2>
+    <p>پروژه‌های متن‌بازی که با آن‌ها همکاری می‌کنیم</p>
+  </div>
+  <div class="card-grid">
+    <!-- Dirac.run -->
+    <div class="card collab-card">
+      <div class="collab-card-header">
+        <div class="collab-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <div class="collab-card-info">
+          <h3>Dirac.run</h3>
+          <span>AI Inference Platform</span>
+        </div>
+        <a href="https://github.com/dirac-run/dirac" target="_blank" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+          <i class="fab fa-github"></i> گیت‌هاب
+        </a>
+      </div>
+      <div class="collab-card-body">
+        <p>پلتفرمی برای استنتاج هوش مصنوعی با عملکرد بالا و بهینه‌سازی مدل. موتی‌گروپ در فرآیندهای بهینه‌سازی و استقرار مشارکت می‌کند.</p>
+      </div>
+    </div>
+    <!-- Kilo Code -->
+    <div class="card collab-card">
+      <div class="collab-card-header">
+        <div class="collab-icon">
+          <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <div class="collab-card-info">
+          <h3>Kilo Code</h3>
+          <span>AI Coding Assistant</span>
+        </div>
+        <a href="https://github.com/kilo-org/kilo" target="_blank" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+          <i class="fab fa-github"></i> گیت‌هاب
+        </a>
+      </div>
+      <div class="collab-card-body">
+        <p>دستیار کدنویسی هوش مصنوعی با پشتیبانی از مدل‌های متعدد برای VS Code. موتی‌گروپ در یکپارچه‌سازی مدل‌ها و تست همکاری می‌کند.</p>
+      </div>
+    </div>
+    <!-- Hermes Agent -->
+    <div class="card collab-card">
+      <div class="collab-card-header">
+        <div class="collab-icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="10" rx="2"/><circle cx="12" cy="5" r="2"/><path d="M12 7v4"/></svg>
+        </div>
+        <div class="collab-card-info">
+          <h3>Hermes Agent</h3>
+          <span>AI Agent Framework</span>
+        </div>
+        <a href="https://github.com/NousResearch/hermes-agent" target="_blank" class="btn btn-primary btn-small" style="padding: 0.4rem 0.8rem; font-size: 0.75rem;">
+          <i class="fab fa-github"></i> گیت‌هاب
+        </a>
+      </div>
+      <div class="collab-card-body">
+        <p>دستیار هوشمند متن‌باز برای اتوماسیون، کدنویسی و مدیریت وظایف. موتی‌گروپ در توسعه، تست و ادغام با گردش کارهای داخلی همکاری می‌کند.</p>
+      </div>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 2rem;">
+    <a href="{{ '/collaborations/' | relative_url }}" class="btn btn-secondary" style="padding: 0.6rem 1.5rem; border-radius: 10px; text-decoration: none; font-weight: 700; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.2s;">
+      مشاهده همه همکاری‌ها <i class="fas fa-arrow-left" style="font-size: 0.8em;"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ======================== CTA ======================== -->
+<section class="cta-section reveal-section">
+  <div class="cta-box">
+    <h2>به جامعه موتی‌گروپ بپیوندید</h2>
+    <p>ما به دنبال توسعه‌دهندگان خلاق و مشتاق هستیم. اگر به نوآوری، متن‌باز و هوش مصنوعی علاقه‌مندید، با ما همراه شوید.</p>
+    <div class="cta-actions">
+      <a href="https://github.com/movtigroup" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+        <i class="fab fa-github"></i> گیت‌هاب ما
+      </a>
+      <a href="mailto:info@movtigroup.me" class="btn btn-secondary">
+        <i class="fas fa-envelope"></i> تماس با ما
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== JAVASCRIPT ======================== -->
+<script>
+(function () {
+  /* ── Hero Slider ────────────────────────────────────────── */
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  const pauseBtn = document.getElementById('heroPauseBtn');
+  const pauseIcon = document.getElementById('heroPauseIcon');
+  let current = 0;
+  let interval = null;
+  let paused = false;
+  const INTERVAL_MS = 5000;
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  function next() { goTo(current + 1); }
+
+  function startAuto() {
+    stopAuto();
+    if (!paused) interval = setInterval(next, INTERVAL_MS);
+  }
+
+  function stopAuto() { clearInterval(interval); interval = null; }
+
+  dots.forEach(function (d) {
+    d.addEventListener('click', function () {
+      var idx = parseInt(d.dataset.slide);
+      goTo(idx);
+      startAuto();
+    });
+  });
+
+  pauseBtn.addEventListener('click', function () {
+    paused = !paused;
+    pauseIcon.className = paused ? 'fas fa-play' : 'fas fa-pause';
+    if (paused) { stopAuto(); } else { startAuto(); }
+  });
+
+  /* Touch swipe support */
+  var touchStartX = 0;
+  var touchEndX = 0;
+  var slider = document.getElementById('heroSlider');
+  slider.addEventListener('touchstart', function (e) { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+  slider.addEventListener('touchend', function (e) {
+    touchEndX = e.changedTouches[0].screenX;
+    var diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      // RTL: swipe left = next, swipe right = prev
+      if (diff > 0) { goTo(current + 1); } else { goTo(current - 1); }
+      startAuto();
+    }
+  }, { passive: true });
+
+  startAuto();
+
+  /* ── Stats Counter Animation ─────────────────────────────── */
+  var counters = document.querySelectorAll('.stat-number[data-target]');
+  var countersAnimated = false;
+
+  // Persian digits map
+  var persianDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+  function toPersianNum(n) {
+    return String(n).replace(/\d/g, function (d) { return persianDigits[parseInt(d)]; });
+  }
+
+  function animateCounters() {
+    if (countersAnimated) return;
+    countersAnimated = true;
+    counters.forEach(function (el) {
+      var target = parseInt(el.dataset.target);
+      var suffix = el.dataset.suffix || '';
+      var duration = 1800;
+      var startTime = null;
+
+      function step(timestamp) {
+        if (!startTime) startTime = timestamp;
+        var progress = Math.min((timestamp - startTime) / duration, 1);
+        // ease-out cubic
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var value = Math.floor(eased * target);
+        el.textContent = toPersianNum(value) + (suffix ? ' ' + suffix : '');
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+
+  /* ── Scroll Reveal ───────────────────────────────────────── */
+  var revealElements = document.querySelectorAll('.reveal-section');
+
+  function checkReveal() {
+    var triggerBottom = window.innerHeight * 0.88;
+    revealElements.forEach(function (el) {
+      var top = el.getBoundingClientRect().top;
+      if (top < triggerBottom) {
+        el.classList.add('revealed');
+      }
+    });
+
+    // Check if stats are in view
+    if (countersAnimated) return;
+    var statsSection = document.querySelector('.stats-section');
+    if (statsSection) {
+      var top = statsSection.getBoundingClientRect().top;
+      if (top < triggerBottom) animateCounters();
+    }
+  }
+
+  window.addEventListener('scroll', checkReveal, { passive: true });
+  // Initial check
+  setTimeout(checkReveal, 100);
+})();
+</script>
